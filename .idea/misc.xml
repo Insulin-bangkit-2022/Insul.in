@@ -4,9 +4,17 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/activity_main.xml" value="0.13125" />
+        <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/activity_splash_screen.xml" value="0.2" />
+        <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/content_splash_screen.xml" value="0.1" />
         <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/fragment_article.xml" value="0.109375" />
+        <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/fragment_first.xml" value="0.1" />
+        <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/fragment_first_screen.xml" value="0.264" />
         <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/fragment_history.xml" value="0.109375" />
+        <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/fragment_second_screen.xml" value="0.1109375" />
+        <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/fragment_splash_screen.xml" value="0.2" />
         <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/fragment_symptom1.xml" value="0.1453125" />
+        <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/fragment_third_screen.xml" value="0.264" />
+        <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/fragment_view_pager.xml" value="0.109375" />
       </map>
     </option>
   </component>

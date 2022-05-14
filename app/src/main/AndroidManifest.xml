@@ -13,13 +13,14 @@
         android:theme="@style/Theme.Insulin"
         tools:targetApi="31">
         <activity
-            android:name=".DetectionActivity"
+            android:name=".ui.home.MainActivity"
+            android:exported="false"
+             />
+        <activity
+            android:name=".ui.detection.DetectionActivity"
             android:exported="false" />
         <activity
-            android:name=".WebViewActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SplashScreenActivity"
+            android:name=".ui.webview.WebViewActivity"
             android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
@@ -37,14 +38,14 @@
             android:value="YOUR_API_KEY" />
 
         <activity
-            android:name=".MapsActivity"
+            android:name=".ui.maps.MapsActivity"
             android:exported="false"
             android:label="@string/title_activity_maps" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".ui.login.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.home.MainActivity"
+            android:name=".ui.splashscreen.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
