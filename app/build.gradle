@@ -76,4 +76,7 @@ dependencies {
 
     // Android Lottie
     implementation "com.airbnb.android:lottie:5.0.3"
+
+    // CardView
+    implementation "androidx.cardview:cardview:1.0.0"
 }
