@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1072370297958",
+    "project_id": "insul-in",
+    "storage_bucket": "insul-in.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1072370297958:android:8aa7eb6ccf5609c90691a7",
+        "android_client_info": {
+          "package_name": "com.insulin.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1072370297958-f857b28dk6rqvneca3h4e2d96g7snmsm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUml5AVPrn6El4m41jecej36QG5eaguoM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1072370297958-f857b28dk6rqvneca3h4e2d96g7snmsm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
