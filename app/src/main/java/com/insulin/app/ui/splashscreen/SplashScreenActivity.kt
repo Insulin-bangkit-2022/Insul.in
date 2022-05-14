@@ -1,12 +1,20 @@
 package com.insulin.app.ui.splashscreen
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.insulin.app.R
+import androidx.appcompat.app.AppCompatActivity
+import com.insulin.app.databinding.ActivitySplashScreenBinding
 
 class SplashScreenActivity : AppCompatActivity() {
+
+    private lateinit var splashScreenBinding: ActivitySplashScreenBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash_screen)
+
+        splashScreenBinding = ActivitySplashScreenBinding.inflate(layoutInflater)
+        setContentView(splashScreenBinding.root)
+
+        supportActionBar?.hide()
+
     }
 }
