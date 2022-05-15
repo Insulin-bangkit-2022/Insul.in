@@ -9,4 +9,8 @@
     <string name="previous">Previous</string>
     <string name="title">Insul.in</string>
     <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</string>
+    <string name="article_photo">Article Photo</string>
+    <string name="title_article">Title Article</string>
+    <string name="content_article">Content Article</string>
+    <string name="image_article">Image Article</string>
 </resources>
