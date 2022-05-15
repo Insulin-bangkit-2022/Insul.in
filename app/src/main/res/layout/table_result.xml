@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginBottom="16dp"
+    android:visibility="visible">
+
+    <TableRow style="@style/TableResult">
+
+        <TextView
+            style="@style/TextTableResultHeader"
+            android:text="Sering buang air kecil?" />
+
+        <TextView
+            style="@style/TextTableResultBody"
+            android:text="Ya / Tidak" />
+    </TableRow>
+
+    <TableRow style="@style/TableResult">
+
+        <TextView
+            style="@style/TextTableResultHeader"
+            android:text="Sering merasa haus?" />
+
+        <TextView
+            style="@style/TextTableResultBody"
+            android:text="Ya / Tidak" />
+    </TableRow>
+
+    <TableRow style="@style/TableResult">
+
+        <TextView
+            style="@style/TextTableResultHeader"
+            android:text="Turun berat badan tiba-tiba?" />
+
+        <TextView
+            style="@style/TextTableResultBody"
+            android:text="Ya / Tidak" />
+    </TableRow>
+
+    <TableRow style="@style/TableResult">
+
+        <TextView
+            style="@style/TextTableResultHeader"
+            android:text="Sering merasa lemas?" />
+
+        <TextView
+            style="@style/TextTableResultBody"
+            android:text="Ya / Tidak" />
+    </TableRow>
+
+    <TableRow style="@style/TableResult">
+
+        <TextView
+            style="@style/TextTableResultHeader"
+            android:text="Sering merasa lapar / nafsu makan meningkat?" />
+
+        <TextView
+            style="@style/TextTableResultBody"
+            android:text="Ya / Tidak" />
+    </TableRow>
+
+    <TableRow style="@style/TableResult">
+
+        <TextView
+            style="@style/TextTableResultHeader"
+            android:text="Sering merasa gatal pada alat kelamin?" />
+
+        <TextView
+            style="@style/TextTableResultBody"
+            android:text="Ya / Tidak" />
+    </TableRow>
+
+    <TableRow style="@style/TableResult">
+
+        <TextView
+            style="@style/TextTableResultHeader"
+            android:text="Sering merasa gatal pada badan?" />
+
+        <TextView
+            style="@style/TextTableResultBody"
+            android:text="Ya / Tidak" />
+    </TableRow>
+    <TableRow style="@style/TableResult">
+
+        <TextView
+            style="@style/TextTableResultHeader"
+            android:text="Mudah merasa marah / emosi?" />
+
+        <TextView
+            style="@style/TextTableResultBody"
+            android:text="Ya / Tidak" />
+    </TableRow>
+    <TableRow style="@style/TableResult">
+
+        <TextView
+            style="@style/TextTableResultHeader"
+            android:text="Luka sulit sembuh / kering?" />
+
+        <TextView
+            style="@style/TextTableResultBody"
+            android:text="Ya / Tidak" />
+    </TableRow>
+    <TableRow style="@style/TableResult">
+
+        <TextView
+            style="@style/TextTableResultHeader"
+            android:text="Mengalami kelumpuhan pada sebagian tubuh (kaku)?" />
+
+        <TextView
+            style="@style/TextTableResultBody"
+            android:text="Ya / Tidak" />
+    </TableRow>
+    <TableRow style="@style/TableResult">
+
+        <TextView
+            style="@style/TextTableResultHeader"
+            android:text="Otot kaku / kram setelah beraktifitas lama?" />
+
+        <TextView
+            style="@style/TextTableResultBody"
+            android:text="Ya / Tidak" />
+    </TableRow>
+    <TableRow style="@style/TableResult">
+
+        <TextView
+            style="@style/TextTableResultHeader"
+            android:text="Rambut rontok dan sulit tumbuh atau mengalami kebotakan?" />
+
+        <TextView
+            style="@style/TextTableResultBody"
+            android:text="Ya / Tidak" />
+    </TableRow>
+    <TableRow style="@style/TableResult">
+
+        <TextView
+            style="@style/TextTableResultHeader"
+            android:text="Mengalami obesitas / kelebihan berat badan?" />
+
+        <TextView
+            style="@style/TextTableResultBody"
+            android:text="Ya / Tidak" />
+    </TableRow>
+</TableLayout>

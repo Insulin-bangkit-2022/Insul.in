@@ -1,3 +1,9 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="table_padding">4dp</dimen>
+    <dimen name="weight_table_result">10</dimen>
+    <dimen name="weight_table_result_head">6</dimen>
+    <dimen name="weight_table_result_body">4</dimen>
+    <dimen name="button_radius">16dp</dimen>
+
 </resources>

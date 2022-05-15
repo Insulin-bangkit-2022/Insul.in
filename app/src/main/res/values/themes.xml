@@ -22,4 +22,24 @@
     <style name="Theme.Insulin.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.Insulin.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="TableResult" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:weightSum">10</item>
+    </style>
+    <style name="TextTableResult" >
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+
+        <item name="android:textColor">@color/black</item>
+        <item name="android:padding">@dimen/table_padding</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="TextTableResultHeader" parent="TextTableResult" >
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_weight">7</item>
+    </style>
+    <style name="TextTableResultBody" parent="TextTableResult" >
+        <item name="android:layout_weight">3</item>
+    </style>
 </resources>
