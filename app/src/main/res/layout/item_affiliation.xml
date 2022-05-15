@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="128dp"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="12dp"
+    android:layout_marginEnd="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:background="@drawable/ic_launcher_background" />
+        <TextView
+            android:id="@+id/product_name"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="Insulin KW Super"
+            android:textStyle="bold"
+            android:textColor="@color/secondary_dark"
+            android:textSize="12sp" />
+        <TextView
+            android:id="@+id/product_price"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="Rp 100.000"
+            android:textColor="@color/primary_dark"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:scaleType="centerCrop"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/tokopedia"
+            android:id="@+id/product_provider"
+            android:layout_gravity="end"
+            android:layout_width="60dp"
+            android:layout_height="15dp"/>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
