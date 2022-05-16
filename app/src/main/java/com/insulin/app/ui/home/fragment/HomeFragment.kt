@@ -1,11 +1,25 @@
 package com.insulin.app.ui.home.fragment
 
+
+import android.Manifest
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityCompat
+import com.google.android.gms.location.DetectedActivity
 import com.insulin.app.R
+import com.insulin.app.databinding.ActivityMainBinding
+import com.insulin.app.databinding.FragmentHomeBinding
+import com.insulin.app.ui.home.MainActivity
+import com.insulin.app.ui.maps.MapsActivity
+import com.insulin.app.ui.webview.WebViewActivity
+import com.insulin.app.utils.Constanta
+import com.insulin.app.utils.Helper
+import java.security.Permission
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,6 +36,8 @@ class HomeFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private lateinit var binding: FragmentHomeBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -33,10 +49,43 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+    ): View {
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        val context: Context = (activity as MainActivity)
+
+        binding.let {
+            
+            /* RS terdekat */
+            it.shortuctHospital.setOnClickListener {
+                if (Helper.isPermissionGranted(
+                        context, Manifest.permission.ACCESS_FINE_LOCATION
+                    )
+                ) {
+                    val intent =
+                        Intent(context, MapsActivity::class.java)
+                    (activity as MainActivity).startActivity(intent)
+                } else {
+                    (activity as MainActivity).requestPermission(
+                        arrayOf(
+                            Manifest.permission.ACCESS_FINE_LOCATION,
+                            Manifest.permission.ACCESS_COARSE_LOCATION
+                        ), Constanta.LOCATION_PERMISSION_CODE
+                    )
+                }
+            }
+            
+            /* konsultasi dokter */
+            it.shortuctConsultation.setOnClickListener {
+                val intent =
+                    Intent(context, WebViewActivity::class.java)
+                intent.putExtra(WebViewActivity.EXTRA_WEBVIEW,"https://apriantoa917.github.io")
+                (activity as MainActivity).startActivity(intent)
+            }
+        }
+
+        return binding.root
     }
+
 
     companion object {
         /**

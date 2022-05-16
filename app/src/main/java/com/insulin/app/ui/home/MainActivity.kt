@@ -1,8 +1,12 @@
 package com.insulin.app.ui.home
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import com.google.android.gms.location.DetectedActivity
 import com.insulin.app.R
@@ -11,6 +15,8 @@ import com.insulin.app.ui.home.fragment.ArticleFragment
 import com.insulin.app.ui.home.fragment.HistoryFragment
 import com.insulin.app.ui.home.fragment.HomeFragment
 import com.insulin.app.ui.home.fragment.ProfileFragment
+import com.insulin.app.utils.Constanta
+import com.insulin.app.utils.Helper
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,12 +27,16 @@ class MainActivity : AppCompatActivity() {
         activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(activityMainBinding.root)
 
+        /* disable dark mode*/
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
         val fragmentHome = HomeFragment()
         val fragmentArticle = ArticleFragment()
         val fragmentHistory = HistoryFragment()
         val fragmentProfile = ProfileFragment()
 
-        activityMainBinding.bottomNavigationView.background = null // hide abnormal layer in bottom nav
+        activityMainBinding.bottomNavigationView.background =
+            null // hide abnormal layer in bottom nav
 
         activityMainBinding.bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
@@ -55,6 +65,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        switchFragment(fragmentHome)
+
     }
 
     private fun switchFragment(fragment: Fragment) {
@@ -62,5 +74,41 @@ class MainActivity : AppCompatActivity() {
             .beginTransaction()
             .replace(R.id.container, fragment)
             .commit()
+    }
+
+    public fun requestPermission(permissions: Array<String>, permissionCode: Int) {
+        ActivityCompat.requestPermissions(this, permissions, permissionCode)
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+
+        when (requestCode) {
+            Constanta.CAMERA_PERMISSION_CODE -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_DENIED) {
+                    Helper.notifyGivePermission(this, "Berikan aplikasi izin mengakses kamera  ")
+                }
+            }
+            Constanta.LOCATION_PERMISSION_CODE -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_DENIED) {
+                    Helper.notifyGivePermission(
+                        this,
+                        "Berikan aplikasi izin lokasi untuk membaca lokasi  "
+                    )
+                }
+            }
+            Constanta.STORAGE_PERMISSION_CODE -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_DENIED) {
+                    Helper.notifyGivePermission(
+                        this,
+                        "Berikan aplikasi izin storage untuk membaca dan menyimpan story"
+                    )
+                }
+            }
+            else -> super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        }
     }
 }

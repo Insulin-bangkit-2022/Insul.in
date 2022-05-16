@@ -77,50 +77,76 @@
                 style="@style/TextTitle"
                 android:text="📌 Pintasan" />
 
-            <HorizontalScrollView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
-                android:scrollbars="none">
+                android:orientation="horizontal"
+                android:weightSum="3">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/shortuct_hospital"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/shortcut_hospital"
+                    app:shapeAppearanceOverlay="@style/roundedImageView" />
 
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/shortuct_hospital"
-                        android:layout_width="136dp"
-                        android:layout_height="80dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/shortcut_home_1"
-                        app:shapeAppearanceOverlay="@style/roundedImageView" />
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/shortuct_consultation"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/shortcut_consultation"
+                    app:shapeAppearanceOverlay="@style/roundedImageView" />
 
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/shortuct_information"
-                        android:layout_width="136dp"
-                        android:layout_height="80dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/shortcut_home_2"
-                        app:shapeAppearanceOverlay="@style/roundedImageView" />
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/shortuct_affiliation"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/shortcut_affiliation"
+                    app:shapeAppearanceOverlay="@style/roundedImageView" />
+            </LinearLayout>
 
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/shortuct_tips"
-                        android:layout_width="136dp"
-                        android:layout_height="80dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/shortcut_home_3"
-                        app:shapeAppearanceOverlay="@style/roundedImageView" />
+            <LinearLayout
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
 
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/shortuct_product"
-                        android:layout_width="136dp"
-                        android:layout_height="80dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/shortcut_home_4"
-                        app:shapeAppearanceOverlay="@style/roundedImageView" />
-                </LinearLayout>
-            </HorizontalScrollView>
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/shortuct_info"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/shortcut_info"
+                    app:shapeAppearanceOverlay="@style/roundedImageView" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/shortcut_symptoms"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/shortcut_symptoms"
+                    app:shapeAppearanceOverlay="@style/roundedImageView" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/shortcut_tips"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/shortcut_tips"
+                    app:shapeAppearanceOverlay="@style/roundedImageView" />
+            </LinearLayout>
 
             <TextView
                 style="@style/TextTitle"

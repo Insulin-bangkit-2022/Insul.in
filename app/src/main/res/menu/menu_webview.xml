@@ -3,8 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/refresh"
-        android:title="Refresh"
         android:icon="@drawable/ic_baseline_refresh"
         android:iconTint="@color/white"
-        app:showAsAction="always"/>
+        android:title="Refresh"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/prev_page"
+        android:icon="@drawable/ic_baseline_navigate_before"
+        android:iconTint="@color/white"
+        android:title="Previous"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/next_page"
+        android:icon="@drawable/ic_baseline_navigate_next"
+        android:iconTint="@color/white"
+        android:title="Next"
+        app:showAsAction="always" />
 </menu>
