@@ -103,6 +103,7 @@
                         android:scaleType="centerCrop"
                         android:src="@drawable/shortcut_home_2"
                         app:shapeAppearanceOverlay="@style/roundedImageView" />
+
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/shortuct_tips"
                         android:layout_width="136dp"
@@ -110,6 +111,7 @@
                         android:scaleType="centerCrop"
                         android:src="@drawable/shortcut_home_3"
                         app:shapeAppearanceOverlay="@style/roundedImageView" />
+
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/shortuct_product"
                         android:layout_width="136dp"

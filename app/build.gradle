@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -72,6 +73,12 @@ dependencies {
     implementation 'com.google.android.gms:play-services-maps:18.0.2'
     implementation "com.google.android.gms:play-services-location:19.0.1"
 
+    // Firebase
+    implementation 'com.google.firebase:firebase-database-ktx:20.0.5'
+    implementation 'com.google.firebase:firebase-auth-ktx:21.0.4'
+    implementation 'com.google.firebase:firebase-analytics-ktx:21.0.0'
+    implementation platform('com.google.firebase:firebase-bom:30.0.1')
+
     // Android Lottie
     implementation "com.airbnb.android:lottie:5.0.3"
 
@@ -80,4 +87,11 @@ dependencies {
 
     // CircleImageView
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    // DataStore
+    implementation "androidx.datastore:datastore-preferences:1.0.0"
+
+    // Navigation-Fragment
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.4.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.4.2'
 }

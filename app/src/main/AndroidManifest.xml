@@ -13,15 +13,18 @@
         android:theme="@style/Theme.Insulin"
         tools:targetApi="31">
         <activity
+            android:name=".ui.afiliation.RecomendationProductActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.home.MainActivity"
-            android:exported="false"
-             />
+            android:exported="false" />
         <activity
             android:name=".ui.detection.DetectionActivity"
             android:exported="false" />
         <activity
             android:name=".ui.webview.WebViewActivity"
             android:exported="false" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCUml5AVPrn6El4m41jecej36QG5eaguoM" />

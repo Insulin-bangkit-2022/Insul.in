@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "1072370297958",
+    "firebase_url": "https://insul-in-default-rtdb.firebaseio.com",
     "project_id": "insul-in",
     "storage_bucket": "insul-in.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "1072370297958-mne3sgot8ftg5mf0b8k8i48ai7n3qrjm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.insulin.app",
+            "certificate_hash": "82dd2a43789843ac9603ee67368fd4adad3e65e4"
+          }
+        },
         {
           "client_id": "1072370297958-f857b28dk6rqvneca3h4e2d96g7snmsm.apps.googleusercontent.com",
           "client_type": 3
