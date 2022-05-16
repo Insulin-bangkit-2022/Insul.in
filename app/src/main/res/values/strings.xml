@@ -13,4 +13,9 @@
     <string name="title_article">Title Article</string>
     <string name="content_article">Content Article</string>
     <string name="image_article">Image Article</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="about_application">Tentang Aplikasi</string>
+    <string name="attribute_data">Atribusi Data</string>
+    <string name="privacy"><![CDATA[Privacy & Policy]]></string>
 </resources>
