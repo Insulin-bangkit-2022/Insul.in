@@ -103,16 +103,24 @@
                     android:layout_gravity="start"
                     android:layout_marginHorizontal="16dp"
                     android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
                     android:text="Bacaan Untukmu agar tetap sehat"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_article_list" />
+
 
             </LinearLayout>
         </ScrollView>
 
-        <include layout="@layout/container_result_button"/>
+        <include layout="@layout/container_result_button" />
     </RelativeLayout>
 
 
