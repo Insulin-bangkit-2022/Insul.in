@@ -1,14 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.fragment.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="70dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_home_banner"
+                android:paddingHorizontal="8dp"
+                android:paddingBottom="16dp">
+
+                <TextView
+                    android:id="@+id/app_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/poppins_black"
+                    android:letterSpacing="0.1"
+                    android:text="@string/app_name"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/user_avatar"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_below="@id/app_name"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/app_name"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <TextView
+                    android:id="@+id/user_display_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Selamat Pagi, John Doe"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/user_avatar"
+                    app:layout_constraintStart_toEndOf="@+id/user_avatar"
+                    app:layout_constraintTop_toTopOf="@+id/user_avatar" />
+
+                <ImageView
+                    android:id="@+id/btn_help"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_baseline_help"
+                    app:layout_constraintBottom_toBottomOf="@+id/user_display_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/user_display_name"
+                    app:tint="@color/white" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                style="@style/TextTitle"
+                android:text="📌 Pintasan" />
+
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/shortuct_hospital"
+                        android:layout_width="136dp"
+                        android:layout_height="80dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/shortcut_home_1"
+                        app:shapeAppearanceOverlay="@style/roundedImageView" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/shortuct_information"
+                        android:layout_width="136dp"
+                        android:layout_height="80dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/shortcut_home_2"
+                        app:shapeAppearanceOverlay="@style/roundedImageView" />
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/shortuct_tips"
+                        android:layout_width="136dp"
+                        android:layout_height="80dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/shortcut_home_3"
+                        app:shapeAppearanceOverlay="@style/roundedImageView" />
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/shortuct_product"
+                        android:layout_width="136dp"
+                        android:layout_height="80dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/shortcut_home_4"
+                        app:shapeAppearanceOverlay="@style/roundedImageView" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <TextView
+                style="@style/TextTitle"
+                android:text="🔥 Artikel Terbaru" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_article"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                tools:itemCount="3"
+                tools:listitem="@layout/item_article_list" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center_horizontal"
+                android:text="Lihat artikel lainnya"
+                android:textColor="@color/primary_dark"
+                android:textSize="16sp" />
+
+            <TextView
+                style="@style/TextTitle"
+                android:text="♥ Mungkin kamu Sukai" />
+
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="15"
+                    tools:listitem="@layout/item_affiliation" />
+            </HorizontalScrollView>
+        </LinearLayout>
+
+
+    </ScrollView>
 
 </FrameLayout>
