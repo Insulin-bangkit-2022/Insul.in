@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
         <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/drawable/button_danger.xml" value="0.224" />
         <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/drawable/button_grey.xml" value="0.224" />
         <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/drawable/button_result_0.xml" value="0.224" />
@@ -22,10 +23,41 @@
         <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/fragment_home.xml" value="0.134375" />
         <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
         <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/fragment_result_0.xml" value="0.1" />
+=======
+        <entry key="..\:/Project/Project Android/Capstone Bangkit/app/src/main/res/drawable-v24/custom_home_shortcut.xml" value="0.233" />
+        <entry key="..\:/Project/Project Android/Capstone Bangkit/app/src/main/res/drawable/button_danger.xml" value="0.1935" />
+        <entry key="..\:/Project/Project Android/Capstone Bangkit/app/src/main/res/drawable/button_primary.xml" value="0.1935" />
+        <entry key="..\:/Project/Project Android/Capstone Bangkit/app/src/main/res/drawable/button_result_0.xml" value="0.1935" />
+        <entry key="..\:/Project/Project Android/Capstone Bangkit/app/src/main/res/drawable/button_result_1.xml" value="0.1975" />
+        <entry key="..\:/Project/Project Android/Capstone Bangkit/app/src/main/res/drawable/button_warning.xml" value="0.1975" />
+        <entry key="..\:/Project/Project Android/Capstone Bangkit/app/src/main/res/drawable/custom_home_banner.xml" value="0.233" />
+        <entry key="..\:/Project/Project Android/Capstone Bangkit/app/src/main/res/drawable/ic_baseline_arrow_back.xml" value="0.208" />
+        <entry key="..\:/Project/Project Android/Capstone Bangkit/app/src/main/res/drawable/ic_baseline_refresh.xml" value="0.208" />
+        <entry key="..\:/Project/Project Android/Capstone Bangkit/app/src/main/res/drawable/ic_result_1.xml" value="0.233" />
+        <entry key="..\:/Project/Project Android/Capstone Bangkit/app/src/main/res/drawable/shadow_background.xml" value="0.22" />
+        <entry key="..\:/Project/Project Android/Capstone Bangkit/app/src/main/res/drawable/success_button.xml" value="0.1975" />
+        <entry key="..\:/Project/Project Android/Capstone Bangkit/app/src/main/res/layout/activity_main.xml" value="0.18" />
+        <entry key="..\:/Project/Project Android/Capstone Bangkit/app/src/main/res/layout/activity_splash_screen.xml" value="0.31354166666666666" />
+        <entry key="..\:/Project/Project Android/Capstone Bangkit/app/src/main/res/layout/activity_web_view.xml" value="0.33" />
+        <entry key="..\:/Project/Project Android/Capstone Bangkit/app/src/main/res/layout/container_result_button.xml" value="0.25" />
+        <entry key="..\:/Project/Project Android/Capstone Bangkit/app/src/main/res/layout/fragment_article.xml" value="0.25" />
+        <entry key="..\:/Project/Project Android/Capstone Bangkit/app/src/main/res/layout/fragment_detection_result.xml" value="0.16460025651988028" />
+        <entry key="..\:/Project/Project Android/Capstone Bangkit/app/src/main/res/layout/fragment_history.xml" value="0.33" />
+        <entry key="..\:/Project/Project Android/Capstone Bangkit/app/src/main/res/layout/fragment_home.xml" value="0.33" />
+        <entry key="..\:/Project/Project Android/Capstone Bangkit/app/src/main/res/layout/fragment_result_0.xml" value="0.33" />
+        <entry key="..\:/Project/Project Android/Capstone Bangkit/app/src/main/res/layout/fragment_result_1.xml" value="0.33" />
+        <entry key="..\:/Project/Project Android/Capstone Bangkit/app/src/main/res/layout/fragment_second_screen.xml" value="0.31354166666666666" />
+        <entry key="..\:/Project/Project Android/Capstone Bangkit/app/src/main/res/layout/item_affiliation.xml" value="0.75" />
+        <entry key="..\:/Project/Project Android/Capstone Bangkit/app/src/main/res/layout/item_article_list.xml" value="0.33" />
+        <entry key="..\:/Project/Project Android/Capstone Bangkit/app/src/main/res/layout/item_history_list.xml" value="0.5809128630705395" />
+        <entry key="..\:/Project/Project Android/Capstone Bangkit/app/src/main/res/layout/table_result.xml" value="0.31979166666666664" />
+        <entry key="..\:/Project/Project Android/Capstone Bangkit/app/src/main/res/menu/menu_bottomnav.xml" value="0.2975630611372381" />
+        <entry key="..\:/Project/Project Android/Capstone Bangkit/app/src/main/res/menu/menu_webview.xml" value="0.33" />
+        <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/activity_main.xml" value="0.13125" />
+        <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/fragment_article.xml" value="0.109375" />
+        <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/fragment_history.xml" value="0.109375" />
+>>>>>>> bd5f7a090f7c36a328e7cf51e85be8f0ad6c7360
         <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/fragment_symptom1.xml" value="0.1453125" />
-        <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/item_affiliation.xml" value="0.264" />
-        <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/item_article_list.xml" value="0.264" />
-        <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/table_result.xml" value="0.1" />
       </map>
     </option>
   </component>
