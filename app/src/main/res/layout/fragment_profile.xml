@@ -42,44 +42,47 @@
 
     <Button
         android:id="@+id/about"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="55dp"
         android:text="@string/about_application"
+        android:textAllCaps="false"
         android:drawableLeft="@drawable/ic_baseline_info_24"
         android:textColor="@color/grey_dark"
         android:textSize="14sp"
-        android:background="@color/white"
+        android:background="@drawable/button_grey"
         android:layout_marginTop="30dp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/email" />
 
     <Button
         android:id="@+id/attribute"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="55dp"
         android:text="@string/attribute_data"
+        android:textAllCaps="false"
         android:drawableLeft="@drawable/ic_baseline_cloud_24"
         android:textColor="@color/grey_dark"
         android:textSize="14sp"
-        android:background="@color/white"
+        android:background="@drawable/button_grey"
         android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/about" />
 
     <Button
         android:id="@+id/privacy_policy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="55dp"
         android:text="@string/privacy"
+        android:textAllCaps="false"
         android:drawableLeft="@drawable/ic_baseline_lock_24"
         android:textColor="@color/grey_dark"
         android:textSize="14sp"
-        android:background="@color/white"
+        android:background="@drawable/button_grey"
         android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/attribute" />
 
 
