@@ -7,24 +7,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.gms.common.SignInButton
-import com.insulin.app.R
+import com.insulin.app.databinding.FragmentThirdScreenBinding
 
 class ThirdScreen : Fragment() {
+
+    private lateinit var fragmentThirdScreenBinding: FragmentThirdScreenBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_third_screen, container, false)
+        fragmentThirdScreenBinding = FragmentThirdScreenBinding.inflate(inflater, container, false)
+        fragmentThirdScreenBinding.btnGoogleLogin.setSize(SignInButton.SIZE_WIDE)
 
-        view.findViewById<SignInButton>(R.id.btn_google_login).setSize(SignInButton.SIZE_WIDE)
-
-        view.findViewById<SignInButton>(R.id.btn_google_login).setOnClickListener {
+        fragmentThirdScreenBinding.btnGoogleLogin.setOnClickListener {
             onBoardingFinished()
         }
 
-        return view
+        return fragmentThirdScreenBinding.root
     }
 
     private fun onBoardingFinished() {
