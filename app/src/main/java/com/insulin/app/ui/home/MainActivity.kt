@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import com.google.android.gms.location.DetectedActivity
 import com.insulin.app.R
 import com.insulin.app.databinding.ActivityMainBinding
+import com.insulin.app.ui.detection.DetectionActivity
 import com.insulin.app.ui.home.fragment.ArticleFragment
 import com.insulin.app.ui.home.fragment.HistoryFragment
 import com.insulin.app.ui.home.fragment.HomeFragment
@@ -61,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         activityMainBinding.fab.setOnClickListener {
-            val intent = Intent(this@MainActivity, DetectedActivity::class.java)
+            val intent = Intent(this@MainActivity, DetectionActivity::class.java)
             startActivity(intent)
         }
 

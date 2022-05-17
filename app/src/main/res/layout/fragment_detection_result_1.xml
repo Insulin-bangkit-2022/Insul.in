@@ -38,6 +38,8 @@
                     android:id="@+id/lottie_animation_view_screen2"
                     android:layout_width="128dp"
                     android:layout_height="128dp"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
                     android:layout_marginTop="40dp"
                     app:lottie_rawRes="@raw/success_information" />
 

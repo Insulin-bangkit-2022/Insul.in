@@ -20,6 +20,9 @@
             android:name=".ui.afiliation.RecomendationProductActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.detection.DetectionActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.home.MainActivity"
             android:exported="true">
             <intent-filter>
@@ -28,9 +31,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.detection.DetectionActivity"
-            android:exported="false" />
         <activity
             android:name=".ui.webview.WebViewActivity"
             android:exported="false" />
