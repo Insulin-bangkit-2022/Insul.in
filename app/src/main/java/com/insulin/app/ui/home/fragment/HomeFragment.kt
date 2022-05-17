@@ -91,6 +91,10 @@ class HomeFragment : Fragment() {
                 )
                 (activity as MainActivity).startActivity(intent)
             }
+
+            it.btnHelp.setOnClickListener{
+                Helper.showDialogDiagnoseResult(requireContext(),isDiabetes = false)
+            }
         }
 
         return binding.root

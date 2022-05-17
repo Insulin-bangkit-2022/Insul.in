@@ -3,21 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:layout_centerInParent="true"
     android:layout_gravity="center"
-    android:background="@color/white"
+    android:background="@drawable/custom_background_rounded_white"
     android:orientation="vertical">
 
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <LinearLayout
-            android:padding="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="16dp">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -42,21 +44,24 @@
                 android:textSize="12sp" />
 
             <com.airbnb.lottie.LottieAnimationView
-                android:layout_gravity="center"
-                android:layout_marginTop="16dp"
                 android:id="@+id/lottie_animation_view_screen2"
                 android:layout_width="128dp"
                 android:layout_height="128dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
                 app:lottie_rawRes="@raw/failed" />
+
             <TextView
                 android:id="@+id/diagnose_risk"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="16dp"
                 android:ellipsize="end"
-                android:layout_gravity="center"
-                android:letterSpacing="0.01"
                 android:fontFamily="@font/poppins_bold"
+                android:letterSpacing="0.01"
                 android:text="Risiko Rendah"
                 android:textColor="@color/state_danger_dark"
                 android:textSize="16sp" />
@@ -66,9 +71,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:textAlignment="center"
                 android:fontFamily="@font/poppins_regular"
                 android:text="Selamat, Kamu berpotensi rendah terkena diabetes dari hasil diagnosa awal dengan Insul.in"
+                android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
@@ -94,6 +99,7 @@
                         android:textStyle="bold" />
 
                     <ImageView
+                        android:id="@+id/icon_toggle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
@@ -107,7 +113,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/btn_navigate"
+                android:id="@+id/btn_close_dialog"
                 style="@style/Button.Danger"
                 android:layout_marginTop="16dp"
                 android:text="Tutup" />

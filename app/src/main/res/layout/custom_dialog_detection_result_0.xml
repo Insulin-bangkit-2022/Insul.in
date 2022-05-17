@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:layout_centerInParent="true"
     android:layout_gravity="center"
-    android:background="@color/white"
+    android:background="@drawable/custom_background_rounded_white"
     android:orientation="vertical">
 
 
@@ -47,6 +47,8 @@
                 android:id="@+id/lottie_animation_view_screen2"
                 android:layout_width="128dp"
                 android:layout_height="128dp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
                 app:lottie_rawRes="@raw/success_information" />
             <TextView
                 android:id="@+id/diagnose_risk"
@@ -94,6 +96,7 @@
                         android:textStyle="bold" />
 
                     <ImageView
+                        android:id="@+id/icon_toggle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
@@ -107,7 +110,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/btn_navigate"
+                android:id="@+id/btn_close_dialog"
                 style="@style/Button.Danger"
                 android:layout_marginTop="16dp"
                 android:text="Tutup" />
