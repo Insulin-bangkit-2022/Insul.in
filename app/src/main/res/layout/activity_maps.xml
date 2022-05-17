@@ -7,21 +7,73 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/primary"
-        android:navigationIcon="@drawable/ic_baseline_arrow_back"
-        android:title="🏨 RS Terdekat"
-        android:titleTextColor="@color/white"
-        tools:targetApi="m" />
+        map:navigationIcon="@drawable/ic_baseline_arrow_back"
+        map:title="🏨 RS Terdekat"
+        map:titleTextColor="@color/white"
+        map:menu="@menu/menu_hospital_maps" />
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.maps.MapsActivity" />
+        android:layout_height="match_parent">
+
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.maps.MapsActivity" />
+
+        <LinearLayout
+            android:id="@+id/container_alert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@drawable/button_success"
+            android:orientation="vertical"
+            android:padding="10dp"
+            map:layout_constraintStart_toStartOf="parent"
+            map:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="100">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="90"
+                    android:fontFamily="@font/poppins_bold"
+                    android:gravity="center_vertical"
+                    android:text="💡 Tips"
+                    android:textColor="@color/state_success_dark"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/btn_close_alert"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="10"
+                    android:paddingVertical="5dp"
+                    android:src="@drawable/ic_baseline_close"
+                    map:tint="@color/state_success_dark" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Klik pin Rumah sakit untuk melihat informasi detail. Klik tombol untuk mendapatkan petunjuk arah"
+                android:textColor="@color/state_success_dark" />
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </LinearLayout>

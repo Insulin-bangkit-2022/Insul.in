@@ -54,7 +54,7 @@ class HomeFragment : Fragment() {
         val context: Context = (activity as MainActivity)
 
         binding.let {
-            
+
             /* RS terdekat */
             it.shortuctHospital.setOnClickListener {
                 if (Helper.isPermissionGranted(
@@ -73,12 +73,22 @@ class HomeFragment : Fragment() {
                     )
                 }
             }
-            
+
             /* konsultasi dokter */
             it.shortuctConsultation.setOnClickListener {
                 val intent =
                     Intent(context, WebViewActivity::class.java)
-                intent.putExtra(WebViewActivity.EXTRA_WEBVIEW,"https://apriantoa917.github.io")
+                intent.putExtra(WebViewActivity.EXTRA_WEBVIEW, "https://apriantoa917.github.io")
+                (activity as MainActivity).startActivity(intent)
+            }
+
+            it.shortuctInfo.setOnClickListener {
+                val intent =
+                    Intent(context, WebViewActivity::class.java)
+                intent.putExtra(
+                    WebViewActivity.EXTRA_WEBVIEW,
+                    "https://hellosehat.com/diabetes/diabetes-melitus/"
+                )
                 (activity as MainActivity).startActivity(intent)
             }
         }

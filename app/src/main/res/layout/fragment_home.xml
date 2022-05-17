@@ -186,7 +186,7 @@
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:itemCount="15"
-                    tools:listitem="@layout/item_affiliation" />
+                    tools:listitem="@layout/item_affiliation_compact" />
             </HorizontalScrollView>
         </LinearLayout>
 

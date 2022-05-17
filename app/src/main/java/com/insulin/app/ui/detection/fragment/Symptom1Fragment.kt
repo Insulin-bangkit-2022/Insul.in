@@ -35,7 +35,7 @@ class Symptom1Fragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_symptom1, container, false)
+        return inflater.inflate(R.layout.fragment_detection_question_gender, container, false)
     }
 
     companion object {

@@ -65,17 +65,49 @@
         <item name="cornerSize">10dp</item>
     </style>
 
-    <style name="ButtonProfile" >
+    <style name="roundedImageView.16" parent="roundedImageView">
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="roundedImageView.8" parent="roundedImageView">
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <style name="Button">
         <item name="backgroundTint">@null</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">14sp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="Button.Profile" parent="Button">
         <item name="android:textAlignment">textStart</item>
         <item name="android:textColor">@color/grey_dark</item>
         <item name="android:layout_margin">16dp</item>
-        <item name="android:paddingTop">8dp</item>
-        <item name="android:paddingBottom">8dp</item>
         <item name="android:background">@drawable/button_grey</item>
-        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="Button.Danger" parent="Button">
+        <item name="android:textColor">@color/state_danger_dark</item>
+        <item name="android:background">@drawable/button_danger</item>
+    </style>
+
+    <style name="Button.Success" parent="Button">
+        <item name="android:textColor">@color/state_success_dark</item>
+        <item name="android:background">@drawable/button_success</item>
+    </style>
+
+    <style name="Button.Warning" parent="Button">
+        <item name="android:textColor">@color/state_warning_dark</item>
+        <item name="android:background">@drawable/button_warning</item>
+    </style>
+
+    <style name="Button.Primary" parent="Button">
+        <item name="android:textColor">@color/state_primary_dark</item>
+        <item name="android:background">@drawable/button_primary</item>
     </style>
 </resources>

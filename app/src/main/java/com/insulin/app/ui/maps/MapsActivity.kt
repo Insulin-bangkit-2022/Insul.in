@@ -1,28 +1,39 @@
 package com.insulin.app.ui.maps
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Resources
-import androidx.appcompat.app.AppCompatActivity
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MapStyleOptions
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.insulin.app.R
+import com.insulin.app.data.model.Hospital
 import com.insulin.app.databinding.ActivityMapsBinding
+import com.insulin.app.databinding.CustomTooltipHospitalBinding
+import com.insulin.app.utils.Helper
 
-class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
+
+class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.InfoWindowAdapter {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapsBinding
@@ -33,8 +44,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setSupportActionBar(binding.toolbar)
         binding.toolbar.setNavigationOnClickListener {
             finish()
+        }
+
+        binding.btnCloseAlert.setOnClickListener {
+            binding.containerAlert.isVisible = false
         }
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
@@ -45,6 +61,27 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mapFragment.getMapAsync(this)
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_hospital_maps, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+
+            /* move maps to user location */
+            R.id.navigation_user_location -> {
+                getMyLastLocation()
+            }
+
+            /* toggle show / hide container alert */
+            R.id.navigation_help -> {
+                binding.containerAlert.isVisible = !binding.containerAlert.isVisible
+            }
+        }
+        return true
+    }
+
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
@@ -52,8 +89,21 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.uiSettings.isCompassEnabled = true
         mMap.uiSettings.isMapToolbarEnabled = true
         mMap.uiSettings.isTiltGesturesEnabled = true
+        mMap.setInfoWindowAdapter(this)
+
+        /* when user click hospital marker -> show info hospital */
         mMap.setOnPoiClickListener {
-            Toast.makeText(this, it.name, Toast.LENGTH_SHORT).show()
+            val hospital = Hospital(
+                name = it.name.replace("\n", " "),
+                placeId = it.placeId,
+                address = Helper.parseAddressLocation(
+                    context = this,
+                    lat = it.latLng.latitude,
+                    lon = it.latLng.longitude
+                ),
+                lon = it.latLng.longitude,
+                lat = it.latLng.longitude
+            )
             mMap.clear()
             mMap.addMarker(
                 MarkerOptions()
@@ -63,7 +113,20 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                             it.latLng.longitude
                         )
                     )
-            )?.showInfoWindow()
+            ).let { marker ->
+                marker?.tag = hospital
+                marker?.showInfoWindow()
+            }
+        }
+
+        /* when popup hospital clicked */
+        mMap.setOnInfoWindowClickListener {
+            val hospital: Hospital = it.tag as Hospital
+            val gmmIntentUri =
+                Uri.parse("google.navigation:q=${hospital.name}")
+            val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+            mapIntent.setPackage("com.google.android.apps.maps")
+            startActivity(mapIntent)
         }
         setMapStyle()
         getMyLastLocation()
@@ -96,7 +159,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
 
-
     /* get user location */
     private fun getMyLastLocation() {
         if (checkPermission(Manifest.permission.ACCESS_FINE_LOCATION) &&
@@ -105,9 +167,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             fusedLocationClient.lastLocation.addOnSuccessListener { location ->
                 /* if user location fetched -> add marker & trigger input to user location */
                 location?.let {
-                    mMap.addMarker(
-                        MarkerOptions().position(LatLng(it.latitude, it.longitude))
-                    )
                     mMap.animateCamera(
                         CameraUpdateFactory.newLatLngZoom(LatLng(it.latitude, it.longitude), 14f)
                     )
@@ -138,5 +197,18 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         } catch (exception: Resources.NotFoundException) {
             Log.e("MAPS", "Can't find style. Error: ", exception)
         }
+    }
+
+    override fun getInfoWindow(marker: Marker): View {
+        val bindingTooltips =
+            CustomTooltipHospitalBinding.inflate(LayoutInflater.from(this))
+        val hospital: Hospital = marker.tag as Hospital
+        bindingTooltips.hospitalName.text = StringBuilder("🏨 ").append(hospital.name)
+        bindingTooltips.hospitalAddress.text = hospital.address
+        return bindingTooltips.root
+    }
+
+    override fun getInfoContents(marker: Marker): View? {
+        return null
     }
 }

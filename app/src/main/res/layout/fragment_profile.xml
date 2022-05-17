@@ -45,7 +45,7 @@
 
     <Button
         android:id="@+id/about"
-        style="@style/ButtonProfile"
+        style="@style/Button.Profile"
         android:layout_marginTop="48dp"
         android:drawableLeft="@drawable/ic_baseline_info_24"
         android:text="@string/about_application"
@@ -54,7 +54,7 @@
 
     <Button
         android:id="@+id/attribute"
-        style="@style/ButtonProfile"
+        style="@style/Button.Profile"
         android:drawableLeft="@drawable/ic_baseline_cloud_24"
         android:text="@string/attribute_data"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,7 +62,7 @@
 
     <Button
         android:id="@+id/privacy"
-        style="@style/ButtonProfile"
+        style="@style/Button.Profile"
         android:drawableLeft="@drawable/ic_baseline_lock_24"
         android:text="@string/privacy"
         app:layout_constraintStart_toStartOf="parent"

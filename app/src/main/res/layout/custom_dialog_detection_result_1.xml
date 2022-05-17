@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:layout_gravity="center"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/poppins_bold"
+                android:maxLines="2"
+                android:text="Hasil Deteksi"
+                android:textColor="@color/state_danger_dark"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/diagnose_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/poppins_regular"
+                android:maxLines="3"
+                android:text="Test pada 5 Mei 2022 | 17.00"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:id="@+id/lottie_animation_view_screen2"
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                app:lottie_rawRes="@raw/failed" />
+            <TextView
+                android:id="@+id/diagnose_risk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ellipsize="end"
+                android:layout_gravity="center"
+                android:letterSpacing="0.01"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Risiko Rendah"
+                android:textColor="@color/state_danger_dark"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/diagnose_label_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textAlignment="center"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Selamat, Kamu berpotensi rendah terkena diabetes dari hasil diagnosa awal dengan Insul.in"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/button_result_1"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/result_toggle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lihat Hasil Diagnosis"
+                        android:textColor="@color/state_danger_dark"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ic_baseline_arrow_down"
+                        app:tint="@color/state_danger_dark" />
+                </RelativeLayout>
+
+                <include
+                    android:id="@+id/result_detail"
+                    layout="@layout/table_result" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_navigate"
+                style="@style/Button.Danger"
+                android:layout_marginTop="16dp"
+                android:text="Tutup" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

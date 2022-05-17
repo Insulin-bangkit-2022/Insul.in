@@ -3,6 +3,7 @@ package com.insulin.app.utils
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.Geocoder
 import android.net.Uri
 import android.provider.Settings
 import android.widget.Toast
@@ -33,6 +34,27 @@ object Helper {
         intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
         intent.data = Uri.fromParts("package", context.packageName, null)
         context.startActivity(intent)
+    }
+
+    /* -------------------------
+       * GEOLOCATION & GEOCODER
+       * ------------------------- */
+
+    /* parse lat lon coordinate into readable address */
+    fun parseAddressLocation(
+        context: Context,
+        lat: Double,
+        lon: Double
+    ): String {
+        val geocoder = Geocoder(context)
+        val geoLocation =
+            geocoder.getFromLocation(lat, lon, 1)
+        return if (geoLocation.size > 0) {
+            val location = geoLocation[0]
+            location.getAddressLine(0)
+        } else {
+            "Location Unknown"
+        }
     }
 
 }
