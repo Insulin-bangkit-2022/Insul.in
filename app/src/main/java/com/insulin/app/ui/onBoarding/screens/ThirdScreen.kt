@@ -19,19 +19,19 @@ class ThirdScreen : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         fragmentThirdScreenBinding = FragmentThirdScreenBinding.inflate(inflater, container, false)
-        fragmentThirdScreenBinding.btnGoogleLogin.setSize(SignInButton.SIZE_WIDE)
-
-        fragmentThirdScreenBinding.btnGoogleLogin.setOnClickListener {
-            onBoardingFinished()
-        }
+//        fragmentThirdScreenBinding.btnGoogleLogin.setSize(SignInButton.SIZE_WIDE)
+//
+//        fragmentThirdScreenBinding.btnGoogleLogin.setOnClickListener {
+//            onBoardingFinished()
+//        }
 
         return fragmentThirdScreenBinding.root
     }
 
-    private fun onBoardingFinished() {
-        val sharedPref = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
-        val editor = sharedPref.edit()
-        editor.putBoolean("Login", true)
-        editor.apply()
-    }
+//    private fun onBoardingFinished() {
+//        val sharedPref = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
+//        val editor = sharedPref.edit()
+//        editor.putBoolean("Login", true)
+//        editor.apply()
+//    }
 }
