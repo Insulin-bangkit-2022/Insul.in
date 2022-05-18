@@ -27,5 +27,6 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     
     <!-- Client ID -->
-    <string name="client_id">1072370297958-mne3sgot8ftg5mf0b8k8i48ai7n3qrjm.apps.googleusercontent.com</string>
+    <string name="client_id">1072370297958-d8d0im5699toq3vv8gaubm9db3ons9fc.apps.googleusercontent.com</string>
+    <string name="day_name">Selamat Pagi, %1$s</string>
 </resources>

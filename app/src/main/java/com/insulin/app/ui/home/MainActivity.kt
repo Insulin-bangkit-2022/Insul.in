@@ -9,12 +9,15 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import com.google.android.gms.location.DetectedActivity
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.insulin.app.R
 import com.insulin.app.databinding.ActivityMainBinding
 import com.insulin.app.ui.home.fragment.ArticleFragment
 import com.insulin.app.ui.home.fragment.HistoryFragment
 import com.insulin.app.ui.home.fragment.HomeFragment
 import com.insulin.app.ui.home.fragment.ProfileFragment
+import com.insulin.app.ui.login.LoginActivity
 import com.insulin.app.utils.Constanta
 import com.insulin.app.utils.Helper
 
@@ -27,8 +30,14 @@ class MainActivity : AppCompatActivity() {
         activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(activityMainBinding.root)
 
+        val user = Firebase.auth.currentUser
+        if (user != null) {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+
         /* disable dark mode*/
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         val fragmentHome = HomeFragment()
         val fragmentArticle = ArticleFragment()

@@ -10,7 +10,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
+import com.bumptech.glide.Glide
 import com.google.android.gms.location.DetectedActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.insulin.app.R
 import com.insulin.app.databinding.ActivityMainBinding
 import com.insulin.app.databinding.FragmentHomeBinding
@@ -52,6 +56,14 @@ class HomeFragment : Fragment() {
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         val context: Context = (activity as MainActivity)
+
+        val user = Firebase.auth.currentUser
+        user?.let {
+            binding.userDisplayName.text = user.displayName
+            Glide.with(this@HomeFragment)
+                .load(user?.photoUrl)
+                .into(binding.userAvatar)
+        }
 
         binding.let {
 
