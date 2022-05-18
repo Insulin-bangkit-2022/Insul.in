@@ -2,13 +2,20 @@ package com.insulin.app.ui.detection
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.widget.Button
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import com.insulin.app.R
+import com.insulin.app.data.model.Detection
 import com.insulin.app.databinding.ActivityDetectionBinding
 import com.insulin.app.ui.detection.fragment.*
 import com.insulin.app.utils.Constanta
+import com.insulin.app.utils.Helper
 
 
 class DetectionActivity : AppCompatActivity() {
@@ -21,7 +28,7 @@ class DetectionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetectionBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        binding.loading.root.isVisible = false
         setSupportActionBar(binding.toolbar)
         binding.toolbar.setNavigationOnClickListener {
             finish()
@@ -73,6 +80,13 @@ class DetectionActivity : AppCompatActivity() {
         return diagnoseSymptoms[key]
     }
 
+    private fun parseAnsweredQuestion(key: String): Boolean {
+        return when (getAnsweredQuestion(key).toString()) {
+            Constanta.AnsweredSympthoms.SelectedYes.name -> true
+            else -> false
+        }
+    }
+
     @SuppressLint("UseCompatLoadingForDrawables")
     fun setBackgroundState(key: String, option0: LinearLayout, option1: LinearLayout) {
         when (getAnsweredQuestion(key)) {
@@ -99,6 +113,49 @@ class DetectionActivity : AppCompatActivity() {
         supportActionBar?.hide()
         switchFragment(fragmentResult0)
     }
+
+    fun saveDataToFirebase(isDiabetes: Boolean) {
+        val database = Firebase.database
+        val uid = Constanta.TEMP_UID
+        val myRef =
+            database.getReference("detection_history").child(uid).child(Helper.getDiagnoseId(uid))
+        val data = Detection(
+            isDiabetes = isDiabetes,
+            detectionTime = Helper.getCurrentDateString(),
+            isPolyuria = parseAnsweredQuestion(Constanta.DiabetesSympthoms.Polyuria.name),
+            isPolydipsia = parseAnsweredQuestion(Constanta.DiabetesSympthoms.Polydipsia.name),
+            isWeightLoss = parseAnsweredQuestion(Constanta.DiabetesSympthoms.WeightLoss.name),
+            isWeakness = parseAnsweredQuestion(Constanta.DiabetesSympthoms.Weakness.name),
+            isPolyphagia = parseAnsweredQuestion(Constanta.DiabetesSympthoms.Polyphagia.name),
+            isGenitalThrus = parseAnsweredQuestion(Constanta.DiabetesSympthoms.GenitalThrus.name),
+            isItching = parseAnsweredQuestion(Constanta.DiabetesSympthoms.Itching.name),
+            isIrritability = parseAnsweredQuestion(Constanta.DiabetesSympthoms.Irritability.name),
+            isDelayedHealing = parseAnsweredQuestion(Constanta.DiabetesSympthoms.DelayedHealing.name),
+            isPartialParesis = parseAnsweredQuestion(Constanta.DiabetesSympthoms.PartialParesis.name),
+            isMuscleStiffness = parseAnsweredQuestion(Constanta.DiabetesSympthoms.MuscleStiffness.name),
+            isAlopecia = parseAnsweredQuestion(Constanta.DiabetesSympthoms.Alopecia.name),
+            isObesity = parseAnsweredQuestion(Constanta.DiabetesSympthoms.Obesity.name)
+        )
+        binding.loading.root.isVisible = true
+        myRef.setValue(data).addOnSuccessListener {
+            binding.loading.root.isVisible = false
+            val dialog = Helper.dialogInfoBuilder(
+                this,
+                "Disimpan !",
+                "Data diagnosis berhasil disimpan, klik ok untuk kembali"
+            )
+            val btnOk: Button = dialog.findViewById(R.id.btn_ok)
+            btnOk.setOnClickListener {
+                dialog.dismiss()
+                finish()
+            }
+            dialog.show()
+        }.addOnFailureListener {
+            binding.loading.root.isVisible = false
+            Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
+        }
+    }
+
 
     companion object {
         val fragmentPolyuria = SymptomPolyuria()

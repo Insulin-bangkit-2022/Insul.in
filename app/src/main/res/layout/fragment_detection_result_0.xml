@@ -122,7 +122,9 @@
             </LinearLayout>
         </ScrollView>
 
-        <include layout="@layout/container_result_button" />
+        <include
+            android:id="@+id/container_result_button"
+            layout="@layout/container_result_button" />
     </RelativeLayout>
 
 

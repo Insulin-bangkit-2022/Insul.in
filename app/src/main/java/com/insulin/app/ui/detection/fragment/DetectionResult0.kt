@@ -9,6 +9,7 @@ import com.insulin.app.R
 import com.insulin.app.databinding.FragmentDetectionQuestionYesnoBinding
 import com.insulin.app.databinding.FragmentDetectionResult0Binding
 import com.insulin.app.databinding.FragmentDetectionResultBinding
+import com.insulin.app.ui.detection.DetectionActivity
 
 
 class DetectionResult0 : Fragment() {
@@ -18,6 +19,13 @@ class DetectionResult0 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentDetectionResult0Binding.inflate(layoutInflater)
+        binding.containerResultButton.btnCloseResult.setOnClickListener {
+            (activity as DetectionActivity).finish()
+        }
+        binding.containerResultButton.btnSaveResult.setOnClickListener {
+            (activity as DetectionActivity).saveDataToFirebase(isDiabetes = false)
+        }
+
         return binding.root
     }
 
