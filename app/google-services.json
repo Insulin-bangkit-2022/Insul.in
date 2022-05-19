@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "1072370297958-k6bnb4dg7o836fuivnrgtvbqo4dddeq5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.insulin.app",
+            "certificate_hash": "c3ee9387df36483cb5c474316349a80b0941230d"
+          }
+        },
+        {
           "client_id": "1072370297958-f857b28dk6rqvneca3h4e2d96g7snmsm.apps.googleusercontent.com",
           "client_type": 3
         }
