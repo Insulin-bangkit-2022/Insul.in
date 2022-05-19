@@ -8,6 +8,7 @@ import com.bumptech.glide.Glide
 import com.insulin.app.data.model.Article
 import com.insulin.app.databinding.ItemArticleListBinding
 import com.insulin.app.ui.webview.WebViewActivity
+import com.insulin.app.utils.Helper
 
 class ArticleAdapter(private val data: ArrayList<Article>) : RecyclerView.Adapter<ArticleAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -31,13 +32,12 @@ class ArticleAdapter(private val data: ArrayList<Article>) : RecyclerView.Adapte
                 tvDiagnoseTime.text = article.provider_name
                 tvDiagnoseResult.text = article.title
                 itemView.setOnClickListener {
-                    val intent = Intent(itemView.context, WebViewActivity::class.java)
-                    intent.putExtra(WebViewActivity.EXTRA_WEBVIEW, article.url)
-                    itemView.context.startActivity(intent)
+                    Helper.openLinkInWebView(itemView.context,article.url)
                 }
             }
 
         }
     }
+
 
 }

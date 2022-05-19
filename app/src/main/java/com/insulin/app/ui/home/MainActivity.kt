@@ -1,6 +1,5 @@
 package com.insulin.app.ui.home
 
-import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
@@ -8,11 +7,11 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
-import com.google.android.gms.location.DetectedActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.insulin.app.R
 import com.insulin.app.databinding.ActivityMainBinding
+import com.insulin.app.ui.afiliation.RecommendationProductActivity
 import com.insulin.app.ui.detection.DetectionActivity
 import com.insulin.app.ui.home.fragment.ArticleFragment
 import com.insulin.app.ui.home.fragment.HistoryFragment
@@ -40,13 +39,11 @@ class MainActivity : AppCompatActivity() {
         /* disable dark mode*/
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
-        val fragmentHome = HomeFragment()
-        val fragmentArticle = ArticleFragment()
-        val fragmentHistory = HistoryFragment()
-        val fragmentProfile = ProfileFragment()
+
 
         activityMainBinding.bottomNavigationView.background =
             null // hide abnormal layer in bottom nav
+
 
         activityMainBinding.bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
@@ -79,7 +76,16 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun switchFragment(fragment: Fragment) {
+    fun selectMenu(itemId: Int) {
+        activityMainBinding.bottomNavigationView.selectedItemId = itemId
+    }
+
+    fun redirectToRecommendationProduct(){
+        startActivity(Intent(this@MainActivity,RecommendationProductActivity::class.java))
+    }
+
+
+    fun switchFragment(fragment: Fragment) {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.container, fragment)
@@ -120,5 +126,12 @@ class MainActivity : AppCompatActivity() {
             }
             else -> super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         }
+    }
+
+    companion object {
+        val fragmentHome = HomeFragment()
+        val fragmentArticle = ArticleFragment()
+        val fragmentHistory = HistoryFragment()
+        val fragmentProfile = ProfileFragment()
     }
 }

@@ -7,18 +7,35 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.icu.text.DecimalFormat
+import android.icu.text.NumberFormat
 import android.location.Geocoder
 import android.net.Uri
 import android.provider.Settings
+import android.util.Log
 import android.view.Gravity
 import android.view.ViewGroup
 import android.widget.*
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 import androidx.core.view.isVisible
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.Query
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.getValue
 import com.insulin.app.R
-import java.lang.StringBuilder
+import com.insulin.app.adapter.article.AffiliationProductAdapterHorizontal
+import com.insulin.app.adapter.article.AffiliationProductAdapterVertical
+import com.insulin.app.adapter.article.ArticleAdapter
+import com.insulin.app.data.model.AffiliationProduct
+import com.insulin.app.data.model.Article
+import com.insulin.app.ui.webview.WebViewActivity
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 object Helper {
 
@@ -176,5 +193,112 @@ object Helper {
         // Format Diagnose ID -> FirebaseUID_220530_1205001234_AbCDeFgHIj
         return StringBuilder(uid).append("_").append(getDiagnoseIdDateString()).append("_")
             .append(getRandomString(10)).toString()
+    }
+
+
+    fun loadArticleData(
+        context: Context,
+        rv: RecyclerView,
+        articleList: ArrayList<Article>,
+        reference: Query,
+        reversed: Boolean? = false,
+        progressBar: ProgressBar? = null,
+    ) {
+        progressBar?.isVisible = true
+        val TAG = "FIREBASE"
+        reference.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                articleList.clear()
+                for (article in dataSnapshot.children) {
+                    val data = article.getValue<Article>()
+                    data?.let {
+                        articleList.add(it)
+                    }
+                }
+                rv.let {
+                    it.setHasFixedSize(true)
+                    it.layoutManager = LinearLayoutManager(context)
+                    it.isNestedScrollingEnabled = false
+                    if (reversed == true) {
+                        articleList.reverse()
+                    }
+                    it.adapter = ArticleAdapter(articleList)
+                    progressBar?.isVisible = false
+                }
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Getting Post failed, log a message
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException())
+                // ...
+            }
+        })
+    }
+
+    fun loadAffiliationProductData(
+        context: Context,
+        rv: RecyclerView,
+        affiliationProductList: ArrayList<AffiliationProduct>,
+        reference: Query,
+        reversed: Boolean? = false,
+        progressBar: ProgressBar? = null,
+        horizontalMode: Boolean? = true
+    ) {
+        progressBar?.isVisible = true
+        val TAG = "FIREBASE"
+        reference.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                affiliationProductList.clear()
+                for (article in dataSnapshot.children) {
+                    val data = article.getValue<AffiliationProduct>()
+                    data?.let {
+                        affiliationProductList.add(it)
+                    }
+                }
+                rv.let {
+                    it.setHasFixedSize(true)
+                    it.layoutManager = if (horizontalMode == true) LinearLayoutManager(
+                        context,
+                        LinearLayoutManager.HORIZONTAL,
+                        false
+                    ) else LinearLayoutManager(context)
+                    it.isNestedScrollingEnabled = false
+                    if (reversed == true) {
+                        affiliationProductList.reverse()
+                    }
+                    it.adapter = if (horizontalMode == true) AffiliationProductAdapterHorizontal(
+                        affiliationProductList
+                    ) else AffiliationProductAdapterVertical(affiliationProductList)
+                    progressBar?.isVisible = false
+                }
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Getting Post failed, log a message
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException())
+                // ...
+            }
+        })
+    }
+
+    @SuppressLint("NewApi")
+    fun getRupiahFormat(value: Int): String {
+        val formatter: NumberFormat = DecimalFormat("###,###,###")
+        return StringBuilder("Rp ").append(formatter.format(value).replace(",", ".")).toString()
+    }
+
+    fun openLinkInBrowser(context: Context, url: String) {
+        context.startActivity(
+            Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse(url)
+            )
+        )
+    }
+
+    fun openLinkInWebView(context: Context, url: String) {
+        val intent = Intent(context, WebViewActivity::class.java)
+        intent.putExtra(WebViewActivity.EXTRA_WEBVIEW, url)
+        context.startActivity(intent)
     }
 }

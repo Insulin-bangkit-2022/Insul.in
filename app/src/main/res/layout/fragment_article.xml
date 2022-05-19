@@ -42,11 +42,10 @@
 
 
     <ProgressBar
-        android:id="@+id/progressBarArticle"
-        style="?android:attr/progressBarStyle"
+        android:id="@+id/progress_bar_article"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:indeterminateTint="@color/primary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

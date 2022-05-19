@@ -17,7 +17,7 @@
         android:theme="@style/Theme.Insulin"
         tools:targetApi="31">
         <activity
-            android:name=".ui.afiliation.RecomendationProductActivity"
+            android:name=".ui.afiliation.RecommendationProductActivity"
             android:exported="false" />
         <activity
             android:name=".ui.detection.DetectionActivity"
