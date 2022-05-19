@@ -7,19 +7,18 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.graphics.drawable.Drawable
 import android.location.Geocoder
 import android.net.Uri
-import android.os.Build
 import android.provider.Settings
 import android.view.Gravity
 import android.view.ViewGroup
-import android.view.WindowManager
 import android.widget.*
-import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import com.insulin.app.R
+import java.lang.StringBuilder
+import java.text.SimpleDateFormat
+import java.util.*
 
 object Helper {
 
@@ -115,6 +114,21 @@ object Helper {
         }
 
         dialog.show()
+    }
+
+    /* get greetings for home fragment -> Selamat pagi / siang / sore / malam */
+    @SuppressLint("SimpleDateFormat")
+    fun getWelcomeGreetings(name: String): String {
+        val c: Calendar = Calendar.getInstance()
+        val sdf = SimpleDateFormat("HH")
+        val status = when (sdf.format(c.time).toInt()) {
+            in 0..10 -> "Selamat Pagi, "
+            in 11..14 -> "Selamat Siang, "
+            in 15..17 -> "Selamat Sore, "
+            in 18..23 -> "Selamat Malam, "
+            else -> "Selamat Datang, "
+        }
+        return StringBuilder(status).append(name).toString()
     }
 
 }

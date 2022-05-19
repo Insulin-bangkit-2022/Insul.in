@@ -11,7 +11,10 @@ import com.bumptech.glide.Glide
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.insulin.app.databinding.FragmentProfileBinding
+import com.insulin.app.ui.home.MainActivity
 import com.insulin.app.ui.login.LoginActivity
+import com.insulin.app.ui.webview.WebViewActivity
+import com.insulin.app.utils.Constanta
 
 class ProfileFragment : Fragment() {
 
@@ -34,11 +37,19 @@ class ProfileFragment : Fragment() {
         }
 
         binding.btnLogout.setOnClickListener {
-            val context: Context = (activity as LoginActivity)
-            Firebase.auth.signOut()
-            val intent = Intent(context, LoginActivity::class.java)
-            (activity as LoginActivity).startActivity(intent)
+            (activity as MainActivity).signOut()
+        }
 
+        binding.about.setOnClickListener {
+            val intent = Intent((activity as MainActivity), WebViewActivity::class.java)
+            intent.putExtra(WebViewActivity.EXTRA_WEBVIEW, Constanta.LINK_WEB_TENTANG_APLIKASI)
+            startActivity(intent)
+        }
+
+        binding.attribution.setOnClickListener {
+            val intent = Intent((activity as MainActivity), WebViewActivity::class.java)
+            intent.putExtra(WebViewActivity.EXTRA_WEBVIEW, Constanta.LINK_WEB_ATTRIBUTION)
+            startActivity(intent)
         }
 
         return binding.root

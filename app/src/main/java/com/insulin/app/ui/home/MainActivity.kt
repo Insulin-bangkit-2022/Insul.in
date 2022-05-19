@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import com.google.android.gms.location.DetectedActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.insulin.app.R
@@ -30,11 +31,7 @@ class MainActivity : AppCompatActivity() {
         activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(activityMainBinding.root)
 
-        val user = Firebase.auth.currentUser
-        if (user != null) {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-        }
+        Firebase.auth.currentUser
 
         /* disable dark mode*/
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
@@ -78,6 +75,11 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onStart() {
+        super.onStart()
+        checkUserAuth()
+    }
+
     private fun switchFragment(fragment: Fragment) {
         supportFragmentManager
             .beginTransaction()
@@ -88,6 +90,22 @@ class MainActivity : AppCompatActivity() {
     public fun requestPermission(permissions: Array<String>, permissionCode: Int) {
         ActivityCompat.requestPermissions(this, permissions, permissionCode)
     }
+
+    fun signOut() {
+        Firebase.auth.signOut()
+        checkUserAuth()
+    }
+
+    private fun checkUserAuth() {
+        if (Firebase.auth.currentUser == null) {
+            val intent = Intent(this@MainActivity, LoginActivity::class.java)
+            intent.putExtra(LoginActivity.EXTRA_LOGIN,MainActivity::class.simpleName)
+            startActivity(intent)
+            finish()
+        }
+    }
+
+
 
     override fun onRequestPermissionsResult(
         requestCode: Int,

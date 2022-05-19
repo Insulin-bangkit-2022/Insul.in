@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import androidx.viewpager2.widget.ViewPager2
 import com.insulin.app.R
 import com.insulin.app.adapter.ViewPagerAdapter
-import com.insulin.app.ui.onBoarding.screens.FirstScreen
-import com.insulin.app.ui.onBoarding.screens.SecondScreen
-import com.insulin.app.ui.onBoarding.screens.ThirdScreen
+import com.insulin.app.ui.onBoarding.screens.OnBoarding1Fragment
+import com.insulin.app.ui.onBoarding.screens.OnBoarding2Fragment
+import com.insulin.app.ui.onBoarding.screens.OnBoarding3Fragment
 
 class ViewPagerFragment : Fragment() {
 
@@ -22,9 +22,9 @@ class ViewPagerFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_view_pager, container, false)
 
         val fragmentList = arrayListOf<Fragment>(
-            FirstScreen(),
-            SecondScreen(),
-            ThirdScreen()
+            OnBoarding1Fragment(),
+            OnBoarding2Fragment(),
+            OnBoarding3Fragment()
         )
 
         val viewPagerAdapter = ViewPagerAdapter(

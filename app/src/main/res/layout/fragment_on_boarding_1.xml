@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.onBoarding.OnBoardingActivity">
+
+    <TextView
+        android:id="@+id/btn_skip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_margin="16dp"
+        android:fontFamily="@font/poppins_medium"
+        android:letterSpacing="0.12"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="16dp"
+        android:text="Lewati"
+        android:textColor="@color/primary_dark"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/image"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:transitionName="image"
+        app:layout_constraintBottom_toTopOf="@+id/tv_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/health_insurance" />
+
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/poppins_medium"
+        android:gravity="center"
+
+        android:text="Lakukan Screening Mandiri"
+        android:textColor="@color/primary_dark"
+        android:textSize="24sp"
+        android:transitionName="title"
+        app:layout_constraintBottom_toTopOf="@+id/tv_subtitle"
+        app:layout_constraintTop_toBottomOf="@+id/image"
+        tools:layout_editor_absoluteX="32dp" />
+
+    <TextView
+        android:id="@+id/tv_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:lineHeight="30dp"
+        android:text="Lakukan pengecekan risiko Diabetes secara mudah dan gratis dalam beberapa langkah, Segera cek risiko Diabetes kamu sebelum terlambat"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:transitionName="subtitle"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        tools:layout_editor_absoluteX="32dp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/indicator_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp">
+
+            <ImageView
+                android:id="@+id/indicator_onboarding_1"
+                style="@style/IndicatorOnBoarding.Active"
+                android:transitionName="indicator1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/indicator_onboarding_2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/indicator_onboarding_2"
+                style="@style/IndicatorOnBoarding"
+                android:layout_marginHorizontal="12dp"
+                android:transitionName="indicator2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/indicator_onboarding_3"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/indicator_onboarding_1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/indicator_onboarding_3"
+                style="@style/IndicatorOnBoarding"
+                android:transitionName="indicator3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/indicator_onboarding_2"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp">
+
+            <Button
+                android:id="@+id/btn_prev"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="62dp"
+                android:layout_height="62dp"
+                android:background="@drawable/custom_background_button_onboarding"
+                android:drawableLeft="@drawable/ic_baseline_navigate_before"
+                android:enabled="false"
+                android:padding="16dp"
+                android:transitionName="btnPrev"
+                app:tint="@color/white"
+                tools:ignore="RtlHardcoded" />
+
+            <Button
+                android:id="@+id/btn_next"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="62dp"
+                android:layout_height="62dp"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/custom_background_button_onboarding"
+                android:drawableLeft="@drawable/ic_baseline_navigate_next"
+                android:padding="16dp"
+                android:transitionName="btnNext"
+                app:tint="@color/white"
+                tools:ignore="RtlHardcoded" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

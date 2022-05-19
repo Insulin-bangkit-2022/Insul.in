@@ -37,22 +37,26 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/user_avatar"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:layout_below="@id/app_name"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
+                    android:src="@color/white"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/app_name"
-                    tools:srcCompat="@tools:sample/avatars" />
+                    app:layout_constraintTop_toBottomOf="@+id/app_name" />
 
                 <TextView
                     android:id="@+id/user_display_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="56dp"
+                    android:layout_marginEnd="40dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:paddingTop="4dp"
                     android:fontFamily="@font/poppins_bold"
                     android:text="@string/day_name"
                     android:textColor="@color/white"
@@ -110,10 +114,10 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp"
                 android:orientation="horizontal"
                 android:weightSum="3">
 
