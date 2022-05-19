@@ -11,6 +11,7 @@
     <color name="grey_light">#ECECEC</color>
     <color name="grey_dark">#858585</color>
     <color name="primary">#3ADFC6</color>
+    <color name="primary_soft">#D5FFF9</color>
     <color name="primary_light">#7BFFF9</color>
     <color name="primary_dark">#00AC96</color>
     <color name="secondary">#00838F</color>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.detection.fragment.Symptom1Fragment">
+    tools:context=".ui.detection.fragment.SymptomPolyuria">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -49,7 +49,7 @@
             app:layout_constraintTop_toBottomOf="@+id/question">
 
             <LinearLayout
-                android:id="@+id/option_0"
+                android:id="@+id/option_1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -64,7 +64,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:src="@drawable/ic_detection_yes"
-                    app:tint="@color/primary" />
+                    app:tint="@color/state_success_dark" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -73,12 +73,12 @@
                     android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
                     android:text="Ya"
-                    android:textColor="@color/primary"
+                    android:textColor="@color/state_success_dark"
                     android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/option_1"
+                android:id="@+id/option_0"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -93,7 +93,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:src="@drawable/ic_detection_no"
-                    app:tint="@color/primary" />
+                    app:tint="@color/state_danger_dark" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -102,7 +102,7 @@
                     android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
                     android:text="Tidak"
-                    android:textColor="@color/primary"
+                    android:textColor="@color/state_danger_dark"
                     android:textSize="18sp" />
             </LinearLayout>
         </LinearLayout>

@@ -7,19 +7,18 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.graphics.drawable.Drawable
 import android.location.Geocoder
 import android.net.Uri
-import android.os.Build
 import android.provider.Settings
 import android.view.Gravity
 import android.view.ViewGroup
-import android.view.WindowManager
 import android.widget.*
-import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import com.insulin.app.R
+import java.lang.StringBuilder
+import java.text.SimpleDateFormat
+import java.util.*
 
 object Helper {
 
@@ -113,8 +112,69 @@ object Helper {
                 iconToggle.setImageDrawable(context.getDrawable(R.drawable.ic_baseline_arrow_up))
             }
         }
-
         dialog.show()
     }
 
+    /* dialog info builder for dialog instance invocation -> with customized ok button action*/
+    fun dialogInfoBuilder(
+        context: Context,
+        title: String,
+        body: String
+    ): Dialog {
+        val dialog = Dialog(context)
+        dialog.setCancelable(false)
+        dialog.window!!.apply {
+            attributes.windowAnimations = android.R.transition.fade
+            setGravity(Gravity.CENTER)
+            setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        }
+        dialog.setContentView(R.layout.custom_dialog_info)
+        val dialogTitle: TextView = dialog.findViewById(R.id.dialog_title)
+        val dialogBody: TextView = dialog.findViewById(R.id.dialog_body)
+        dialogTitle.text = title
+        dialogBody.text = body
+        return dialog
+    }
+
+    /* -------------------------
+    *  STRING MANIPULATION
+    * ------------------------- */
+
+
+    /* generate some random string for general purposes */
+    private fun getRandomString(len: Int = 20): String {
+        val alphabet: List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
+        return List(len) { alphabet.random() }.joinToString("")
+    }
+
+    /* -------------------------
+    *  DATE FORMAT
+    * ------------------------- */
+    private const val simpleDatePattern = "dd MMM yyyy HH.mm"
+    private var defaultDate = SimpleDateFormat("yyyy/MM/dd HH:mm:ss", Locale.getDefault())
+    private var diagnoseIdDate = SimpleDateFormat("yyMMdd_HHmmssSSSS", Locale.getDefault())
+
+    /*
+    * DATE INSTANCE
+    * */
+
+    /* current date as Date format */
+    private fun getCurrentDate(): Date {
+        return Date()
+    }
+
+    /* current date as String Format */
+    fun getCurrentDateString(): String = defaultDate.format(getCurrentDate())
+
+
+    /* build date format for diagnose ID purposes */
+    private fun getDiagnoseIdDateString(): String = diagnoseIdDate.format(getCurrentDate())
+
+    /* build diagnose ID format to Firebase DB (save history) */
+    fun getDiagnoseId(uid: String): String {
+        // Format Diagnose ID -> FirebaseUID_220530_1205001234_AbCDeFgHIj
+        return StringBuilder(uid).append("_").append(getDiagnoseIdDateString()).append("_")
+            .append(getRandomString(10)).toString()
+    }
 }

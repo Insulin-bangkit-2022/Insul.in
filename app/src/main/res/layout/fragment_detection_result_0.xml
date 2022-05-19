@@ -38,6 +38,8 @@
                     android:layout_width="128dp"
                     android:layout_height="128dp"
                     android:layout_marginTop="40dp"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
                     app:lottie_rawRes="@raw/success_information" />
 
                 <TextView
@@ -120,7 +122,9 @@
             </LinearLayout>
         </ScrollView>
 
-        <include layout="@layout/container_result_button" />
+        <include
+            android:id="@+id/container_result_button"
+            layout="@layout/container_result_button" />
     </RelativeLayout>
 
 

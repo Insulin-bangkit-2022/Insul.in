@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/state_primary_light"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="100dp">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottie_animation_view_screen2"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="16dp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/checking_sympthoms" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="32dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Konfirmasi Gejala Diabetes"
+                android:textColor="@color/state_primary_dark"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="32dp"
+                android:fontFamily="@font/poppins_regular"
+                android:lineHeight="25dp"
+                android:text="Cek gejala yang sudah anda inputkan pada data berikut ini. Klik lanjutkan untuk melihat hasil deteksi Diabetes."
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <include
+                android:id="@+id/result_detail"
+                layout="@layout/table_result" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/shadow_background"
+        android:elevation="5dp"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:weightSum="2">
+
+        <Button
+            android:drawableLeft="@drawable/ic_baseline_arrow_back"
+            android:drawableTint="@color/state_danger_dark"
+            android:id="@+id/btn_back"
+            style="@style/Button.Danger"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Kembali"
+            android:layout_marginEnd="8dp"/>
+
+        <Button
+            android:drawableRight="@drawable/ic_baseline_arrow_forward"
+            android:drawableTint="@color/state_success_dark"
+            android:layout_marginStart="8dp"
+            android:id="@+id/btn_detection"
+            style="@style/Button.Success"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Lanjutkan" />
+    </LinearLayout>
+
+</RelativeLayout>
