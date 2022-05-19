@@ -9,7 +9,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#C9C9C9</color>
     <color name="grey_light">#ECECEC</color>
-    <color name="grey_dark">#858585</color>
+    <color name="grey_profile">#C3C3C3</color>
+    <color name="grey_dark">#878787</color>
+    <color name="grey_darker">#676767</color>
     <color name="primary">#3ADFC6</color>
     <color name="primary_light">#7BFFF9</color>
     <color name="primary_dark">#00AC96</color>

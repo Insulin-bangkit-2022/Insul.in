@@ -60,6 +60,12 @@
         <item name="android:fontFamily">@font/poppins_medium</item>
     </style>
 
+    <style name="TextTitle.Secondary">
+        <item name="android:textColor">@color/grey_darker</item>
+        <item name="android:drawableTint" tools:ignore="NewApi">@color/grey_darker</item>
+    </style>
+
+
     <style name="roundedImageView" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">10dp</item>
@@ -76,6 +82,7 @@
     <style name="Button">
         <item name="backgroundTint">@null</item>
         <item name="android:layout_width">match_parent</item>
+        <item name="android:stateListAnimator">@null</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">14sp</item>
         <item name="android:paddingTop">8dp</item>
@@ -85,9 +92,14 @@
     </style>
 
     <style name="Button.Profile" parent="Button">
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
         <item name="android:textAlignment">textStart</item>
         <item name="android:textColor">@color/grey_dark</item>
-        <item name="android:layout_margin">16dp</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:drawableTint" tools:ignore="NewApi">@color/grey_dark</item>
         <item name="android:background">@drawable/button_grey</item>
     </style>
 
@@ -110,4 +122,17 @@
         <item name="android:textColor">@color/state_primary_dark</item>
         <item name="android:background">@drawable/button_primary</item>
     </style>
+
+    <style name="IndicatorOnBoarding">
+        <item name="android:layout_width">12dp</item>
+        <item name="android:layout_height">12dp</item>
+        <item name="android:src">@drawable/ic_onboarding_indicator</item>
+    </style>
+
+    <style name="IndicatorOnBoarding.Active" parent="IndicatorOnBoarding">
+        <item name="android:layout_width">16dp</item>
+        <item name="android:layout_height">16dp</item>
+        <item name="android:tint">@color/primary</item>
+    </style>
+
 </resources>

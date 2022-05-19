@@ -15,11 +15,19 @@
       },
       "oauth_client": [
         {
-          "client_id": "1072370297958-mne3sgot8ftg5mf0b8k8i48ai7n3qrjm.apps.googleusercontent.com",
+          "client_id": "1072370297958-di11t27ho795khkvfvgp6lcbt3gm6m6o.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.insulin.app",
             "certificate_hash": "82dd2a43789843ac9603ee67368fd4adad3e65e4"
+          }
+        },
+        {
+          "client_id": "1072370297958-k6bnb4dg7o836fuivnrgtvbqo4dddeq5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.insulin.app",
+            "certificate_hash": "c3ee9387df36483cb5c474316349a80b0941230d"
           }
         },
         {

@@ -1,89 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="80dp"
+    android:layout_height="wrap_content"
+    android:background="@color/primary"
+
     tools:context=".ui.home.fragment.ProfileFragment">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/civ_user_profile"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="70dp"
-        app:civ_border_color="@android:color/darker_gray"
-        app:civ_border_width="2dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/name"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/civ_user_profile" />
-
-    <TextView
-        android:id="@+id/email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/email"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/name" />
-
-    <Button
-        android:id="@+id/about"
-        style="@style/Button.Profile"
-        android:layout_marginTop="48dp"
-        android:drawableLeft="@drawable/ic_baseline_info_24"
-        android:text="@string/about_application"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/email" />
-
-    <Button
-        android:id="@+id/attribute"
-        style="@style/Button.Profile"
-        android:drawableLeft="@drawable/ic_baseline_cloud_24"
-        android:text="@string/attribute_data"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/about" />
-
-    <Button
-        android:id="@+id/privacy"
-        style="@style/Button.Profile"
-        android:drawableLeft="@drawable/ic_baseline_lock_24"
-        android:text="@string/privacy"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/attribute" />
-
-    <Button
-        android:id="@+id/btn_logout"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:background="@drawable/button_danger"
-        android:fontFamily="@font/poppins_medium"
-        android:paddingVertical="8dp"
-        android:text="Keluar"
-        android:layout_marginTop="80dp"
-        android:textAllCaps="false"
-        android:textColor="@color/state_danger_dark"
-        app:backgroundTint="@null"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/privacy" />
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civ_user_profile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="60dp"
+            android:src="@color/secondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/name"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/civ_user_profile" />
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/email"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/name" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_login_banner_bottom"
+            android:orientation="vertical"
+            android:paddingTop="20dp"
+            android:paddingBottom="120dp">
+
+            <TextView
+                style="@style/TextTitle.Secondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="16dp"
+                android:drawablePadding="8dp"
+                android:text="Pengaturan Aplikasi"
+                android:textSize="18sp"
+                app:drawableLeftCompat="@drawable/ic_baseline_miscellaneous" />
+
+            <Button
+                android:id="@+id/reminder"
+                style="@style/Button.Profile"
+                android:drawableLeft="@drawable/ic_baseline_timer"
+                android:drawableRight="@drawable/ic_baseline_navigate_next"
+                android:text="Pengingat Deteksi Rutin"
+                tools:ignore="RtlHardcoded" />
+
+            <TextView
+                style="@style/TextTitle.Secondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="16dp"
+                android:drawablePadding="8dp"
+                android:text="Seputar Aplikasi"
+                android:textSize="18sp"
+                app:drawableLeftCompat="@drawable/ic_baseline_category" />
+
+            <Button
+                android:id="@+id/about"
+                style="@style/Button.Profile"
+                android:drawableLeft="@drawable/ic_baseline_info_24"
+                android:drawableRight="@drawable/ic_baseline_navigate_next"
+                android:text="@string/about_application"
+                tools:ignore="RtlHardcoded" />
+
+            <Button
+                android:id="@+id/attribution"
+                style="@style/Button.Profile"
+                android:drawableLeft="@drawable/ic_baseline_cloud_24"
+                android:drawableRight="@drawable/ic_baseline_navigate_next"
+                android:text="@string/attribute_data"
+                tools:ignore="RtlHardcoded" />
+
+            <Button
+                android:id="@+id/privacy"
+                style="@style/Button.Profile"
+                android:drawableLeft="@drawable/ic_baseline_lock_24"
+                android:drawableRight="@drawable/ic_baseline_navigate_next"
+                android:text="@string/privacy"
+                tools:ignore="RtlHardcoded" />
+
+            <TextView
+                style="@style/TextTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="16dp"
+                android:drawablePadding="8dp"
+                android:text="Zona Merah"
+                android:textColor="@color/state_danger_dark"
+                android:textSize="18sp"
+                app:drawableLeftCompat="@drawable/ic_baseline_dangerous"
+                app:drawableTint="@color/state_danger_dark" />
+
+            <Button
+                android:id="@+id/btn_logout"
+                style="@style/Button.Danger"
+                android:layout_marginHorizontal="16dp"
+                android:text="Keluar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/privacy" />
+        </LinearLayout>
+    </LinearLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
