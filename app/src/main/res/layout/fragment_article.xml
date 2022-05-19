@@ -34,6 +34,7 @@
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="16dp"
                 android:paddingTop="16dp"
+                android:paddingBottom="100dp"
                 tools:itemCount="10"
                 tools:listitem="@layout/item_article_list" />
         </androidx.core.widget.NestedScrollView>
