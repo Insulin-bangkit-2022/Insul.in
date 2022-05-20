@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.home.fragment.ArticleFragment">
+    tools:context=".ui.afiliation.RecommendationProductActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,6 +25,7 @@
             app:titleTextColor="@color/white" />
 
         <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar">
@@ -64,6 +65,7 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/label_c0"
                     style="@style/TextSubTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -80,12 +82,13 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        tools:itemCount="10"
+                        tools:itemCount="5"
                         tools:listitem="@layout/item_affiliation_compact" />
                 </HorizontalScrollView>
 
 
                 <TextView
+                    android:id="@+id/label_c1"
                     style="@style/TextSubTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -97,10 +100,27 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="16dp"
-                    tools:itemCount="5"
+                    tools:itemCount="3"
                     tools:listitem="@layout/item_affiliation_wide" />
 
                 <TextView
+                    android:id="@+id/label_c3"
+                    style="@style/TextSubTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="💊 Suplemen &amp; Vitamin" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_affiliation_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="16dp"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_affiliation_wide" />
+
+                <TextView
+                    android:id="@+id/label_c2"
                     style="@style/TextSubTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -112,7 +132,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="16dp"
-                    tools:itemCount="5"
+                    tools:itemCount="3"
                     tools:listitem="@layout/item_affiliation_wide" />
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
