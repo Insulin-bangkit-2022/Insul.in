@@ -4,7 +4,7 @@ import com.google.firebase.database.PropertyName
 
 data class AffiliationProduct (
     @PropertyName("product_category")
-    var product_category: String = "",
+    var product_category: Int = 0,
 
     @PropertyName("product_url")
     var product_url: String = "",
