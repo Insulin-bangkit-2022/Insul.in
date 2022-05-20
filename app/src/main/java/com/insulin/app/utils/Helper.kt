@@ -16,7 +16,9 @@ import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.ProgressBar
+import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -375,4 +377,38 @@ object Helper {
         intent.putExtra(WebViewActivity.EXTRA_WEBVIEW, url)
         context.startActivity(intent)
     }
+
+    fun versionCompare(v1: String, v2: String): Int {
+        /* sources : https://www.geeksforgeeks.org/compare-two-version-numbers/ */
+        var vnum1 = 0
+        var vnum2 = 0
+        var i = 0
+        var j = 0
+        while (i < v1.length
+            || j < v2.length
+        ) {
+            while (i < v1.length
+                && v1[i] != '.'
+            ) {
+                vnum1 = (vnum1 * 10
+                        + (v1[i] - '0'))
+                i++
+            }
+            while (j < v2.length
+                && v2[j] != '.'
+            ) {
+                vnum2 = (vnum2 * 10
+                        + (v2[j] - '0'))
+                j++
+            }
+            if (vnum1 > vnum2) return 1
+            if (vnum2 > vnum1) return -1
+            vnum2 = 0
+            vnum1 = vnum2
+            i++
+            j++
+        }
+        return 0
+    }
+
 }
