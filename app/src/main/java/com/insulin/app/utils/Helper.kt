@@ -14,6 +14,7 @@ import android.net.Uri
 import android.provider.Settings
 import android.util.Log
 import android.view.Gravity
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.*
 import androidx.core.content.ContextCompat
@@ -31,6 +32,9 @@ import com.insulin.app.adapter.article.AffiliationProductAdapterVertical
 import com.insulin.app.adapter.article.ArticleAdapter
 import com.insulin.app.data.model.AffiliationProduct
 import com.insulin.app.data.model.Article
+import com.insulin.app.data.model.Detection
+import com.insulin.app.databinding.CustomDialogDetectionResult0Binding
+import com.insulin.app.databinding.CustomDialogDetectionResult1Binding
 import com.insulin.app.ui.webview.WebViewActivity
 import java.text.SimpleDateFormat
 import java.util.*
@@ -88,11 +92,16 @@ object Helper {
     *  CUSTOM DIALOG
     * ------------------------- */
 
+    fun parseBooleanAnswerDetection(answer: Boolean): String {
+        return if (answer) "Ya" else "Tidak"
+    }
+
     /* custom dialog info builder -> reuse to another invocation with custom ok button action */
     @SuppressLint("UseCompatLoadingForDrawables")
     fun showDialogDiagnoseResult(
         context: Context,
-        isDiabetes: Boolean
+        isDiabetes: Boolean,
+        data: Detection
     ) {
         val dialog = Dialog(context)
         dialog.setCancelable(false)
@@ -102,31 +111,91 @@ object Helper {
             setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         }
-        val layout =
-            if (isDiabetes) R.layout.custom_dialog_detection_result_1 else R.layout.custom_dialog_detection_result_0
-        dialog.setContentView(layout)
-        val btnClose: Button = dialog.findViewById(R.id.btn_close_dialog)
-        val resultToggle: RelativeLayout = dialog.findViewById(R.id.result_toggle)
-        val resultDetail: TableLayout = dialog.findViewById(R.id.result_detail)
-        val iconToggle: ImageView = dialog.findViewById(R.id.icon_toggle)
-        btnClose.setOnClickListener {
-            dialog.dismiss()
-        }
 
-        /* init layout -> hide data */
-        resultDetail.isVisible = false
-        iconToggle.setImageDrawable(context.getDrawable(R.drawable.ic_baseline_arrow_down))
+        if (isDiabetes) {
+            val binding = CustomDialogDetectionResult1Binding.inflate(LayoutInflater.from(context))
+            dialog.setContentView(binding.root)
+            binding.btnCloseDialog.setOnClickListener { dialog.dismiss() }
 
-        /* if toggle show data clicked */
-        resultToggle.setOnClickListener {
-            /* if detail expanded */
-            if (resultDetail.isVisible) {
-                resultDetail.isVisible = false
-                iconToggle.setImageDrawable(context.getDrawable(R.drawable.ic_baseline_arrow_down))
-            } else {
-                resultDetail.isVisible = true
-                iconToggle.setImageDrawable(context.getDrawable(R.drawable.ic_baseline_arrow_up))
+            /* init layout -> hide table data */
+            binding.resultDetail.root.isVisible = false
+            binding.iconToggle.setImageDrawable(context.getDrawable(R.drawable.ic_baseline_arrow_down))
+            binding.resultToggle.setOnClickListener {
+                /* if detail expanded */
+                if (binding.resultDetail.root.isVisible) {
+                    binding.resultDetail.root.isVisible = false
+                    binding.iconToggle.setImageDrawable(context.getDrawable(R.drawable.ic_baseline_arrow_down))
+                } else {
+                    binding.resultDetail.root.isVisible = true
+                    binding.iconToggle.setImageDrawable(context.getDrawable(R.drawable.ic_baseline_arrow_up))
+                }
             }
+
+            binding.diagnoseTime.text =
+                StringBuilder("Deteksi pada ").append(reformatDateToSimpleDate(data.detectionTime))
+
+            /* init table data */
+            binding.resultDetail.isPolyuria.text = parseBooleanAnswerDetection(data.isPolyuria)
+            binding.resultDetail.isPolydipsia.text = parseBooleanAnswerDetection(data.isPolydipsia)
+            binding.resultDetail.isWeightLoss.text = parseBooleanAnswerDetection(data.isWeightLoss)
+            binding.resultDetail.isWeakness.text = parseBooleanAnswerDetection(data.isWeakness)
+            binding.resultDetail.isPolyphagia.text = parseBooleanAnswerDetection(data.isPolyphagia)
+            binding.resultDetail.isGenitalThrus.text =
+                parseBooleanAnswerDetection(data.isGenitalThrus)
+            binding.resultDetail.isItching.text = parseBooleanAnswerDetection(data.isItching)
+            binding.resultDetail.isIrritability.text =
+                parseBooleanAnswerDetection(data.isIrritability)
+            binding.resultDetail.isDelayedHealing.text =
+                parseBooleanAnswerDetection(data.isDelayedHealing)
+            binding.resultDetail.isPartialParesis.text =
+                parseBooleanAnswerDetection(data.isPartialParesis)
+            binding.resultDetail.isMuscleStiffness.text =
+                parseBooleanAnswerDetection(data.isMuscleStiffness)
+            binding.resultDetail.isAlopecia.text = parseBooleanAnswerDetection(data.isAlopecia)
+            binding.resultDetail.isObesity.text = parseBooleanAnswerDetection(data.isObesity)
+            binding.resultDetail.isDiabetes.text = parseBooleanAnswerDetection(data.isDiabetes)
+        } else {
+            val binding = CustomDialogDetectionResult0Binding.inflate(LayoutInflater.from(context))
+            dialog.setContentView(binding.root)
+            binding.btnCloseDialog.setOnClickListener { dialog.dismiss() }
+
+            /* init layout -> hide table data */
+            binding.resultDetail.root.isVisible = false
+            binding.iconToggle.setImageDrawable(context.getDrawable(R.drawable.ic_baseline_arrow_down))
+            binding.resultToggle.setOnClickListener {
+                /* if detail expanded */
+                if (binding.resultDetail.root.isVisible) {
+                    binding.resultDetail.root.isVisible = false
+                    binding.iconToggle.setImageDrawable(context.getDrawable(R.drawable.ic_baseline_arrow_down))
+                } else {
+                    binding.resultDetail.root.isVisible = true
+                    binding.iconToggle.setImageDrawable(context.getDrawable(R.drawable.ic_baseline_arrow_up))
+                }
+            }
+
+            binding.diagnoseTime.text =
+                StringBuilder("Deteksi pada ").append(reformatDateToSimpleDate(data.detectionTime))
+
+            /* init table data */
+            binding.resultDetail.isPolyuria.text = parseBooleanAnswerDetection(data.isPolyuria)
+            binding.resultDetail.isPolydipsia.text = parseBooleanAnswerDetection(data.isPolydipsia)
+            binding.resultDetail.isWeightLoss.text = parseBooleanAnswerDetection(data.isWeightLoss)
+            binding.resultDetail.isWeakness.text = parseBooleanAnswerDetection(data.isWeakness)
+            binding.resultDetail.isPolyphagia.text = parseBooleanAnswerDetection(data.isPolyphagia)
+            binding.resultDetail.isGenitalThrus.text =
+                parseBooleanAnswerDetection(data.isGenitalThrus)
+            binding.resultDetail.isItching.text = parseBooleanAnswerDetection(data.isItching)
+            binding.resultDetail.isIrritability.text =
+                parseBooleanAnswerDetection(data.isIrritability)
+            binding.resultDetail.isDelayedHealing.text =
+                parseBooleanAnswerDetection(data.isDelayedHealing)
+            binding.resultDetail.isPartialParesis.text =
+                parseBooleanAnswerDetection(data.isPartialParesis)
+            binding.resultDetail.isMuscleStiffness.text =
+                parseBooleanAnswerDetection(data.isMuscleStiffness)
+            binding.resultDetail.isAlopecia.text = parseBooleanAnswerDetection(data.isAlopecia)
+            binding.resultDetail.isObesity.text = parseBooleanAnswerDetection(data.isObesity)
+            binding.resultDetail.isDiabetes.text = parseBooleanAnswerDetection(data.isDiabetes)
         }
         dialog.show()
     }

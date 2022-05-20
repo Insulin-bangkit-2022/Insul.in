@@ -50,7 +50,8 @@ class HistoryAdapter(private val data: ArrayList<Detection>) :
             binding.root.setOnClickListener {
                 Helper.showDialogDiagnoseResult(
                     binding.root.context,
-                    isDiabetes = history.isDiabetes
+                    isDiabetes = history.isDiabetes,
+                    data = history
                 )
             }
         }

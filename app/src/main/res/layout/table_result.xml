@@ -13,6 +13,7 @@
             android:text="Sering buang air kecil?" />
 
         <TextView
+            android:id="@+id/isPolyuria"
             style="@style/TextTableResultBody"
             android:text="Ya / Tidak" />
     </TableRow>
@@ -24,6 +25,7 @@
             android:text="Sering merasa haus?" />
 
         <TextView
+            android:id="@+id/isPolydipsia"
             style="@style/TextTableResultBody"
             android:text="Ya / Tidak" />
     </TableRow>
@@ -35,6 +37,7 @@
             android:text="Turun berat badan tiba-tiba?" />
 
         <TextView
+            android:id="@+id/isWeightLoss"
             style="@style/TextTableResultBody"
             android:text="Ya / Tidak" />
     </TableRow>
@@ -46,6 +49,7 @@
             android:text="Sering merasa lemas?" />
 
         <TextView
+            android:id="@+id/isWeakness"
             style="@style/TextTableResultBody"
             android:text="Ya / Tidak" />
     </TableRow>
@@ -57,6 +61,7 @@
             android:text="Sering merasa lapar / nafsu makan meningkat?" />
 
         <TextView
+            android:id="@+id/isPolyphagia"
             style="@style/TextTableResultBody"
             android:text="Ya / Tidak" />
     </TableRow>
@@ -68,6 +73,7 @@
             android:text="Sering merasa gatal pada alat kelamin?" />
 
         <TextView
+            android:id="@+id/isGenitalThrus"
             style="@style/TextTableResultBody"
             android:text="Ya / Tidak" />
     </TableRow>
@@ -79,9 +85,11 @@
             android:text="Sering merasa gatal pada badan?" />
 
         <TextView
+            android:id="@+id/isItching"
             style="@style/TextTableResultBody"
             android:text="Ya / Tidak" />
     </TableRow>
+
     <TableRow style="@style/TableResult">
 
         <TextView
@@ -89,9 +97,11 @@
             android:text="Mudah merasa marah / emosi?" />
 
         <TextView
+            android:id="@+id/isIrritability"
             style="@style/TextTableResultBody"
             android:text="Ya / Tidak" />
     </TableRow>
+
     <TableRow style="@style/TableResult">
 
         <TextView
@@ -99,9 +109,11 @@
             android:text="Luka sulit sembuh / kering?" />
 
         <TextView
+            android:id="@+id/isDelayedHealing"
             style="@style/TextTableResultBody"
             android:text="Ya / Tidak" />
     </TableRow>
+
     <TableRow style="@style/TableResult">
 
         <TextView
@@ -109,9 +121,11 @@
             android:text="Mengalami kelumpuhan pada sebagian tubuh (kaku)?" />
 
         <TextView
+            android:id="@+id/isPartialParesis"
             style="@style/TextTableResultBody"
             android:text="Ya / Tidak" />
     </TableRow>
+
     <TableRow style="@style/TableResult">
 
         <TextView
@@ -119,9 +133,11 @@
             android:text="Otot kaku / kram setelah beraktifitas lama?" />
 
         <TextView
+            android:id="@+id/isMuscleStiffness"
             style="@style/TextTableResultBody"
             android:text="Ya / Tidak" />
     </TableRow>
+
     <TableRow style="@style/TableResult">
 
         <TextView
@@ -129,9 +145,11 @@
             android:text="Rambut rontok dan sulit tumbuh atau mengalami kebotakan?" />
 
         <TextView
+            android:id="@+id/isAlopecia"
             style="@style/TextTableResultBody"
             android:text="Ya / Tidak" />
     </TableRow>
+
     <TableRow style="@style/TableResult">
 
         <TextView
@@ -139,7 +157,44 @@
             android:text="Mengalami obesitas / kelebihan berat badan?" />
 
         <TextView
+            android:id="@+id/isObesity"
             style="@style/TextTableResultBody"
             android:text="Ya / Tidak" />
+    </TableRow>
+
+    <TableRow style="@style/TableResult" >
+
+        <View
+            android:layout_marginVertical="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_weight="10"
+            android:background="@color/black"/>
+    </TableRow>
+
+    <TableRow style="@style/TableResult" >
+
+        <TextView
+            style="@style/TextTableResultHeader"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Hasil Diagnosis"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/isDiabetes"
+            style="@style/TextTableResultBody"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Ya / Tidak"
+            android:textSize="16sp" />
+    </TableRow>
+
+    <TableRow style="@style/TableResult" >
+
+        <View
+            android:layout_marginVertical="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_weight="10"
+            android:background="@color/black"/>
     </TableRow>
 </TableLayout>
