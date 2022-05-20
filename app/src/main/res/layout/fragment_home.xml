@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary_dark"
     tools:context=".ui.home.fragment.HomeFragment">
 
     <ScrollView
+        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -85,7 +87,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
-                style="@style/TextTitle"
+                style="@style/TextSubTitle"
                 android:layout_marginTop="20dp"
                 android:text="🤩 Hanya ada di Insul.in" />
 
@@ -254,7 +256,7 @@
             </LinearLayout>
 
             <TextView
-                style="@style/TextTitle"
+                style="@style/TextSubTitle"
                 android:layout_marginTop="16dp"
                 android:text="🔥 Artikel Terbaru" />
 
@@ -287,7 +289,7 @@
                 android:textSize="14sp" />
 
             <TextView
-                style="@style/TextTitle"
+                style="@style/TextSubTitle"
                 android:text="♥ Produk Rekomendasi Diabetes" />
 
             <ProgressBar

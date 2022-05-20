@@ -19,8 +19,8 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/primary"
-            app:title="📰 Articles"
+            android:background="@drawable/custom_toolbar_banner"
+            app:title="📰 Artikel Pilihan"
             app:titleTextColor="@color/white" />
 
         <androidx.core.widget.NestedScrollView

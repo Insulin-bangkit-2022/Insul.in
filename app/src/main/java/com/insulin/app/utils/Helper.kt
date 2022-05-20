@@ -17,7 +17,6 @@ import android.view.Gravity
 import android.view.ViewGroup
 import android.widget.*
 import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.startActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -170,6 +169,7 @@ object Helper {
     * ------------------------- */
     private const val simpleDatePattern = "dd MMM yyyy HH.mm"
     private var defaultDate = SimpleDateFormat("yyyy/MM/dd HH:mm:ss", Locale.getDefault())
+    private var simpletDate = SimpleDateFormat("dd MMM yyyy | HH:mm", Locale.getDefault())
     private var diagnoseIdDate = SimpleDateFormat("yyMMdd_HHmmssSSSS", Locale.getDefault())
 
     /*
@@ -183,6 +183,11 @@ object Helper {
 
     /* current date as String Format */
     fun getCurrentDateString(): String = defaultDate.format(getCurrentDate())
+
+    fun reformatDateToSimpleDate(dateString: String): String {
+        val dateValue = defaultDate.parse(dateString) as Date
+        return simpletDate.format(dateValue)
+    }
 
 
     /* build date format for diagnose ID purposes */

@@ -29,18 +29,29 @@ class HistoryAdapter(private val data: ArrayList<Detection>) :
 
     inner class ViewHolder(private val binding: ItemHistoryListBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        @SuppressLint("UseCompatLoadingForDrawables")
+        @SuppressLint("UseCompatLoadingForDrawables", "NewApi")
         fun bind(history: Detection) {
             if (history.isDiabetes) {
                 binding.ivDiagnoseResultIcon.setImageDrawable(binding.root.context.getDrawable(R.drawable.ic_detection_no))
-                binding.tvDiagnoseResult.text = "Risiko Tinggi"
+                binding.tvDiagnoseResult.let {
+                    it.text = "Risiko Tinggi"
+                    it.setTextColor(itemView.context.getColor(R.color.state_danger_dark))
+                }
+                binding.container.setBackgroundResource(R.drawable.custom_background_rv_danger)
             } else {
                 binding.ivDiagnoseResultIcon.setImageDrawable(binding.root.context.getDrawable(R.drawable.ic_detection_yes))
-                binding.tvDiagnoseResult.text = "Risiko Rendah"
+                binding.tvDiagnoseResult.let {
+                    it.text = "Risiko Rendah"
+                    it.setTextColor(itemView.context.getColor(R.color.state_success_dark))
+                }
+                binding.container.setBackgroundResource(R.drawable.custom_background_rv_success)
             }
-            binding.tvDiagnoseTime.text = history.detectionTime
+            binding.tvDiagnoseTime.text = Helper.reformatDateToSimpleDate(history.detectionTime)
             binding.root.setOnClickListener {
-                Helper.showDialogDiagnoseResult(binding.root.context, isDiabetes = history.isDiabetes)
+                Helper.showDialogDiagnoseResult(
+                    binding.root.context,
+                    isDiabetes = history.isDiabetes
+                )
             }
         }
     }
