@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.viewModels
 import androidx.fragment.app.activityViewModels
 import com.insulin.app.R
 import com.insulin.app.data.viewmodel.DetectionViewModel
@@ -16,7 +15,7 @@ import com.insulin.app.ui.detection.DetectionActivity
 import kotlin.random.Random
 
 
-class DetectionResult0 : Fragment() {
+class DetectionResult1 : Fragment() {
     private lateinit var binding: FragmentDetectionResult0Binding
     private val viewModel: DetectionViewModel by activityViewModels()
     override fun onCreateView(
@@ -32,7 +31,6 @@ class DetectionResult0 : Fragment() {
                 (activity as DetectionActivity).saveDataToFirebase(detection)
             }
         }
-
         return binding.root
     }
 
