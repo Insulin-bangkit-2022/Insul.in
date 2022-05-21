@@ -12,5 +12,6 @@ class ReminderNotificationsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityReminderNotificationsBinding.inflate(layoutInflater)
         setContentView(binding?.root)
+        // test
     }
 }
