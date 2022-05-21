@@ -13,6 +13,7 @@ import com.google.firebase.ktx.Firebase
 import com.insulin.app.databinding.FragmentProfileBinding
 import com.insulin.app.ui.home.MainActivity
 import com.insulin.app.ui.login.LoginActivity
+import com.insulin.app.ui.reminderNotifications.ReminderNotificationsActivity
 import com.insulin.app.ui.webview.WebViewActivity
 import com.insulin.app.utils.Constanta
 
@@ -38,6 +39,11 @@ class ProfileFragment : Fragment() {
 
         binding.btnLogout.setOnClickListener {
             (activity as MainActivity).signOut()
+        }
+
+        binding.reminder.setOnClickListener {
+            val intent = Intent((activity as MainActivity), ReminderNotificationsActivity::class.java)
+            startActivity(intent)
         }
 
         binding.about.setOnClickListener {

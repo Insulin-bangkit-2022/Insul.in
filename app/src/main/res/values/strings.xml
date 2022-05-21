@@ -29,4 +29,9 @@
     <!-- Client ID -->
     <string name="client_id">1072370297958-f857b28dk6rqvneca3h4e2d96g7snmsm.apps.googleusercontent.com</string>
     <string name="day_name">Selamat Pagi, %1$s</string>
+    <string name="frequency">Frekuensi</string>
+    <string name="day">Hari</string>
+    <string name="time">Waktu</string>
+    <string name="active">Aktifkan</string>
+    <string name="time_stamp">00.00</string>
 </resources>
