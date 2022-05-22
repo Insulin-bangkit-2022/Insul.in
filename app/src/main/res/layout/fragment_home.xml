@@ -7,10 +7,10 @@
     android:background="@color/primary_dark"
     tools:context=".ui.home.fragment.HomeFragment">
 
-    <ScrollView
-        android:background="@color/white"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/white">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -258,6 +258,67 @@
             <TextView
                 style="@style/TextSubTitle"
                 android:layout_marginTop="16dp"
+                android:text="⌛ Riwayat Deteksi" />
+
+            <ProgressBar
+                android:id="@+id/progress_bar_history"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminateTint="@color/primary" />
+
+            <LinearLayout
+                android:id="@+id/label_never_detecting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="- Anda belum pernah melakukan Deteksi -"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/btn_detection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="16dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:padding="8dp"
+                    android:text="Coba Deteksi"
+                    android:textAlignment="center"
+                    android:textColor="@color/secondary" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_history"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                tools:itemCount="3"
+                tools:listitem="@layout/item_history_list" />
+
+            <TextView
+                android:id="@+id/btn_more_detection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="16dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center_horizontal"
+                android:paddingVertical="10dp"
+                android:text="Lihat selengkapnya"
+                android:textColor="@color/primary_dark"
+                android:textSize="14sp" />
+            <TextView
+                style="@style/TextSubTitle"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:text="🔥 Artikel Terbaru" />
 
             <ProgressBar
@@ -331,6 +392,6 @@
         </LinearLayout>
 
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </FrameLayout>

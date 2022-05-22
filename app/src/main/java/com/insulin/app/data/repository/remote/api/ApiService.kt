@@ -6,7 +6,7 @@ import retrofit2.http.*
 
 interface ApiService {
 
-    @GET("")
+    @GET(".")
     fun diagnoseDiabetes(): Call<DetectionResponse>
 
 }

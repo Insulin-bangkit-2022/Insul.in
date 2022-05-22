@@ -13,21 +13,42 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <LinearLayout
-            android:padding="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:ellipsize="end"
-                android:fontFamily="@font/poppins_bold"
-                android:maxLines="2"
-                android:text="Hasil Deteksi"
-                android:textColor="@color/state_success_dark"
-                android:textSize="20sp" />
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="90"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/poppins_bold"
+                    android:maxLines="2"
+                    android:paddingTop="4dp"
+                    android:layout_gravity="center_vertical"
+                    android:text="Hasil Deteksi"
+                    android:textColor="@color/state_success_dark"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:paddingVertical="8dp"
+                    android:id="@+id/btn_delete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="10"
+                    android:src="@drawable/ic_baseline_delete"
+                    app:tint="@color/state_danger_dark" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/diagnose_time"
@@ -42,23 +63,24 @@
                 android:textSize="12sp" />
 
             <com.airbnb.lottie.LottieAnimationView
-                android:layout_gravity="center"
-                android:layout_marginTop="16dp"
                 android:id="@+id/lottie_animation_view_screen2"
                 android:layout_width="128dp"
                 android:layout_height="128dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true"
                 app:lottie_rawRes="@raw/success_information" />
+
             <TextView
                 android:id="@+id/diagnose_risk"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="16dp"
                 android:ellipsize="end"
-                android:layout_gravity="center"
-                android:letterSpacing="0.01"
                 android:fontFamily="@font/poppins_bold"
+                android:letterSpacing="0.01"
                 android:text="Risiko Rendah"
                 android:textColor="@color/state_success_dark"
                 android:textSize="16sp" />
@@ -68,9 +90,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:textAlignment="center"
                 android:fontFamily="@font/poppins_regular"
                 android:text="Selamat, Kamu berpotensi rendah terkena diabetes dari hasil diagnosa awal dengan Insul.in"
+                android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 

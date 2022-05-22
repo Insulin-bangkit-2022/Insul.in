@@ -4,6 +4,10 @@ import com.google.firebase.database.PropertyName
 import com.insulin.app.utils.Constanta
 
 data class Detection(
+
+    @PropertyName("id")
+    var detection_id: String = "",
+
     @PropertyName("diabetes")
     var isDiabetes: Boolean = false,
 

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/state_primary_light"
+    android:background="@color/grey_super_light"
     android:orientation="vertical">
 
     <ScrollView
@@ -34,7 +34,7 @@
                 android:layout_marginHorizontal="32dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Konfirmasi Gejala Diabetes"
-                android:textColor="@color/state_primary_dark"
+                android:textColor="@color/grey_dark"
                 android:textSize="18sp" />
 
             <TextView
@@ -73,9 +73,9 @@
 
         <Button
             android:drawableLeft="@drawable/ic_baseline_arrow_back"
-            android:drawableTint="@color/state_danger_dark"
+            android:drawableTint="@color/grey_dark"
             android:id="@+id/btn_back"
-            style="@style/Button.Danger"
+            style="@style/Button.Grey"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:text="Kembali"

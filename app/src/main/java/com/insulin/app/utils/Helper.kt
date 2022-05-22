@@ -1,6 +1,7 @@
 package com.insulin.app.utils
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
@@ -16,6 +17,7 @@ import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
@@ -23,11 +25,11 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.Query
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
+import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
+import com.google.firebase.ktx.Firebase
 import com.insulin.app.R
 import com.insulin.app.adapter.article.AffiliationProductAdapterHorizontal
 import com.insulin.app.adapter.article.AffiliationProductAdapterVertical
@@ -37,6 +39,8 @@ import com.insulin.app.data.model.Article
 import com.insulin.app.data.model.Detection
 import com.insulin.app.databinding.CustomDialogDetectionResult0Binding
 import com.insulin.app.databinding.CustomDialogDetectionResult1Binding
+import com.insulin.app.ui.detection.HistoryAdapter
+import com.insulin.app.ui.home.MainActivity
 import com.insulin.app.ui.webview.WebViewActivity
 import java.text.SimpleDateFormat
 import java.util.*
@@ -132,6 +136,9 @@ object Helper {
                     binding.iconToggle.setImageDrawable(context.getDrawable(R.drawable.ic_baseline_arrow_up))
                 }
             }
+            binding.btnDelete.setOnClickListener {
+                removeDetectionHistoryFromDialog(context, data, dialog)
+            }
 
             binding.diagnoseTime.text =
                 StringBuilder("Deteksi pada ").append(reformatDateToSimpleDate(data.detectionTime))
@@ -174,6 +181,9 @@ object Helper {
                     binding.iconToggle.setImageDrawable(context.getDrawable(R.drawable.ic_baseline_arrow_up))
                 }
             }
+            binding.btnDelete.setOnClickListener {
+                removeDetectionHistoryFromDialog(context, data, dialog)
+            }
 
             binding.diagnoseTime.text =
                 StringBuilder("Deteksi pada ").append(reformatDateToSimpleDate(data.detectionTime))
@@ -200,6 +210,35 @@ object Helper {
             binding.resultDetail.isDiabetes.text = parseBooleanAnswerDetection(data.isDiabetes)
         }
         dialog.show()
+    }
+
+    private fun removeDetectionHistoryFromDialog(
+        context: Context,
+        data: Detection,
+        dialogDetection: Dialog
+    ) {
+        val alertdialogbuilder = AlertDialog.Builder(context)
+        alertdialogbuilder.setTitle("Hapus Riwayat")
+        alertdialogbuilder.setMessage("Apakah anda ingin menghapus data deteksi ini?")
+        alertdialogbuilder.setPositiveButton("Ya") { alertDialog, _ ->
+            alertDialog.dismiss()
+            val uid = FirebaseAuth.getInstance().currentUser?.uid
+            FirebaseDatabase.getInstance().reference
+                .child("detection_history")
+                .child(Constanta.TEMP_UID)
+                .child(data.detection_id).setValue(null).addOnSuccessListener {
+                    dialogDetection.dismiss()
+                    Toast.makeText(context, "Riwayat deteksi dihapus", Toast.LENGTH_SHORT)
+                        .show()
+                }.addOnFailureListener {
+                    Toast.makeText(context, "Error : ${it.message}", Toast.LENGTH_LONG)
+                        .show()
+                }
+        }
+        alertdialogbuilder.setNegativeButton("Tidak") { alertDialog, _ ->
+            alertDialog.dismiss()
+        }
+        alertdialogbuilder.create().show()
     }
 
     /* dialog info builder for dialog instance invocation -> with customized ok button action*/
@@ -353,6 +392,67 @@ object Helper {
                 // Getting Post failed, log a message
                 Log.w(TAG, "loadPost:onCancelled", databaseError.toException())
                 // ...
+            }
+        })
+    }
+
+    fun loadHistoryData(
+        context: Context,
+        containerNeverDetecting: LinearLayout,
+        btnDetect: TextView,
+        progressBar: ProgressBar,
+        recyclerView: RecyclerView,
+        listHistory: ArrayList<Detection>,
+        btnMoreDetection : TextView? = null,
+        limit: Int? = null
+    ) {
+        progressBar.isVisible = true
+        val tag = "FIREBASE"
+        val database =
+            if (limit != null) {
+                Firebase.database.reference.child("detection_history")
+                    .child(Constanta.TEMP_UID)
+                    .limitToLast(limit)
+            } else {
+                Firebase.database.reference.child("detection_history")
+                    .child(Constanta.TEMP_UID)
+            }
+        database.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                listHistory.clear()
+                if (!dataSnapshot.hasChildren()) {
+                    btnMoreDetection?.isVisible = false
+                    containerNeverDetecting.isVisible = true
+                    progressBar.isVisible = false
+                    recyclerView.isVisible = false
+                    btnDetect.setOnClickListener {
+                        (context as MainActivity).detectDiabetes()
+                    }
+                } else {
+                    btnMoreDetection?.isVisible = true
+                    containerNeverDetecting.isVisible = false
+                    for (history in dataSnapshot.children) {
+                        val data = history.getValue<Detection>()
+                        data?.let {
+                            listHistory.add(it)
+                        }
+                    }
+                    recyclerView.let {
+                        it.isVisible = true
+                        it.setHasFixedSize(true)
+                        it.layoutManager = LinearLayoutManager(context)
+                        it.isNestedScrollingEnabled = false
+                        listHistory.reverse()
+                        it.adapter = HistoryAdapter(listHistory)
+                    }
+                    progressBar.isVisible = false
+                }
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Getting Post failed, log a message
+                Log.e(tag, "loadPost:onCancelled", databaseError.toException())
+                Toast.makeText(context, databaseError.message, Toast.LENGTH_SHORT).show()
             }
         })
     }

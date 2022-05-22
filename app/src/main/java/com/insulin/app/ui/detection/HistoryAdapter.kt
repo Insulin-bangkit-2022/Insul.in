@@ -5,6 +5,8 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DatabaseReference
 import com.insulin.app.R
 import com.insulin.app.data.model.Detection
 import com.insulin.app.databinding.ItemHistoryListBinding
@@ -37,14 +39,14 @@ class HistoryAdapter(private val data: ArrayList<Detection>) :
                     it.text = "Risiko Tinggi"
                     it.setTextColor(itemView.context.getColor(R.color.state_danger_dark))
                 }
-                binding.container.setBackgroundResource(R.drawable.custom_background_rv_danger)
+//                binding.container.setBackgroundResource(R.drawable.custom_background_rv_danger)
             } else {
                 binding.ivDiagnoseResultIcon.setImageDrawable(binding.root.context.getDrawable(R.drawable.ic_detection_yes))
                 binding.tvDiagnoseResult.let {
                     it.text = "Risiko Rendah"
                     it.setTextColor(itemView.context.getColor(R.color.state_success_dark))
                 }
-                binding.container.setBackgroundResource(R.drawable.custom_background_rv_success)
+//                binding.container.setBackgroundResource(R.drawable.custom_background_rv_success)
             }
             binding.tvDiagnoseTime.text = Helper.reformatDateToSimpleDate(history.detectionTime)
             binding.root.setOnClickListener {

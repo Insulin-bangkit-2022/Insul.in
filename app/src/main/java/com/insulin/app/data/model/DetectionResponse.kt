@@ -13,8 +13,8 @@ data class DetectionResponse(
     val message: String,
 
     @field:SerializedName("article")
-    val article: Article?,
+    val article: List<Article>?,
 
     @field:SerializedName("affiliation_product")
-    val affiliationProduct: AffiliationProduct?
+    val affiliationProduct: List<AffiliationProduct>?
 )

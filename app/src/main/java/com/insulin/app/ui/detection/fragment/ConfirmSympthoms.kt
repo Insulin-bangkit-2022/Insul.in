@@ -9,7 +9,6 @@ import com.insulin.app.R
 import com.insulin.app.databinding.FragmentDetectionConfirmSympthomsBinding
 import com.insulin.app.databinding.FragmentDetectionQuestionYesnoBinding
 import com.insulin.app.databinding.FragmentDetectionResult0Binding
-import com.insulin.app.databinding.FragmentDetectionResultBinding
 import com.insulin.app.ui.detection.DetectionActivity
 
 
@@ -26,7 +25,7 @@ class ConfirmSympthoms : Fragment() {
         }
 
         binding.btnDetection.setOnClickListener {
-            (activity as DetectionActivity).diagnoseDiabetes()
+            (activity as DetectionActivity).switchFragment(DetectionActivity.fragmentLoading)
         }
 
         return binding.root

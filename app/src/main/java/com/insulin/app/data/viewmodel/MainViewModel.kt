@@ -13,8 +13,7 @@ import retrofit2.Response
 class DetectionViewModel : ViewModel() {
 
     val data = MutableLiveData<Detection>()
+    val response = MutableLiveData<DetectionResponse>()
+    val isLoadingFinished = MutableLiveData<Boolean>()
 
-    fun setDiagnosisData(detection: Detection){
-        data.postValue(detection)
-    }
 }

@@ -22,6 +22,32 @@
             app:title="📅 Riwayat Deteksi"
             app:titleTextColor="@color/white" />
 
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/label_never_detecting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginHorizontal="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="- Anda belum pernah melakukan Deteksi -"
+                android:textAlignment="center"
+                android:layout_marginTop="16dp"
+                android:layout_gravity="center"/>
+            <TextView
+                android:id="@+id/btn_detection"
+                android:textColor="@color/secondary"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_marginHorizontal="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Coba Deteksi"
+                android:padding="8dp"
+                android:textAlignment="center"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+
 
         <androidx.core.widget.NestedScrollView
             android:id="@+id/nestedScrollView"

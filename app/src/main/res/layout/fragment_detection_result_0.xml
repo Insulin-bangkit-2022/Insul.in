@@ -87,6 +87,7 @@
                             android:textStyle="bold" />
 
                         <ImageView
+                            android:id="@+id/icon_toggle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
@@ -110,8 +111,16 @@
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
+                <ProgressBar
+                    android:id="@+id/progress_bar_article"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="16dp"
+                    android:indeterminateTint="@color/state_success_dark" />
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_article"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="16dp"
@@ -125,6 +134,8 @@
         <include
             android:id="@+id/container_result_button"
             layout="@layout/container_result_button" />
+
+
     </RelativeLayout>
 
 

@@ -2,6 +2,8 @@ package com.insulin.app.ui.detection
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.widget.Button
 import android.widget.LinearLayout
@@ -10,6 +12,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.insulin.app.R
@@ -29,7 +32,7 @@ import retrofit2.Response
 class DetectionActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetectionBinding
-    private val viewModel: DetectionViewModel by viewModels()
+    val viewModel: DetectionViewModel by viewModels()
 
     private val diagnoseSymptoms: MutableMap<String, Any> = HashMap()
 
@@ -46,6 +49,8 @@ class DetectionActivity : AppCompatActivity() {
         switchFragment(fragmentPolyuria)
 
     }
+
+
 
     private fun initSymptom() {
         diagnoseSymptoms[Constanta.DiabetesSympthoms.Polyuria.name] =
@@ -89,7 +94,7 @@ class DetectionActivity : AppCompatActivity() {
         return diagnoseSymptoms[key]
     }
 
-    private fun parseAnsweredQuestion(key: String): Boolean {
+    fun parseAnsweredQuestion(key: String): Boolean {
         return when (getAnsweredQuestion(key).toString()) {
             Constanta.AnsweredSympthoms.SelectedYes.name -> true
             else -> false
@@ -118,55 +123,14 @@ class DetectionActivity : AppCompatActivity() {
             .commit()
     }
 
-    fun diagnoseDiabetes() {
-        supportActionBar?.hide()
-        val client = ApiConfig.getApiService().diagnoseDiabetes()
-        client.enqueue(object : Callback<DetectionResponse> {
-            override fun onResponse(
-                call: Call<DetectionResponse>,
-                response: Response<DetectionResponse>
-            ) {
-                if (response.isSuccessful) {
-                    response.body()?.let { data ->
-                        val result = Detection(
-                            isDiabetes = data.isDiabetes,
-                            detectionTime = Helper.getCurrentDateString(),
-                            isPolyuria = parseAnsweredQuestion(Constanta.DiabetesSympthoms.Polyuria.name),
-                            isPolydipsia = parseAnsweredQuestion(Constanta.DiabetesSympthoms.Polydipsia.name),
-                            isWeightLoss = parseAnsweredQuestion(Constanta.DiabetesSympthoms.WeightLoss.name),
-                            isWeakness = parseAnsweredQuestion(Constanta.DiabetesSympthoms.Weakness.name),
-                            isPolyphagia = parseAnsweredQuestion(Constanta.DiabetesSympthoms.Polyphagia.name),
-                            isGenitalThrus = parseAnsweredQuestion(Constanta.DiabetesSympthoms.GenitalThrus.name),
-                            isItching = parseAnsweredQuestion(Constanta.DiabetesSympthoms.Itching.name),
-                            isIrritability = parseAnsweredQuestion(Constanta.DiabetesSympthoms.Irritability.name),
-                            isDelayedHealing = parseAnsweredQuestion(Constanta.DiabetesSympthoms.DelayedHealing.name),
-                            isPartialParesis = parseAnsweredQuestion(Constanta.DiabetesSympthoms.PartialParesis.name),
-                            isMuscleStiffness = parseAnsweredQuestion(Constanta.DiabetesSympthoms.MuscleStiffness.name),
-                            isAlopecia = parseAnsweredQuestion(Constanta.DiabetesSympthoms.Alopecia.name),
-                            isObesity = parseAnsweredQuestion(Constanta.DiabetesSympthoms.Obesity.name)
-                        )
-                        viewModel.setDiagnosisData(result)
-                        if(data.isDiabetes){
-                            switchFragment(fragmentResult1)
-                        }else{
-                            switchFragment(fragmentResult0)
-                        }
-                    }
-                }
-            }
 
-            override fun onFailure(call: Call<DetectionResponse>, t: Throwable) {
-                Log.e("api", "onFailure Call: ${t.message}")
-            }
-        })
-    }
 
 
     fun saveDataToFirebase(data: Detection) {
         val database = Firebase.database
         val uid = Constanta.TEMP_UID
         val myRef =
-            database.getReference("detection_history").child(uid).child(Helper.getDiagnoseId(uid))
+            database.getReference("detection_history").child(uid).child(data.detection_id)
         binding.loading.root.isVisible = true
         myRef.setValue(data).addOnSuccessListener {
             binding.loading.root.isVisible = false
@@ -205,6 +169,7 @@ class DetectionActivity : AppCompatActivity() {
         val fragmentConfirm = ConfirmSympthoms()
         val fragmentResult0 = DetectionResult0()
         val fragmentResult1 = DetectionResult1()
+        val fragmentLoading = LoadingDetectionFragment()
     }
 
 

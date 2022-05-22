@@ -167,7 +167,7 @@
         <View
             android:layout_marginVertical="4dp"
             android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_height="1dp"
             android:layout_weight="10"
             android:background="@color/black"/>
     </TableRow>
@@ -176,14 +176,14 @@
 
         <TextView
             style="@style/TextTableResultHeader"
-            android:fontFamily="@font/poppins_bold"
+            android:fontFamily="@font/poppins_medium"
             android:text="Hasil Diagnosis"
             android:textSize="16sp" />
 
         <TextView
             android:id="@+id/isDiabetes"
             style="@style/TextTableResultBody"
-            android:fontFamily="@font/poppins_bold"
+            android:fontFamily="@font/poppins_medium"
             android:text="Ya / Tidak"
             android:textSize="16sp" />
     </TableRow>
@@ -193,7 +193,7 @@
         <View
             android:layout_marginVertical="4dp"
             android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_height="1dp"
             android:layout_weight="10"
             android:background="@color/black"/>
     </TableRow>

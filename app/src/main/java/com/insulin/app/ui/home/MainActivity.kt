@@ -82,8 +82,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         activityMainBinding.fab.setOnClickListener {
-            val intent = Intent(this@MainActivity, DetectionActivity::class.java)
-            startActivity(intent)
+            detectDiabetes()
         }
 
         switchFragment(fragmentHome)
@@ -102,6 +101,11 @@ class MainActivity : AppCompatActivity() {
         remoteConfig.setConfigSettingsAsync(configSettings)
         remoteConfig.setDefaultsAsync(R.xml.remote_config_defaults)
         checkAppUpdates()
+    }
+
+    fun detectDiabetes(){
+        val intent = Intent(this@MainActivity, DetectionActivity::class.java)
+        startActivity(intent)
     }
 
     private fun checkAppUpdates() {
