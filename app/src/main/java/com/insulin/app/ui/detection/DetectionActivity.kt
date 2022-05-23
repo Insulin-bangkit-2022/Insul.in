@@ -1,11 +1,13 @@
 package com.insulin.app.ui.detection
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -13,6 +15,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.insulin.app.R
@@ -28,7 +32,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-
+@SuppressLint("UseCompatLoadingForDrawables")
 class DetectionActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetectionBinding
@@ -43,16 +47,21 @@ class DetectionActivity : AppCompatActivity() {
         binding.loading.root.isVisible = false
         setSupportActionBar(binding.toolbar)
         binding.toolbar.setNavigationOnClickListener {
-            finish()
+            onBackPressed()
         }
         initSymptom()
-        switchFragment(fragmentPolyuria)
+        switchFragment(fragmentGreetings)
 
     }
 
 
-
     private fun initSymptom() {
+        diagnoseSymptoms.clear()
+        diagnoseSymptoms[Constanta.DiabetesSympthoms.Age.name] = 0
+        diagnoseSymptoms[Constanta.DiabetesSympthoms.Gender.name] =
+            Constanta.AnsweredSympthoms.NotSelected.name
+        diagnoseSymptoms[Constanta.DiabetesSympthoms.Polyuria.name] =
+            Constanta.AnsweredSympthoms.NotSelected.name
         diagnoseSymptoms[Constanta.DiabetesSympthoms.Polyuria.name] =
             Constanta.AnsweredSympthoms.NotSelected.name
         diagnoseSymptoms[Constanta.DiabetesSympthoms.Polydipsia.name] =
@@ -81,8 +90,12 @@ class DetectionActivity : AppCompatActivity() {
             Constanta.AnsweredSympthoms.NotSelected.name
     }
 
-    fun postValue(key: String, value: Any) {
+    fun postValue(key: String, value: String) {
         diagnoseSymptoms[key] = value
+    }
+
+    fun postValueAge(value: Int) {
+        diagnoseSymptoms[Constanta.DiabetesSympthoms.Age.name] = value
     }
 
     fun getValue(): String {
@@ -90,7 +103,7 @@ class DetectionActivity : AppCompatActivity() {
                 "\n polydipsia : ${diagnoseSymptoms[Constanta.DiabetesSympthoms.Polydipsia.name].toString()}"
     }
 
-    private fun getAnsweredQuestion(key: String): Any? {
+    fun getAnsweredQuestion(key: String): Any? {
         return diagnoseSymptoms[key]
     }
 
@@ -101,18 +114,89 @@ class DetectionActivity : AppCompatActivity() {
         }
     }
 
-    @SuppressLint("UseCompatLoadingForDrawables")
-    fun setBackgroundState(key: String, option0: LinearLayout, option1: LinearLayout) {
+    fun checkQuestionIsFilled(key: String): Boolean {
+        return when (getAnsweredQuestion(key).toString()) {
+            Constanta.AnsweredSympthoms.SelectedYes.name -> true
+            Constanta.AnsweredSympthoms.SelectedNo.name -> true
+            else -> false
+        }
+    }
+
+    fun parseAnsweredBoolean(key: String): String {
+        return if (parseAnsweredQuestion(key)) "Ya" else "Tidak"
+    }
+
+    fun isAgeFilled(): Boolean {
+        return diagnoseSymptoms[Constanta.DiabetesSympthoms.Age.name] != 0
+    }
+
+    fun initSelectedOptions(
+        key: String,
+        option0: LinearLayout,
+        option1: LinearLayout
+    ) {
         when (getAnsweredQuestion(key)) {
             Constanta.AnsweredSympthoms.SelectedYes.name -> {
                 option0.background = getDrawable(R.drawable.custom_background_detection)
                 option1.background = getDrawable(R.drawable.custom_background_detection_active)
+
             }
             Constanta.AnsweredSympthoms.SelectedNo.name -> {
                 option0.background = getDrawable(R.drawable.custom_background_detection_active)
                 option1.background = getDrawable(R.drawable.custom_background_detection)
+
             }
         }
+
+    }
+
+    @SuppressLint("UseCompatLoadingForDrawables")
+    fun initNavigationQuestion(
+        prevQuestion: ImageView,
+        prevFragment: Fragment,
+        nextQuestion: ImageView,
+        nextFragment: Fragment,
+        nextValidation: Boolean
+    ) {
+        prevQuestion.apply {
+            this.background =
+                this@DetectionActivity.getDrawable(R.drawable.custom_background_detection_navigation)
+            this.isEnabled = true
+            this.setOnClickListener {
+                switchFragment(prevFragment)
+            }
+        }
+        if (nextValidation) {
+            nextQuestion.apply {
+                this.background =
+                    this@DetectionActivity.getDrawable(R.drawable.custom_background_detection_navigation)
+                this.isEnabled = true
+                this.setOnClickListener {
+                    switchFragment(nextFragment)
+                }
+            }
+        } else {
+            nextQuestion.apply {
+                this.background =
+                    this@DetectionActivity.getDrawable(R.drawable.custom_background_detection_navigation_disable)
+                this.isEnabled = false
+            }
+        }
+    }
+
+    override fun onBackPressed() {
+        val alertdialogbuilder = AlertDialog.Builder(this@DetectionActivity)
+        alertdialogbuilder.setTitle("Batalkan Deteksi")
+        alertdialogbuilder.setMessage("Apakah anda ingin keluar dari proses deteksi?")
+        alertdialogbuilder.setPositiveButton("Ya") { alertDialog, _ ->
+            alertDialog.dismiss()
+            diagnoseSymptoms.clear()
+            finish()
+        }
+        alertdialogbuilder.setNegativeButton("Tidak") { alertDialog, _ ->
+            alertDialog.dismiss()
+        }
+        alertdialogbuilder.create().show()
     }
 
 
@@ -122,8 +206,6 @@ class DetectionActivity : AppCompatActivity() {
             .replace(R.id.container, fragment)
             .commit()
     }
-
-
 
 
     fun saveDataToFirebase(data: Detection) {
@@ -153,6 +235,9 @@ class DetectionActivity : AppCompatActivity() {
 
 
     companion object {
+        val fragmentGreetings = Greetings()
+        val fragmentAge = SymptomAge()
+        val fragmentGender = SymptomGender()
         val fragmentPolyuria = SymptomPolyuria()
         val fragmentPolydipsia = SymptomPolydipsia()
         val fragmentWeightLoss = SymptomWeightLoss()

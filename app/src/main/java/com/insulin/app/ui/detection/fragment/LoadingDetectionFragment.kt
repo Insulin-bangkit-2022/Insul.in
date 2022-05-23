@@ -112,16 +112,16 @@ class LoadingDetectionFragment : Fragment() {
             ) {
                 if (response.isSuccessful) {
                     response.body()?.let { data ->
-                        Toast.makeText(
-                            (activity as DetectionActivity),
-                            "Hasil Diagnosis : ${data.isDiabetes}",
-                            Toast.LENGTH_SHORT
-                        ).show()
                         val uid = Constanta.TEMP_UID
                         val detection = Detection(
                             detection_id = Helper.getDiagnoseId(uid),
                             isDiabetes = data.isDiabetes,
                             detectionTime = Helper.getCurrentDateString(),
+                            age = (activity as DetectionActivity).getAnsweredQuestion(Constanta.DiabetesSympthoms.Age.name)
+                                .toString().toInt(),
+                            gender = (activity as DetectionActivity).parseAnsweredQuestion(
+                                Constanta.DiabetesSympthoms.Gender.name
+                            ),
                             isPolyuria = (activity as DetectionActivity).parseAnsweredQuestion(
                                 Constanta.DiabetesSympthoms.Polyuria.name
                             ),
@@ -169,7 +169,7 @@ class LoadingDetectionFragment : Fragment() {
                             )
                             (activity as DetectionActivity).viewModel.data.postValue(detection)
                             (activity as DetectionActivity).viewModel.response.postValue(data)
-                        }, 1500)
+                        }, 1000)
                     }
                 }
             }

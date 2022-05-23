@@ -17,10 +17,9 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_gravity="center"
-            android:src="@drawable/img_gender"
+            android:src="@drawable/img_age"
             app:layout_constraintBottom_toTopOf="@+id/question"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed" />
@@ -32,88 +31,52 @@
             android:layout_marginHorizontal="32dp"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/poppins_medium"
-            android:text="Kamu Adalah seorang?"
-            android:lines="3"
             android:gravity="center"
+            android:lines="3"
+            android:text="Berapakah usia Anda?"
             android:textAlignment="center"
             android:textColor="@color/primary_dark"
             android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/image_question" />
+            app:layout_constraintBottom_toTopOf="@+id/editText"
+            app:layout_constraintTop_toBottomOf="@+id/image_question"
+            tools:layout_editor_absoluteX="32dp" />
 
         <LinearLayout
-            android:id="@+id/linearLayout"
+            android:id="@+id/editText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="32dp"
-            android:weightSum="2"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:weightSum="100"
             app:layout_constraintBottom_toTopOf="@+id/container_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/question">
 
-            <LinearLayout
-                android:id="@+id/option_1"
+            <EditText
+                android:id="@+id/et_age"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_weight="1"
+                android:layout_marginRight="8dp"
+                android:layout_weight="75"
                 android:background="@drawable/custom_background_detection"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="24dp">
+                android:hint="Masukan Usia Anda"
+                android:inputType="number"
+                android:padding="12dp"
+                android:textColorHint="@color/grey_dark"
+                tools:layout_editor_absoluteX="16dp" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:src="@drawable/ic_boy"
-                    app:tint="@color/state_primary_dark" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:fontFamily="@font/poppins_bold"
-                    android:gravity="center"
-                    android:text="Pria"
-                    android:textColor="@color/state_primary_dark"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/option_0"
+            <Button
+                android:id="@+id/btn_ok"
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_weight="1"
-                android:background="@drawable/custom_background_detection"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="24dp">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:src="@drawable/ic_woman"
-                    app:tint="@color/pink" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:fontFamily="@font/poppins_bold"
-                    android:gravity="center"
-                    android:text="Wanita"
-                    android:textColor="@color/pink"
-                    android:textSize="18sp" />
-            </LinearLayout>
+                android:layout_height="match_parent"
+                android:layout_marginLeft="8dp"
+                android:textSize="18sp"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_weight="25"
+                android:background="@drawable/custom_background_detection_navigation"
+                android:text="Ok"
+                app:backgroundTint="@null" />
         </LinearLayout>
 
         <LinearLayout
@@ -128,9 +91,9 @@
             <ImageView
                 android:id="@+id/prev_question"
                 android:layout_width="0dp"
-                android:layout_weight="20"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:layout_weight="20"
                 android:background="@drawable/custom_background_detection_navigation"
                 android:paddingHorizontal="20dp"
                 android:paddingVertical="16dp"
@@ -140,19 +103,19 @@
                 android:id="@+id/progress_bar"
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:layout_width="0dp"
-                android:paddingHorizontal="30dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="60"
-                android:progressTint="@color/primary"
-                android:layout_height="wrap_content"
-                android:progress="30" />
+                android:paddingHorizontal="30dp"
+                android:progress="30"
+                android:progressTint="@color/primary" />
 
             <ImageView
                 android:id="@+id/next_question"
                 android:layout_width="0dp"
-                android:layout_weight="20"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
+                android:layout_weight="20"
                 android:background="@drawable/custom_background_detection_navigation"
                 android:paddingHorizontal="20dp"
                 android:paddingVertical="16dp"

@@ -12,6 +12,8 @@ object Constanta {
 
 
     enum class DiabetesSympthoms {
+        Age,
+        Gender,
         Polyuria,
         Polydipsia,
         WeightLoss,

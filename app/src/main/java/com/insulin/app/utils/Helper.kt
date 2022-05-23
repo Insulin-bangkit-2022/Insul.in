@@ -102,6 +102,10 @@ object Helper {
         return if (answer) "Ya" else "Tidak"
     }
 
+    fun parseGenderAnswerDetection(answer: Boolean): String {
+        return if (answer) "Pria" else "Wanita"
+    }
+
     /* custom dialog info builder -> reuse to another invocation with custom ok button action */
     @SuppressLint("UseCompatLoadingForDrawables")
     fun showDialogDiagnoseResult(
@@ -144,6 +148,8 @@ object Helper {
                 StringBuilder("Deteksi pada ").append(reformatDateToSimpleDate(data.detectionTime))
 
             /* init table data */
+            binding.resultDetail.age.text = StringBuilder(data.age.toString()).append(" Tahun")
+            binding.resultDetail.gender.text = parseGenderAnswerDetection(data.gender)
             binding.resultDetail.isPolyuria.text = parseBooleanAnswerDetection(data.isPolyuria)
             binding.resultDetail.isPolydipsia.text = parseBooleanAnswerDetection(data.isPolydipsia)
             binding.resultDetail.isWeightLoss.text = parseBooleanAnswerDetection(data.isWeightLoss)
@@ -189,6 +195,8 @@ object Helper {
                 StringBuilder("Deteksi pada ").append(reformatDateToSimpleDate(data.detectionTime))
 
             /* init table data */
+            binding.resultDetail.age.text = StringBuilder(data.age.toString()).append(" Tahun")
+            binding.resultDetail.gender.text = parseGenderAnswerDetection(data.gender)
             binding.resultDetail.isPolyuria.text = parseBooleanAnswerDetection(data.isPolyuria)
             binding.resultDetail.isPolydipsia.text = parseBooleanAnswerDetection(data.isPolydipsia)
             binding.resultDetail.isWeightLoss.text = parseBooleanAnswerDetection(data.isWeightLoss)
@@ -403,7 +411,7 @@ object Helper {
         progressBar: ProgressBar,
         recyclerView: RecyclerView,
         listHistory: ArrayList<Detection>,
-        btnMoreDetection : TextView? = null,
+        btnMoreDetection: TextView? = null,
         limit: Int? = null
     ) {
         progressBar.isVisible = true

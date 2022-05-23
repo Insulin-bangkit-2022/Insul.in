@@ -11,6 +11,12 @@ data class Detection(
     @PropertyName("diabetes")
     var isDiabetes: Boolean = false,
 
+    @PropertyName("age")
+    var age: Int = 0,
+
+    @PropertyName("gender")
+    var gender: Boolean = true,
+
     @PropertyName("detectionTime")
     var detectionTime: String = "",
 

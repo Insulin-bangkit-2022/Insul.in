@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/pattern"
     android:layout_height="match_parent"
     tools:context=".ui.detection.fragment.SymptomPolyuria">
 
@@ -16,11 +17,13 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_gravity="center"
-            android:layout_marginTop="60dp"
             android:src="@color/primary"
+            app:layout_constraintBottom_toTopOf="@+id/question"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
 
         <TextView
             android:id="@+id/question"
@@ -30,10 +33,14 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/poppins_medium"
             android:text="Sebuah Pertanyaan"
+            android:lines="3"
+            android:gravity="center"
             android:textAlignment="center"
-            android:textColor="@color/primary"
+            android:textColor="@color/primary_dark"
             android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/image_question" />
 
@@ -44,7 +51,9 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="32dp"
             android:weightSum="2"
+            app:layout_constraintBottom_toTopOf="@+id/container_button"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/question">
 
@@ -107,31 +116,50 @@
             </LinearLayout>
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/prev_question"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/container_button"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="32dp"
-            android:background="@drawable/custom_background_detection_navigation"
-            android:paddingHorizontal="20dp"
-            android:paddingVertical="16dp"
-            android:src="@drawable/ic_baseline_navigate_before"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:orientation="horizontal"
+            android:paddingBottom="32dp"
+            android:weightSum="100"
+            app:layout_constraintBottom_toBottomOf="parent">
 
-        <ImageView
-            android:id="@+id/next_question"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="32dp"
-            android:background="@drawable/custom_background_detection_navigation"
-            android:paddingHorizontal="20dp"
-            android:paddingVertical="16dp"
-            android:src="@drawable/ic_baseline_navigate_next"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            <ImageView
+                android:id="@+id/prev_question"
+                android:layout_width="0dp"
+                android:layout_weight="20"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/custom_background_detection_navigation"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="16dp"
+                android:src="@drawable/ic_baseline_navigate_before" />
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="0dp"
+                android:paddingHorizontal="30dp"
+                android:layout_gravity="center"
+                android:layout_weight="60"
+                android:progressTint="@color/primary"
+                android:layout_height="wrap_content"
+                android:progress="30" />
+
+            <ImageView
+                android:id="@+id/next_question"
+                android:layout_width="0dp"
+                android:layout_weight="20"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/custom_background_detection_navigation"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="16dp"
+                android:src="@drawable/ic_baseline_navigate_next" />
+        </LinearLayout>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

@@ -6,30 +6,57 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import com.insulin.app.R
 import com.insulin.app.databinding.FragmentDetectionQuestionYesnoBinding
 import com.insulin.app.ui.detection.DetectionActivity
 import com.insulin.app.utils.Constanta
 
+/* Question number 14 */
 class SymptomAlopecia : Fragment() {
 
     private lateinit var binding: FragmentDetectionQuestionYesnoBinding
+
     @SuppressLint("UseCompatLoadingForDrawables")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        /* binding layout */
         binding = FragmentDetectionQuestionYesnoBinding.inflate(layoutInflater)
-        binding.imageQuestion.setImageDrawable((activity as DetectionActivity).getDrawable(R.drawable.ic_baseline_history))
-        binding.question.text = "Apakah rambut botaks?"
+
+        /* === init selected answer if back from next question ===
+        *  initSelectedOption -> select option yes or now based submitted value
+        *  initNavigationQuestion -> disable / enable navigation question based submitted option (if answer blank -> disable next question)
+        *  */
+        (activity as DetectionActivity).initSelectedOptions(
+            key = Constanta.DiabetesSympthoms.Alopecia.name,
+            option0 = binding.option0,
+            option1 = binding.option1
+        )
+        (activity as DetectionActivity).initNavigationQuestion(
+            prevQuestion = binding.prevQuestion,
+            prevFragment = DetectionActivity.fragmentMuscleStiffness,
+            nextQuestion = binding.nextQuestion,
+            nextFragment = DetectionActivity.fragmentObesity,
+            nextValidation = (activity as DetectionActivity).checkQuestionIsFilled(Constanta.DiabetesSympthoms.Alopecia.name)
+        )
+
+        /* init progress filled -> percentage current step of 15 question */
+        binding.progressBar.progress = 86
+
+        /* init progress filled -> percentage current step of 15 question */
+        binding.imageQuestion.setImageDrawable((activity as DetectionActivity).getDrawable(R.drawable.img_alopecia))
+        binding.question.text = "Apakah sering mengalami kerontokan pada rambut akhir-akhir ini?"
+
+        /* if user clicked options yes / no -> submit answer + update UI (selected option, enabled nav question) */
         binding.option1.setOnClickListener {
             /* if user click yes option */
             (activity as DetectionActivity).postValue(
                 Constanta.DiabetesSympthoms.Alopecia.name,
                 Constanta.AnsweredSympthoms.SelectedYes.name
             )
-            binding.nextQuestion.performClick()
+            updateUI()
         }
         binding.option0.setOnClickListener {
             /* if user click no option */
@@ -37,27 +64,25 @@ class SymptomAlopecia : Fragment() {
                 Constanta.DiabetesSympthoms.Alopecia.name,
                 Constanta.AnsweredSympthoms.SelectedNo.name
             )
-            binding.nextQuestion.performClick()
+            updateUI()
         }
-        binding.prevQuestion.setOnClickListener {
-            /* if user click previous question */
-            (activity as DetectionActivity).switchFragment(DetectionActivity.fragmentMuscleStiffness)
-        }
-        binding.nextQuestion.setOnClickListener {
-            /* if user click next question */
-            (activity as DetectionActivity).switchFragment(DetectionActivity.fragmentObesity)
-        }
+        return binding.root
+    }
 
-        (activity as DetectionActivity).setBackgroundState(
+    private fun updateUI() {
+        (activity as DetectionActivity).initNavigationQuestion(
+            prevQuestion = binding.prevQuestion,
+            prevFragment = DetectionActivity.fragmentMuscleStiffness,
+            nextQuestion = binding.nextQuestion,
+            nextFragment = DetectionActivity.fragmentObesity,
+            nextValidation = true
+        )
+        (activity as DetectionActivity).initSelectedOptions(
             key = Constanta.DiabetesSympthoms.Alopecia.name,
             option0 = binding.option0,
             option1 = binding.option1
         )
-
-
-        return binding.root
+        (activity as DetectionActivity).switchFragment(DetectionActivity.fragmentObesity)
     }
-
-
 
 }

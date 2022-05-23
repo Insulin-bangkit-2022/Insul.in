@@ -43,7 +43,7 @@
                 android:layout_gravity="center"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="32dp"
+                android:layout_marginBottom="16dp"
                 android:fontFamily="@font/poppins_regular"
                 android:lineHeight="25dp"
                 android:text="Cek gejala yang sudah anda inputkan pada data berikut ini. Klik lanjutkan untuk melihat hasil deteksi Diabetes."
@@ -51,9 +51,17 @@
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
-            <include
-                android:id="@+id/result_detail"
-                layout="@layout/table_result" />
+            <LinearLayout
+                android:paddingTop="16dp"
+                android:layout_margin="16dp"
+                android:background="@drawable/custom_background_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <include
+                    android:id="@+id/result_detail"
+                    layout="@layout/table_result" />
+            </LinearLayout>
 
 
         </LinearLayout>
@@ -72,23 +80,23 @@
         android:weightSum="2">
 
         <Button
-            android:drawableLeft="@drawable/ic_baseline_arrow_back"
-            android:drawableTint="@color/grey_dark"
             android:id="@+id/btn_back"
             style="@style/Button.Grey"
             android:layout_width="0dp"
+            android:layout_marginEnd="8dp"
             android:layout_weight="1"
-            android:text="Kembali"
-            android:layout_marginEnd="8dp"/>
+            android:drawableLeft="@drawable/ic_baseline_arrow_back"
+            android:drawableTint="@color/grey_dark"
+            android:text="Kembali" />
 
         <Button
-            android:drawableRight="@drawable/ic_baseline_arrow_forward"
-            android:drawableTint="@color/state_success_dark"
-            android:layout_marginStart="8dp"
             android:id="@+id/btn_detection"
             style="@style/Button.Success"
             android:layout_width="0dp"
+            android:layout_marginStart="8dp"
             android:layout_weight="1"
+            android:drawableRight="@drawable/ic_baseline_arrow_forward"
+            android:drawableTint="@color/state_success_dark"
             android:text="Lanjutkan" />
     </LinearLayout>
 

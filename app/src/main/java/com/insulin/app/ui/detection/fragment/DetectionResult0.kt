@@ -45,6 +45,8 @@ class DetectionResult0 : Fragment() {
                 binding.containerResultButton.btnSaveResult.setOnClickListener {
                     (activity as DetectionActivity).saveDataToFirebase(data)
                 }
+                binding.resultDetail.age.text = StringBuilder(data.age.toString()).append(" Tahun")
+                binding.resultDetail.gender.text = Helper.parseGenderAnswerDetection(data.gender)
                 binding.resultDetail.isPolyuria.text =
                     Helper.parseBooleanAnswerDetection(data.isPolyuria)
                 binding.resultDetail.isPolydipsia.text =
