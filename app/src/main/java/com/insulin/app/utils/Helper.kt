@@ -17,7 +17,6 @@ import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.*
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -32,9 +31,6 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 import com.insulin.app.R
-import java.lang.StringBuilder
-import java.text.SimpleDateFormat
-import java.util.*
 import com.insulin.app.adapter.article.AffiliationProductAdapterHorizontal
 import com.insulin.app.adapter.article.AffiliationProductAdapterVertical
 import com.insulin.app.adapter.article.ArticleAdapter

@@ -84,7 +84,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         activityMainBinding.fab.setOnClickListener {
-            detectDiabetes()
+            val intent = Intent(this@MainActivity, DetectedActivity::class.java)
+            startActivity(intent)
         }
 
         switchFragment(fragmentHome)
@@ -105,15 +106,38 @@ class MainActivity : AppCompatActivity() {
         checkAppUpdates()
     }
 
+    fun redirectToRecommendationProduct() {
+        startActivity(Intent(this@MainActivity, RecommendationProductActivity::class.java))
+    }
+
+    fun selectMenu(itemId: Int) {
+        activityMainBinding.bottomNavigationView.selectedItemId = itemId
+    }
+
+
+    fun detectDiabetes(){
+        val intent = Intent(this@MainActivity, DetectionActivity::class.java)
+        startActivity(intent)
+    }
+
+
     override fun onStart() {
         super.onStart()
         checkUserAuth()
     }
 
-    private fun switchFragment(fragment: Fragment) {
-    fun detectDiabetes(){
-        val intent = Intent(this@MainActivity, DetectionActivity::class.java)
-        startActivity(intent)
+    fun signOut() {
+        Firebase.auth.signOut()
+        checkUserAuth()
+    }
+
+    private fun checkUserAuth() {
+        if (Firebase.auth.currentUser == null) {
+            val intent = Intent(this@MainActivity, LoginActivity::class.java)
+            intent.putExtra(LoginActivity.EXTRA_LOGIN, MainActivity::class.simpleName)
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun checkAppUpdates() {
@@ -174,16 +198,8 @@ class MainActivity : AppCompatActivity() {
             }
     }
 
-    fun selectMenu(itemId: Int) {
-        activityMainBinding.bottomNavigationView.selectedItemId = itemId
-    }
 
-    fun redirectToRecommendationProduct() {
-        startActivity(Intent(this@MainActivity, RecommendationProductActivity::class.java))
-    }
-
-
-    fun switchFragment(fragment: Fragment) {
+    private fun switchFragment(fragment: Fragment) {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.container, fragment)
@@ -193,22 +209,6 @@ class MainActivity : AppCompatActivity() {
     public fun requestPermission(permissions: Array<String>, permissionCode: Int) {
         ActivityCompat.requestPermissions(this, permissions, permissionCode)
     }
-
-    fun signOut() {
-        Firebase.auth.signOut()
-        checkUserAuth()
-    }
-
-    private fun checkUserAuth() {
-        if (Firebase.auth.currentUser == null) {
-            val intent = Intent(this@MainActivity, LoginActivity::class.java)
-            intent.putExtra(LoginActivity.EXTRA_LOGIN,MainActivity::class.simpleName)
-            startActivity(intent)
-            finish()
-        }
-    }
-
-
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
