@@ -2,6 +2,7 @@ package com.insulin.app.ui.splashscreen
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -10,8 +11,6 @@ import com.google.firebase.ktx.Firebase
 import com.insulin.app.databinding.ActivitySplashScreenBinding
 import com.insulin.app.ui.home.MainActivity
 import com.insulin.app.ui.onBoarding.OnBoardingActivity
-import java.util.*
-import kotlin.concurrent.schedule
 
 class SplashScreenActivity : AppCompatActivity() {
 
@@ -23,9 +22,11 @@ class SplashScreenActivity : AppCompatActivity() {
         /* disable dark mode*/
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
+        /* init layout */
         splashScreenBinding = ActivitySplashScreenBinding.inflate(layoutInflater)
         setContentView(splashScreenBinding.root)
 
+        /* force full screen for splash screen */
         @Suppress("DEPRECATION")
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -33,8 +34,7 @@ class SplashScreenActivity : AppCompatActivity() {
         )
 
         val auth = Firebase.auth
-
-        Timer().schedule(2000) {
+        Handler().postDelayed({
             if (auth.currentUser != null) {
                 /* user was login */
                 startActivity(Intent(this@SplashScreenActivity, MainActivity::class.java))
@@ -42,6 +42,7 @@ class SplashScreenActivity : AppCompatActivity() {
                 startActivity(Intent(this@SplashScreenActivity, OnBoardingActivity::class.java))
             }
             finish()
-        }
+        }, 2000)
+
     }
 }

@@ -12,11 +12,8 @@ import android.util.Log
 import android.view.Gravity
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
-import com.google.android.gms.location.DetectedActivity
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
@@ -36,6 +33,8 @@ import com.insulin.app.ui.login.LoginActivity
 import com.insulin.app.utils.Constanta
 import com.insulin.app.utils.Helper
 
+
+@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
 
     private lateinit var activityMainBinding: ActivityMainBinding
@@ -43,24 +42,18 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        /* init layout */
         activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(activityMainBinding.root)
 
-        val user = Firebase.auth.currentUser
-        if (user != null) {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-        }
+        /* check if user not auth -> redirect to login first */
+        checkUserAuth()
 
-        /* disable dark mode*/
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        /* hide abnormal layer in bottom nav */
+        activityMainBinding.bottomNavigationView.background = null
 
-
-
-        activityMainBinding.bottomNavigationView.background =
-            null // hide abnormal layer in bottom nav
-
-
+        /* set action for bottom nav */
         activityMainBinding.bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.navigation_home -> {
@@ -83,16 +76,19 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        activityMainBinding.fab.setOnClickListener {
-            val intent = Intent(this@MainActivity, DetectedActivity::class.java)
-            startActivity(intent)
-        }
+        /* button detection clicked */
+        activityMainBinding.fab.setOnClickListener { redirectToDetectDiabetes() }
+
+        /* init firebase remote config for force user to update app while there updates*/
+        initRemoteConfig()
 
         switchFragment(fragmentHome)
 
-        /* init remote config to check updates -> force user to update app if there updates */
-        remoteConfig = Firebase.remoteConfig
+    }
 
+    /* init remote config to check updates -> force user to update app if there updates */
+    private fun initRemoteConfig() {
+        remoteConfig = Firebase.remoteConfig
         val configSettings = remoteConfigSettings {
             /*
             *
@@ -106,40 +102,31 @@ class MainActivity : AppCompatActivity() {
         checkAppUpdates()
     }
 
-    fun redirectToRecommendationProduct() {
+    fun redirectToDetectDiabetes() =
+        startActivity(Intent(this@MainActivity, DetectionActivity::class.java))
+
+    fun redirectToRecommendationProduct() =
         startActivity(Intent(this@MainActivity, RecommendationProductActivity::class.java))
-    }
 
     fun selectMenu(itemId: Int) {
         activityMainBinding.bottomNavigationView.selectedItemId = itemId
     }
 
-
-    fun detectDiabetes(){
-        val intent = Intent(this@MainActivity, DetectionActivity::class.java)
-        startActivity(intent)
-    }
-
-
-    override fun onStart() {
-        super.onStart()
-        checkUserAuth()
-    }
-
+    /* signin out current user */
     fun signOut() {
         Firebase.auth.signOut()
         checkUserAuth()
     }
 
+    /* check user has login / not */
     private fun checkUserAuth() {
         if (Firebase.auth.currentUser == null) {
-            val intent = Intent(this@MainActivity, LoginActivity::class.java)
-            intent.putExtra(LoginActivity.EXTRA_LOGIN, MainActivity::class.simpleName)
-            startActivity(intent)
-            finish()
+            startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+            this@MainActivity.finish()
         }
     }
 
+    /* check version updates from firebase server */
     private fun checkAppUpdates() {
         remoteConfig.fetchAndActivate()
             .addOnCompleteListener(this) { task ->
@@ -155,7 +142,7 @@ class MainActivity : AppCompatActivity() {
                 val isNeededUpdate = Helper.versionCompare(serverAppVersion, currentAppVersion) > 0
                 Log.i(
                     tag,
-                    "App Version -> ${currentAppVersion} | Server App Version -> ${serverAppVersion} | Need Updates -> ${isNeededUpdate}"
+                    "App Version -> $currentAppVersion | Server App Version -> ${serverAppVersion} | Need Updates -> $isNeededUpdate"
                 )
                 if (isNeededUpdate) {
                     val dialog = Dialog(this@MainActivity)
@@ -198,24 +185,23 @@ class MainActivity : AppCompatActivity() {
             }
     }
 
+    /* switch current fragments into new fragments */
+    private fun switchFragment(fragment: Fragment) = supportFragmentManager
+        .beginTransaction()
+        .replace(activityMainBinding.container.id, fragment)
+        .commit()
 
-    private fun switchFragment(fragment: Fragment) {
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.container, fragment)
-            .commit()
-    }
-
-    public fun requestPermission(permissions: Array<String>, permissionCode: Int) {
+    /* request a permission */
+    fun requestPermission(permissions: Array<String>, permissionCode: Int) {
         ActivityCompat.requestPermissions(this, permissions, permissionCode)
     }
 
+    /* do action while user persmission asked */
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<String>,
         grantResults: IntArray
     ) {
-
         when (requestCode) {
             Constanta.CAMERA_PERMISSION_CODE -> {
                 if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_DENIED) {
@@ -243,6 +229,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
+        /* init main activity fragments */
         val fragmentHome = HomeFragment()
         val fragmentArticle = ArticleFragment()
         val fragmentHistory = HistoryFragment()

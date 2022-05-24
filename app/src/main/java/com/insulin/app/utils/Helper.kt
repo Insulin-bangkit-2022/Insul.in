@@ -449,7 +449,7 @@ object Helper {
                     progressBar.isVisible = false
                     recyclerView.isVisible = false
                     btnDetect.setOnClickListener {
-                        (context as MainActivity).detectDiabetes()
+                        (context as MainActivity).redirectToDetectDiabetes()
                     }
                 } else {
                     btnMoreDetection?.isVisible = true

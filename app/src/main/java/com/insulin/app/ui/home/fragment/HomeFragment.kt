@@ -5,28 +5,20 @@ import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.isVisible
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
-import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 import com.insulin.app.R
 import com.insulin.app.data.model.AffiliationProduct
 import com.insulin.app.data.model.Article
 import com.insulin.app.data.model.Detection
 import com.insulin.app.databinding.FragmentHomeBinding
-import com.insulin.app.ui.detection.HistoryAdapter
 import com.insulin.app.ui.home.MainActivity
 import com.insulin.app.ui.maps.MapsActivity
 import com.insulin.app.ui.webview.WebViewActivity
@@ -41,16 +33,13 @@ class HomeFragment : Fragment() {
     private val listAffiliationProduct: ArrayList<AffiliationProduct> = ArrayList()
     private val listHistory: ArrayList<Detection> = ArrayList()
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         val context: Context = (activity as MainActivity)
-
-        val user = Firebase.auth.currentUser
-        user?.let {
+        Firebase.auth.currentUser?.let {
             binding.userDisplayName.text = it.displayName
             binding.userDisplayName.text =
                 Helper.getWelcomeGreetings(it.displayName ?: "Pengguna Insul.in")
@@ -143,7 +132,6 @@ class HomeFragment : Fragment() {
             limit = 3,
             btnMoreDetection = binding.btnMoreDetection
         )
-
         return binding.root
     }
 

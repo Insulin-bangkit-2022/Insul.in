@@ -69,8 +69,9 @@ class OnBoardingActivity : AppCompatActivity() {
     }
 
     fun redirectToLogin() {
-        startActivity(Intent(this, LoginActivity::class.java))
         finish()
+        startActivity(Intent(this, LoginActivity::class.java))
+
     }
 
     companion object {
