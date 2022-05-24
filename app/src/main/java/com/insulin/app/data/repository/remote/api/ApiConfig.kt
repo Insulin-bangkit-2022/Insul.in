@@ -11,13 +11,13 @@ class ApiConfig {
         fun getApiService(): ApiService {
             val loggingInterceptor = if (BuildConfig.DEBUG) HttpLoggingInterceptor().setLevel(
                 HttpLoggingInterceptor.Level.BODY)
-            else HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE)
+            else HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
             val client = OkHttpClient.Builder()
                 .addInterceptor(loggingInterceptor)
                 .build()
 
             val retrofit = Retrofit.Builder()
-                .baseUrl("")
+                .baseUrl("https://capstone-project-349802.et.r.appspot.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()

@@ -10,6 +10,7 @@ import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
+import androidx.core.view.isVisible
 import com.insulin.app.R
 import com.insulin.app.databinding.ActivityMainBinding
 import com.insulin.app.databinding.ActivityWebViewBinding
@@ -37,10 +38,12 @@ class WebViewActivity : AppCompatActivity() {
             it.webViewClient = object : WebViewClient() {
                 @Deprecated("Deprecated in Java")
                 override fun shouldOverrideUrlLoading(view: WebView, url: String?): Boolean {
+                    binding.progressBar.isVisible = true
                     view.loadUrl(url.toString())
                     return false
                 }
                 override fun onPageFinished(view: WebView, url: String) {
+                    binding.progressBar.isVisible = false
                     binding.toolbar.title = view.title
                 }
             }

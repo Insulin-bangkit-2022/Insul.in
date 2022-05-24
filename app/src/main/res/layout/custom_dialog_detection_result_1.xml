@@ -20,16 +20,35 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:ellipsize="end"
-                android:fontFamily="@font/poppins_bold"
-                android:maxLines="2"
-                android:text="Hasil Deteksi"
-                android:textColor="@color/state_danger_dark"
-                android:textSize="20sp" />
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="90"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/poppins_bold"
+                    android:maxLines="2"
+                    android:paddingTop="4dp"
+                    android:layout_gravity="center_vertical"
+                    android:text="Hasil Deteksi"
+                    android:textColor="@color/state_danger_dark"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:paddingVertical="8dp"
+                    android:id="@+id/btn_delete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="10"
+                    android:src="@drawable/ic_baseline_delete"
+                    app:tint="@color/state_danger_dark" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/diagnose_time"

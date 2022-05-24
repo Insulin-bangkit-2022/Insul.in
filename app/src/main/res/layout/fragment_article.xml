@@ -19,8 +19,8 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/primary"
-            app:title="📰 Articles"
+            android:background="@drawable/custom_toolbar_banner"
+            app:title="📰 Artikel Pilihan"
             app:titleTextColor="@color/white" />
 
         <androidx.core.widget.NestedScrollView
@@ -34,6 +34,7 @@
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="16dp"
                 android:paddingTop="16dp"
+                android:paddingBottom="100dp"
                 tools:itemCount="10"
                 tools:listitem="@layout/item_article_list" />
         </androidx.core.widget.NestedScrollView>
@@ -41,10 +42,10 @@
 
 
     <ProgressBar
-        android:id="@+id/progressBarArticle"
-        style="?android:attr/progressBarStyle"
+        android:id="@+id/progress_bar_article"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:indeterminateTint="@color/primary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

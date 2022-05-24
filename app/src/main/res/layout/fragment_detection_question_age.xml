@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pattern"
+    tools:context=".ui.detection.fragment.SymptomPolyuria">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/image_question"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:src="@drawable/img_age"
+            app:layout_constraintBottom_toTopOf="@+id/question"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:lines="3"
+            android:text="Berapakah usia Anda?"
+            android:textAlignment="center"
+            android:textColor="@color/primary_dark"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/editText"
+            app:layout_constraintTop_toBottomOf="@+id/image_question"
+            tools:layout_editor_absoluteX="32dp" />
+
+        <LinearLayout
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:weightSum="100"
+            app:layout_constraintBottom_toTopOf="@+id/container_button"
+            app:layout_constraintTop_toBottomOf="@+id/question">
+
+            <EditText
+                android:id="@+id/et_age"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_weight="75"
+                android:background="@drawable/custom_background_detection"
+                android:hint="Masukan Usia Anda"
+                android:inputType="number"
+                android:padding="12dp"
+                android:textColorHint="@color/grey_dark"
+                tools:layout_editor_absoluteX="16dp" />
+
+            <Button
+                android:id="@+id/btn_ok"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="8dp"
+                android:textSize="18sp"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_weight="25"
+                android:background="@drawable/custom_background_detection_navigation"
+                android:text="Ok"
+                app:backgroundTint="@null" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/container_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="32dp"
+            android:weightSum="100"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <ImageView
+                android:id="@+id/prev_question"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_weight="20"
+                android:background="@drawable/custom_background_detection_navigation"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="16dp"
+                android:src="@drawable/ic_baseline_navigate_before" />
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="60"
+                android:paddingHorizontal="30dp"
+                android:progress="30"
+                android:progressTint="@color/primary" />
+
+            <ImageView
+                android:id="@+id/next_question"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="20"
+                android:background="@drawable/custom_background_detection_navigation"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="16dp"
+                android:src="@drawable/ic_baseline_navigate_next" />
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

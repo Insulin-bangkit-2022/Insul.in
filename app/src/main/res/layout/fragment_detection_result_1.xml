@@ -28,7 +28,6 @@
                 android:id="@+id/contaier_result"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
                 android:paddingBottom="100dp">
@@ -39,7 +38,9 @@
                     android:layout_width="128dp"
                     android:layout_height="128dp"
                     android:layout_marginTop="40dp"
-                    app:lottie_rawRes="@raw/success_information" />
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/failed" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -86,6 +87,7 @@
                             android:textStyle="bold" />
 
                         <ImageView
+                            android:id="@+id/icon_toggle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
@@ -113,26 +115,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:layout_margin="16dp"
-                    android:background="@drawable/button_warning">
-
-                    <androidx.fragment.app.FragmentContainerView
-                        android:id="@+id/map"
-                        android:name="com.google.android.gms.maps.SupportMapFragment"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        tools:context=".ui.dashboard.story.NewStoryPickLocation" />
+                    android:background="@drawable/img_hospital">
 
                     <Button
+                        android:id="@+id/btn_hospital"
+                        style="@style/Button.Primary"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginBottom="16dp"
-                        android:background="@drawable/button_warning"
-                        android:text="Cek RS Terdekat"
-                        android:textAllCaps="false"
-                        android:textColor="@color/state_warning_dark"
-                        app:backgroundTint="@null" />
+                        android:layout_centerInParent="true"
+                        android:text="Cek RS Terdekat" />
                 </RelativeLayout>
 
                 <TextView
@@ -147,12 +138,21 @@
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
+                <ProgressBar
+                    android:id="@+id/progress_bar_affiliation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="16dp"
+                    android:indeterminateTint="@color/state_danger_dark" />
+
                 <HorizontalScrollView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="16dp">
 
                     <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_affiliation"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
@@ -164,7 +164,9 @@
             </LinearLayout>
         </ScrollView>
 
-        <include layout="@layout/container_result_button"/>
+        <include
+            android:id="@+id/containerResultButton"
+            layout="@layout/container_result_button" />
     </RelativeLayout>
 
 

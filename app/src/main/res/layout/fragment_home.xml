@@ -4,17 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary_dark"
     tools:context=".ui.home.fragment.HomeFragment">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/white">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingBottom="70dp">
+
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -23,11 +26,21 @@
                 android:paddingHorizontal="8dp"
                 android:paddingBottom="16dp">
 
+                <ImageView
+                    android:id="@+id/app_logo"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/logo"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <TextView
                     android:id="@+id/app_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="8dp"
                     android:fontFamily="@font/poppins_black"
                     android:letterSpacing="0.1"
                     android:text="@string/app_name"
@@ -35,7 +48,7 @@
                     android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/app_logo" />
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/user_avatar"
@@ -50,15 +63,11 @@
 
                 <TextView
                     android:id="@+id/user_display_name"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="56dp"
-                    android:layout_marginEnd="40dp"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    android:paddingTop="4dp"
+                    android:layout_marginStart="10dp"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="@string/day_name"
+                    android:text="Selamat Pagi, John Doe 🌞🌛"
                     android:textColor="@color/white"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="@+id/user_avatar"
@@ -78,8 +87,9 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
-                style="@style/TextTitle"
-                android:text="📌 Pintasan" />
+                style="@style/TextSubTitle"
+                android:layout_marginTop="20dp"
+                android:text="🤩 Hanya ada di Insul.in" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -88,67 +98,235 @@
                 android:orientation="horizontal"
                 android:weightSum="3">
 
-                <com.google.android.material.imageview.ShapeableImageView
+                <LinearLayout
                     android:id="@+id/shortuct_hospital"
                     android:layout_width="0dp"
-                    android:layout_height="80dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:src="@drawable/shortcut_ambulance"
-                    app:shapeAppearanceOverlay="@style/roundedImageView" />
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:src="@drawable/shortcut_ambulance">
 
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/shortuct_consultation"
-                    android:layout_width="0dp"
-                    android:layout_height="80dp"
-                    android:layout_weight="1"
-                    android:src="@drawable/shortcut_telephone"
-                    app:shapeAppearanceOverlay="@style/roundedImageView" />
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/shortcut_hospital" />
 
-                <com.google.android.material.imageview.ShapeableImageView
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="4dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Rumah Sakit Terdekat"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:id="@+id/shortuct_affiliation"
                     android:layout_width="0dp"
-                    android:layout_height="80dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:src="@drawable/shortcut_information"
-                    app:shapeAppearanceOverlay="@style/roundedImageView" />
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:src="@drawable/shortcut_medicine">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/shortcut_affiliation" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="4dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Produk Diabetes Rekomendasi"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/shortuct_community"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/shortcut_community" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="4dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Komunitas Diabetes"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
+                android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="8dp"
                 android:orientation="horizontal"
                 android:weightSum="3">
 
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/shortuct_info"
+                <LinearLayout
+                    android:id="@+id/shortuct_consultation"
                     android:layout_width="0dp"
-                    android:layout_height="80dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:src="@drawable/shortcut_medicine"
-                    app:shapeAppearanceOverlay="@style/roundedImageView" />
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/shortcut_symptoms"
-                    android:layout_width="0dp"
-                    android:layout_height="80dp"
-                    android:layout_weight="1"
-                    android:src="@drawable/shortcut_chemical"
-                    app:shapeAppearanceOverlay="@style/roundedImageView" />
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/shortcut_consultation" />
 
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/shortcut_tips"
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="4dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Konsultasi dengan Dokter"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/shortuct_lab"
                     android:layout_width="0dp"
-                    android:layout_height="80dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:src="@drawable/shortcut_notebook"
-                    app:shapeAppearanceOverlay="@style/roundedImageView" />
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/shortcut_lab" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="4dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Pemeriksaan Lab Diabetes"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/shortuct_notes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/shortcut_monitoring" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="4dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Monitoring Kadar Gula Darah"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+                </LinearLayout>
             </LinearLayout>
 
             <TextView
-                style="@style/TextTitle"
+                style="@style/TextSubTitle"
+                android:layout_marginTop="16dp"
+                android:text="⌛ Riwayat Deteksi" />
+
+            <ProgressBar
+                android:id="@+id/progress_bar_history"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminateTint="@color/primary" />
+
+            <LinearLayout
+                android:id="@+id/label_never_detecting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="- Anda belum pernah melakukan Deteksi -"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/btn_detection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="16dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:padding="8dp"
+                    android:text="Coba Deteksi"
+                    android:textAlignment="center"
+                    android:textColor="@color/secondary" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_history"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                tools:itemCount="3"
+                tools:listitem="@layout/item_history_list" />
+
+            <TextView
+                android:id="@+id/btn_more_detection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="16dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center_horizontal"
+                android:paddingVertical="10dp"
+                android:text="Lihat selengkapnya"
+                android:textColor="@color/primary_dark"
+                android:textSize="14sp" />
+            <TextView
+                style="@style/TextSubTitle"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:text="🔥 Artikel Terbaru" />
+
+            <ProgressBar
+                android:id="@+id/progress_bar_article"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminateTint="@color/primary" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_article"
@@ -159,19 +337,28 @@
                 tools:listitem="@layout/item_article_list" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/btn_more_article"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="8dp"
                 android:fontFamily="@font/poppins_medium"
                 android:gravity="center_horizontal"
+                android:paddingVertical="10dp"
                 android:text="Lihat artikel lainnya"
                 android:textColor="@color/primary_dark"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
             <TextView
-                style="@style/TextTitle"
-                android:text="♥ Mungkin kamu Sukai" />
+                style="@style/TextSubTitle"
+                android:text="♥ Produk Rekomendasi Diabetes" />
+
+            <ProgressBar
+                android:id="@+id/progress_bar_affiliation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminateTint="@color/primary" />
 
             <HorizontalScrollView
                 android:layout_width="wrap_content"
@@ -179,6 +366,7 @@
                 android:layout_marginHorizontal="16dp">
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_affiliation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -186,9 +374,24 @@
                     tools:itemCount="15"
                     tools:listitem="@layout/item_affiliation_compact" />
             </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/btn_more_affiliation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center_horizontal"
+                android:paddingVertical="10dp"
+                android:text="Lihat produk selengkapnya"
+                android:textColor="@color/primary_dark"
+                android:textSize="14sp" />
         </LinearLayout>
 
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </FrameLayout>

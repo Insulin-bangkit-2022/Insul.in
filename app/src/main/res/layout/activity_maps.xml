@@ -11,7 +11,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/primary"
+        android:background="@color/primary_dark"
         map:navigationIcon="@drawable/ic_baseline_arrow_back"
         map:title="🏨 RS Terdekat"
         map:titleTextColor="@color/white"
