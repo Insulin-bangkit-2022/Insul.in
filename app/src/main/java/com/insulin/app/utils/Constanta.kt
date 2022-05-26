@@ -11,6 +11,13 @@ object Constanta {
     const val LOCATION_PERMISSION_CODE = 30
     const val LINK_WEB_ATTRIBUTION = "https://sites.google.com/view/insul-in/atribusi-data"
     const val LINK_WEB_TENTANG_APLIKASI = "https://sites.google.com/view/insul-in/tentang"
+    const val TYPE_ONE_TIME = "OneTimeAlarm"
+    const val TYPE_REPEATING = "RepeatingAlarm"
+    const val EXTRA_MESSAGE = "message"
+    const val EXTRA_TYPE = "type"
+    const val ID_ONETIME = 100
+    const val ID_REPEATING = 101
+    const val TIME_PICKER_REPEAT_TAG = "TimePickerRepeat"
     const val LINK_WEB_KONSULTASI_DOKTER = "https://sites.google.com/view/insul-in/konsultasi"
     const val LINK_WEB_KOMUNITAS_DIABETES = "https://sites.google.com/view/insul-in/komunitas"
     const val LINK_WEB_MONITORING_GULA_DARAH = "https://sites.google.com/view/insul-in/monitoring"
