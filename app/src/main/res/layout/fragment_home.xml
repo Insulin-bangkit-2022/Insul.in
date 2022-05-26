@@ -231,7 +231,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/shortuct_notes"
+                    android:id="@+id/shortuct_monitoring"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -279,7 +279,7 @@
                     android:layout_gravity="center"
                     android:layout_marginHorizontal="16dp"
                     android:layout_marginTop="16dp"
-                    android:text="- Anda belum pernah melakukan Deteksi -"
+                    android:text="- Anda tidak memiliki riwayat deteksi -"
                     android:textAlignment="center" />
 
                 <TextView

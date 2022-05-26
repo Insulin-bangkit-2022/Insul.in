@@ -15,6 +15,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.database
@@ -51,6 +53,10 @@ class DetectionActivity : AppCompatActivity() {
         }
         initSymptom()
         switchFragment(fragmentGreetings)
+
+        viewModel.response.observe(this){
+
+        }
 
     }
 
@@ -144,10 +150,8 @@ class DetectionActivity : AppCompatActivity() {
             Constanta.AnsweredSympthoms.SelectedNo.name -> {
                 option0.background = getDrawable(R.drawable.custom_background_detection_active)
                 option1.background = getDrawable(R.drawable.custom_background_detection)
-
             }
         }
-
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -209,27 +213,29 @@ class DetectionActivity : AppCompatActivity() {
 
 
     fun saveDataToFirebase(data: Detection) {
-        val database = Firebase.database
-        val uid = Constanta.TEMP_UID
-        val myRef =
-            database.getReference("detection_history").child(uid).child(data.detection_id)
-        binding.loading.root.isVisible = true
-        myRef.setValue(data).addOnSuccessListener {
-            binding.loading.root.isVisible = false
-            val dialog = Helper.dialogInfoBuilder(
-                this,
-                "Disimpan !",
-                "Data diagnosis berhasil disimpan, klik ok untuk kembali"
-            )
-            val btnOk: Button = dialog.findViewById(R.id.btn_ok)
-            btnOk.setOnClickListener {
-                dialog.dismiss()
-                finish()
+        FirebaseAuth.getInstance().currentUser?.let { user ->
+            val database = Firebase.database
+            val uid = user.uid
+            val myRef =
+                database.getReference("detection_history").child(uid).child(data.detection_id)
+            binding.loading.root.isVisible = true
+            myRef.setValue(data).addOnSuccessListener {
+                binding.loading.root.isVisible = false
+                val dialog = Helper.dialogInfoBuilder(
+                    this,
+                    "Disimpan !",
+                    "Data diagnosis berhasil disimpan, klik ok untuk kembali"
+                )
+                val btnOk: Button = dialog.findViewById(R.id.btn_ok)
+                btnOk.setOnClickListener {
+                    dialog.dismiss()
+                    finish()
+                }
+                dialog.show()
+            }.addOnFailureListener {
+                binding.loading.root.isVisible = false
+                Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
             }
-            dialog.show()
-        }.addOnFailureListener {
-            binding.loading.root.isVisible = false
-            Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
         }
     }
 

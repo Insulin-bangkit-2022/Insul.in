@@ -17,7 +17,7 @@
     <string name="email">Email</string>
     <string name="about_application">Tentang Aplikasi</string>
     <string name="attribute_data">Atribusi Data</string>
-    <string name="privacy">Privacy &amp; Policy</string>
+    <string name="privacy">Kebijakan Privasi</string>
     <string name="title_activity_recomendation_product">RecomendationProductActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

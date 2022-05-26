@@ -45,7 +45,7 @@ class SymptomPolydipsia : Fragment() {
         binding.progressBar.progress = 20
 
         /* init UI for image & question for view */
-        binding.imageQuestion.setImageDrawable((activity as DetectionActivity).getDrawable(R.drawable.img_polydipsia))
+        binding.imageQuestion.setImageDrawable((activity as DetectionActivity).getDrawable(R.drawable.img_polydispsia))
         binding.question.text =
             "Apa anda sering merasa kehausan (bahkan setelah minum) akhir-akhir ini?"
 

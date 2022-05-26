@@ -245,10 +245,10 @@ object Helper {
         alertdialogbuilder.setMessage("Apakah anda ingin menghapus data deteksi ini?")
         alertdialogbuilder.setPositiveButton("Ya") { alertDialog, _ ->
             alertDialog.dismiss()
-            val uid = FirebaseAuth.getInstance().currentUser?.uid
+            val uid = FirebaseAuth.getInstance().currentUser?.uid ?: Constanta.TEMP_UID
             FirebaseDatabase.getInstance().reference
                 .child("detection_history")
-                .child(Constanta.TEMP_UID)
+                .child(uid)
                 .child(data.detection_id).setValue(null).addOnSuccessListener {
                     dialogDetection.dismiss()
                     Toast.makeText(context, "Riwayat deteksi dihapus", Toast.LENGTH_SHORT)
@@ -303,7 +303,7 @@ object Helper {
     private const val simpleDatePattern = "dd MMM yyyy HH.mm"
     private var defaultDate = SimpleDateFormat("yyyy/MM/dd HH:mm:ss", Locale.getDefault())
     private var simpletDate = SimpleDateFormat("dd MMM yyyy | HH:mm", Locale.getDefault())
-    private var diagnoseIdDate = SimpleDateFormat("yyMMdd_HHmmssSSSS", Locale.getDefault())
+    private var randomIdDate = SimpleDateFormat("yyMMdd_HHmmssSSSS", Locale.getDefault())
 
     /*
     * DATE INSTANCE
@@ -324,12 +324,12 @@ object Helper {
 
 
     /* build date format for diagnose ID purposes */
-    private fun getDiagnoseIdDateString(): String = diagnoseIdDate.format(getCurrentDate())
+    private fun getRandomIdDateString(): String = randomIdDate.format(getCurrentDate())
 
     /* build diagnose ID format to Firebase DB (save history) */
-    fun getDiagnoseId(uid: String): String {
+    fun getUniqueUserRelatedId(uid: String): String {
         // Format Diagnose ID -> FirebaseUID_220530_1205001234_AbCDeFgHIj
-        return StringBuilder(uid).append("_").append(getDiagnoseIdDateString()).append("_")
+        return StringBuilder(uid).append("_").append(getRandomIdDateString()).append("_")
             .append(getRandomString(10)).toString()
     }
 
@@ -367,7 +367,7 @@ object Helper {
 
             override fun onCancelled(databaseError: DatabaseError) {
                 // Getting Post failed, log a message
-                Log.w(TAG, "loadPost:onCancelled", databaseError.toException())
+                Log.e(TAG, "loadPost:onCancelled", databaseError.toException())
                 // ...
             }
         })
@@ -413,8 +413,7 @@ object Helper {
 
             override fun onCancelled(databaseError: DatabaseError) {
                 // Getting Post failed, log a message
-                Log.w(TAG, "loadPost:onCancelled", databaseError.toException())
-                // ...
+                Log.e(TAG, "loadPost:onCancelled", databaseError.toException())
             }
         })
     }
@@ -431,14 +430,15 @@ object Helper {
     ) {
         progressBar.isVisible = true
         val tag = "FIREBASE"
+        val uid = FirebaseAuth.getInstance().currentUser?.uid ?: Constanta.TEMP_UID
         val database =
             if (limit != null) {
                 Firebase.database.reference.child("detection_history")
-                    .child(Constanta.TEMP_UID)
+                    .child(uid)
                     .limitToLast(limit)
             } else {
                 Firebase.database.reference.child("detection_history")
-                    .child(Constanta.TEMP_UID)
+                    .child(uid)
             }
         database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -475,7 +475,6 @@ object Helper {
             override fun onCancelled(databaseError: DatabaseError) {
                 // Getting Post failed, log a message
                 Log.e(tag, "loadPost:onCancelled", databaseError.toException())
-                Toast.makeText(context, databaseError.message, Toast.LENGTH_SHORT).show()
             }
         })
     }

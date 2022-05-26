@@ -21,7 +21,6 @@ import com.insulin.app.data.model.Detection
 import com.insulin.app.databinding.FragmentHomeBinding
 import com.insulin.app.ui.home.MainActivity
 import com.insulin.app.ui.maps.MapsActivity
-import com.insulin.app.ui.webview.WebViewActivity
 import com.insulin.app.utils.Constanta
 import com.insulin.app.utils.Helper
 
@@ -69,34 +68,47 @@ class HomeFragment : Fragment() {
                 }
             }
 
-            /* konsultasi dokter */
-            it.shortuctConsultation.setOnClickListener {
-                val intent =
-                    Intent(context, WebViewActivity::class.java)
-                intent.putExtra(WebViewActivity.EXTRA_WEBVIEW, "https://apriantoa917.github.io")
-                (activity as MainActivity).startActivity(intent)
-            }
-
-
+            /* rekomendasi produk */
             it.shortuctAffiliation.setOnClickListener {
                 (activity as MainActivity).redirectToRecommendationProduct()
             }
 
-
-            it.btnHelp.setOnClickListener {
-                Helper.openLinkInWebView(
-                    requireContext(),
-                    "https://sites.google.com/view/insul-in/bantuan"
-                )
+            /* komunitas diabetes */
+            it.shortuctCommunity.setOnClickListener {
+                (activity as MainActivity).redirectToRecommendationProduct()
             }
 
+            /* konsultasi dokter */
+            it.shortuctConsultation.setOnClickListener {
+                Helper.openLinkInWebView(context,Constanta.LINK_WEB_KONSULTASI_DOKTER)
+            }
+
+            /* cek lab */
+            it.shortuctLab.setOnClickListener {
+                Helper.openLinkInWebView(context,Constanta.LINK_WEB_CEK_LAB)
+            }
+
+            /* monitoring kadar gula darah */
+            it.shortuctLab.setOnClickListener {
+                Helper.openLinkInWebView(context,Constanta.LINK_WEB_MONITORING_GULA_DARAH)
+            }
+
+            /* btn help */
+            it.btnHelp.setOnClickListener {
+                Helper.openLinkInWebView(context,Constanta.LINK_WEB_HELP)
+            }
+
+            /* see more article */
             it.btnMoreArticle.setOnClickListener {
                 (activity as MainActivity).selectMenu(R.id.navigation_article)
             }
 
+            /* see more recommendation product */
             it.btnMoreAffiliation.setOnClickListener {
                 binding.shortuctAffiliation.performClick()
             }
+
+            /* see more detection history */
             it.btnMoreDetection.setOnClickListener {
                 (activity as MainActivity).selectMenu(R.id.navigation_history)
             }
@@ -134,6 +146,7 @@ class HomeFragment : Fragment() {
         )
         return binding.root
     }
+
 
 
 }

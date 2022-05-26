@@ -1,5 +1,6 @@
 package com.insulin.app.ui.splashscreen
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -12,6 +13,7 @@ import com.insulin.app.databinding.ActivitySplashScreenBinding
 import com.insulin.app.ui.home.MainActivity
 import com.insulin.app.ui.onBoarding.OnBoardingActivity
 
+@SuppressLint("CustomSplashScreen")
 class SplashScreenActivity : AppCompatActivity() {
 
     private lateinit var splashScreenBinding: ActivitySplashScreenBinding

@@ -2,30 +2,22 @@ package com.insulin.app.ui.detection.fragment
 
 import android.annotation.SuppressLint
 import android.app.Dialog
-import android.content.ActivityNotFoundException
-import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
-import android.os.Looper
 import android.util.Log
 import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.view.isVisible
-import androidx.fragment.app.activityViewModels
+import com.google.firebase.auth.FirebaseAuth
 import com.insulin.app.R
 import com.insulin.app.data.model.Detection
 import com.insulin.app.data.model.DetectionResponse
 import com.insulin.app.data.repository.remote.api.ApiConfig
-import com.insulin.app.data.viewmodel.DetectionViewModel
 import com.insulin.app.databinding.CustomDialogInfoBinding
-import com.insulin.app.databinding.FragmentDetectionQuestionYesnoBinding
 import com.insulin.app.databinding.FragmentLoadingDetectionBinding
 import com.insulin.app.ui.detection.DetectionActivity
 import com.insulin.app.utils.Constanta
@@ -33,8 +25,6 @@ import com.insulin.app.utils.Helper
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.*
-import kotlin.concurrent.schedule
 
 @Suppress("DEPRECATION")
 @SuppressLint("UseCompatLoadingForDrawables", "NewApi")
@@ -112,9 +102,9 @@ class LoadingDetectionFragment : Fragment() {
             ) {
                 if (response.isSuccessful) {
                     response.body()?.let { data ->
-                        val uid = Constanta.TEMP_UID
+                        val uid = FirebaseAuth.getInstance().currentUser?.uid ?: Constanta.TEMP_UID
                         val detection = Detection(
-                            detection_id = Helper.getDiagnoseId(uid),
+                            detection_id = Helper.getUniqueUserRelatedId(uid),
                             isDiabetes = data.isDiabetes,
                             detectionTime = Helper.getCurrentDateString(),
                             age = (activity as DetectionActivity).getAnsweredQuestion(Constanta.DiabetesSympthoms.Age.name)

@@ -3,7 +3,7 @@ package com.insulin.app.utils
 object Constanta {
     const val TIME_SCREEN_ACTIVITY = 1500L
 
-    const val TEMP_UID = "UIDKharlos"
+    const val TEMP_UID = "TEMP_UID_INSULIN"
 
     /* PERMISSION REQUEST CODE */
     const val CAMERA_PERMISSION_CODE = 10
@@ -11,7 +11,11 @@ object Constanta {
     const val LOCATION_PERMISSION_CODE = 30
     const val LINK_WEB_ATTRIBUTION = "https://sites.google.com/view/insul-in/atribusi-data"
     const val LINK_WEB_TENTANG_APLIKASI = "https://sites.google.com/view/insul-in/tentang"
-
+    const val LINK_WEB_KONSULTASI_DOKTER = "https://sites.google.com/view/insul-in/konsultasi"
+    const val LINK_WEB_KOMUNITAS_DIABETES = "https://sites.google.com/view/insul-in/komunitas"
+    const val LINK_WEB_MONITORING_GULA_DARAH = "https://sites.google.com/view/insul-in/monitoring"
+    const val LINK_WEB_CEK_LAB = "https://sites.google.com/view/insul-in/lab"
+    const val LINK_WEB_HELP = "https://sites.google.com/view/insul-in/bantuan"
 
 
     enum class DiabetesSympthoms {

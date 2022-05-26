@@ -45,7 +45,7 @@ class SymptomIrritability : Fragment() {
         binding.progressBar.progress = 60
 
         /* init progress filled -> percentage current step of 15 question */
-        binding.imageQuestion.setImageDrawable((activity as DetectionActivity).getDrawable(R.drawable.img_irratibility))
+        binding.imageQuestion.setImageDrawable((activity as DetectionActivity).getDrawable(R.drawable.img_irritability))
         binding.question.text = "Apakah anda sering merasa mudah marah / emosi akhir-akhir ini?"
 
         /* if user clicked options yes / no -> submit answer + update UI (selected option, enabled nav question) */
