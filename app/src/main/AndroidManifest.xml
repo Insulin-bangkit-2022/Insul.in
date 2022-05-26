@@ -35,16 +35,13 @@
             android:name=".ui.onBoarding.OnBoardingActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.afiliation.RecomendationProductActivity"
+            android:name=".ui.afiliation.RecommendationProductActivity"
             android:exported="false" />
         <activity
             android:name=".ui.login.LoginActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".ui.detection.DetectionActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.login.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".ui.webview.WebViewActivity"
