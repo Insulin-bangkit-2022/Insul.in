@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/state_success_dark"
-            android:title="Hasil Deteksi"
+            android:title="@string/result_detection"
             android:titleTextColor="@color/white" />
 
         <ScrollView
@@ -47,7 +47,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:letterSpacing="0.05"
-                    android:text="Risiko Rendah"
+                    android:text="@string/low_risk"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -58,7 +58,7 @@
                     android:layout_marginHorizontal="32dp"
                     android:layout_marginTop="16dp"
                     android:lineHeight="20dp"
-                    android:text="Selamat, Kamu berpotensi rendah terkena diabetes dari hasil diagnosa awal dengan Insul.in"
+                    android:text="@string/congratulation_for_detection"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
@@ -81,9 +81,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Lihat Hasil Diagnosis"
+                            android:text="@string/see_the_result"
                             android:textColor="@color/state_success_dark"
-                            android:textSize="16dp"
+                            android:textSize="16sp"
                             android:textStyle="bold" />
 
                         <ImageView
@@ -91,6 +91,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
+                            android:contentDescription="@string/arrow_down"
                             android:src="@drawable/ic_baseline_arrow_down"
                             app:tint="@color/state_success_dark" />
                     </RelativeLayout>
@@ -107,7 +108,7 @@
                     android:layout_marginHorizontal="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
-                    android:text="Bacaan Untukmu agar tetap sehat"
+                    android:text="@string/read_description_for_your_health"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />

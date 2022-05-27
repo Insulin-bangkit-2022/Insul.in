@@ -10,12 +10,10 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.insulin.app.R
 import com.insulin.app.adapter.article.ArticleAdapter
 import com.insulin.app.data.model.Article
-import com.insulin.app.data.viewmodel.DetectionViewModel
 import com.insulin.app.databinding.FragmentDetectionResult0Binding
 import com.insulin.app.ui.detection.DetectionActivity
 import com.insulin.app.utils.Helper

@@ -6,12 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
-import com.insulin.app.R
 import com.insulin.app.databinding.FragmentDetectionGreetingsBinding
-import com.insulin.app.databinding.FragmentDetectionQuestionYesnoBinding
 import com.insulin.app.ui.detection.DetectionActivity
-import com.insulin.app.utils.Constanta
 
 class Greetings : Fragment() {
 

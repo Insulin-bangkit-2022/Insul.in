@@ -1,6 +1,5 @@
 package com.insulin.app.adapter.article
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -8,7 +7,6 @@ import com.bumptech.glide.Glide
 import com.insulin.app.R
 import com.insulin.app.data.model.Article
 import com.insulin.app.databinding.ItemArticleListBinding
-import com.insulin.app.ui.webview.WebViewActivity
 import com.insulin.app.utils.Helper
 
 class ArticleAdapter(private val data: ArrayList<Article>, val background:Int? = R.drawable.custom_background_rv) : RecyclerView.Adapter<ArticleAdapter.ViewHolder>() {

@@ -47,8 +47,7 @@ class SymptomMuscleStiffness : Fragment() {
 
         /* init progress filled -> percentage current step of 15 question */
         binding.imageQuestion.setImageDrawable((activity as DetectionActivity).getDrawable(R.drawable.img_muscle_stiffness))
-        binding.question.text =
-            "Apakah sering mengalami kaku pada otot setelah melakukan kegiatan intensif (seperti berdiri / duduk lama)?"
+        binding.question.text = resources.getString(R.string.question_about_muscle_stiffness)
 
         /* if user clicked options yes / no -> submit answer + update UI (selected option, enabled nav question) */
         binding.option1.setOnClickListener {

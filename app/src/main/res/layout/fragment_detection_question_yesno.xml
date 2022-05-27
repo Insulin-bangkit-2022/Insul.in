@@ -18,6 +18,7 @@
             android:layout_height="200dp"
             android:layout_gravity="center"
             android:src="@color/primary"
+            android:contentDescription="@string/question_image"
             app:layout_constraintBottom_toTopOf="@+id/question"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -32,7 +33,7 @@
             android:layout_marginHorizontal="32dp"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/poppins_medium"
-            android:text="Sebuah Pertanyaan"
+            android:text="@string/question"
             android:lines="3"
             android:gravity="center"
             android:textAlignment="center"
@@ -48,6 +49,7 @@
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:baselineAligned="false"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="32dp"
             android:weightSum="2"
@@ -72,6 +74,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    android:contentDescription="@string/image_yes"
                     android:src="@drawable/ic_detection_yes"
                     app:tint="@color/state_success_dark" />
 
@@ -81,7 +84,7 @@
                     android:layout_marginTop="16dp"
                     android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
-                    android:text="Ya"
+                    android:text="@string/yes"
                     android:textColor="@color/state_success_dark"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -101,6 +104,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    android:contentDescription="@string/image_no"
                     android:src="@drawable/ic_detection_no"
                     app:tint="@color/state_danger_dark" />
 
@@ -110,7 +114,7 @@
                     android:layout_marginTop="16dp"
                     android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
-                    android:text="Tidak"
+                    android:text="@string/no"
                     android:textColor="@color/state_danger_dark"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -130,6 +134,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="20"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/question_prev"
                 android:layout_marginStart="16dp"
                 android:background="@drawable/custom_background_detection_navigation"
                 android:paddingHorizontal="20dp"
@@ -153,6 +158,7 @@
                 android:layout_weight="20"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
+                android:contentDescription="@string/next_navigate"
                 android:background="@drawable/custom_background_detection_navigation"
                 android:paddingHorizontal="20dp"
                 android:paddingVertical="16dp"

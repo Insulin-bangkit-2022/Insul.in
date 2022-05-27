@@ -3,9 +3,6 @@ package com.insulin.app.ui.detection
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -14,25 +11,16 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.insulin.app.R
 import com.insulin.app.data.model.Detection
-import com.insulin.app.data.model.DetectionResponse
-import com.insulin.app.data.repository.remote.api.ApiConfig
 import com.insulin.app.data.viewmodel.DetectionViewModel
 import com.insulin.app.databinding.ActivityDetectionBinding
 import com.insulin.app.ui.detection.fragment.*
 import com.insulin.app.utils.Constanta
 import com.insulin.app.utils.Helper
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 @SuppressLint("UseCompatLoadingForDrawables")
 class DetectionActivity : AppCompatActivity() {
@@ -129,7 +117,7 @@ class DetectionActivity : AppCompatActivity() {
     }
 
     fun parseAnsweredBoolean(key: String): String {
-        return if (parseAnsweredQuestion(key)) "Ya" else "Tidak"
+        return if (parseAnsweredQuestion(key)) resources.getString(R.string.yes) else resources.getString(R.string.no)
     }
 
     fun isAgeFilled(): Boolean {
@@ -190,14 +178,14 @@ class DetectionActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         val alertdialogbuilder = AlertDialog.Builder(this@DetectionActivity)
-        alertdialogbuilder.setTitle("Batalkan Deteksi")
-        alertdialogbuilder.setMessage("Apakah anda ingin keluar dari proses deteksi?")
-        alertdialogbuilder.setPositiveButton("Ya") { alertDialog, _ ->
+        alertdialogbuilder.setTitle(getString(R.string.cancel_detection))
+        alertdialogbuilder.setMessage(getString(R.string.do_you_out_process_detection))
+        alertdialogbuilder.setPositiveButton(getString(R.string.yes)) { alertDialog, _ ->
             alertDialog.dismiss()
             diagnoseSymptoms.clear()
             finish()
         }
-        alertdialogbuilder.setNegativeButton("Tidak") { alertDialog, _ ->
+        alertdialogbuilder.setNegativeButton(getString(R.string.no)) { alertDialog, _ ->
             alertDialog.dismiss()
         }
         alertdialogbuilder.create().show()

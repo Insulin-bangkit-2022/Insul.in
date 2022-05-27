@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:background="@color/primary_dark"
         map:navigationIcon="@drawable/ic_baseline_arrow_back"
-        map:title="🏨 RS Terdekat"
+        map:title="@string/near_hospital"
         map:titleTextColor="@color/white"
         map:menu="@menu/menu_hospital_maps" />
 
@@ -51,7 +51,7 @@
                     android:layout_weight="90"
                     android:fontFamily="@font/poppins_bold"
                     android:gravity="center_vertical"
-                    android:text="💡 Tips"
+                    android:text="@string/tips"
                     android:textColor="@color/state_success_dark"
                     android:textSize="16sp" />
 
@@ -61,6 +61,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="10"
                     android:paddingVertical="5dp"
+                    android:contentDescription="@string/close"
                     android:src="@drawable/ic_baseline_close"
                     map:tint="@color/state_success_dark" />
             </LinearLayout>
@@ -69,7 +70,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="Klik pin Rumah sakit untuk melihat informasi detail. Klik tombol untuk mendapatkan petunjuk arah"
+                android:text="@string/detail_information_hospital"
                 android:textColor="@color/state_success_dark" />
 
         </LinearLayout>

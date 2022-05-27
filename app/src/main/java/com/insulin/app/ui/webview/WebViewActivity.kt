@@ -12,9 +12,7 @@ import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.core.view.isVisible
 import com.insulin.app.R
-import com.insulin.app.databinding.ActivityMainBinding
 import com.insulin.app.databinding.ActivityWebViewBinding
-import com.insulin.app.utils.Constanta
 
 class WebViewActivity : AppCompatActivity() {
 

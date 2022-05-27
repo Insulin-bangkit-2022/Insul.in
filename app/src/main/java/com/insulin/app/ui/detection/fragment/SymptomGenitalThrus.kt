@@ -46,8 +46,7 @@ class SymptomGenitalThrus : Fragment() {
 
         /* init UI for image & question for view */
         binding.imageQuestion.setImageDrawable((activity as DetectionActivity).getDrawable(R.drawable.img_genital_thrus))
-        binding.question.text =
-            "Apakah ada infeksi jamur atau rasa gatal pada alat vital (kelamin)?"
+        binding.question.text = resources.getString(R.string.question_about_genitial_thrus)
 
         /* if user clicked options yes / no -> submit answer + update UI (selected option, enabled nav question) */
         binding.option1.setOnClickListener {

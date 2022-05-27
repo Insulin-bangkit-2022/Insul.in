@@ -14,16 +14,12 @@ import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import com.insulin.app.R
-import com.insulin.app.ui.viemodel.AlarmReminderViewModel
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
-import java.util.concurrent.TimeUnit
 
 
 class AlarmReceiver : BroadcastReceiver() {
-
-    private lateinit var reminderViewModel: AlarmReminderViewModel
 
     override fun onReceive(context: Context, intent: Intent) {
         val type = intent.getStringExtra(EXTRA_TYPE)

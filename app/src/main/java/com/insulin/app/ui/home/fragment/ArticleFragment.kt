@@ -9,7 +9,6 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.insulin.app.data.model.Article
 import com.insulin.app.databinding.FragmentArticleBinding
-import com.insulin.app.ui.home.MainActivity
 import com.insulin.app.utils.Helper
 
 class ArticleFragment : Fragment() {

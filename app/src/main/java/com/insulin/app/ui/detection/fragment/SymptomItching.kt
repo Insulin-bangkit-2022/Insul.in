@@ -47,7 +47,7 @@ class SymptomItching : Fragment() {
 
         /* init UI for image & question for view */
         binding.imageQuestion.setImageDrawable((activity as DetectionActivity).getDrawable(R.drawable.img_itching))
-        binding.question.text = "Apakah anda merasa gatal-gatal pada tubuh?"
+        binding.question.text = resources.getString(R.string.question_about_itching)
 
         /* if user clicked options yes / no -> submit answer + update UI (selected option, enabled nav question) */
         binding.option1.setOnClickListener {

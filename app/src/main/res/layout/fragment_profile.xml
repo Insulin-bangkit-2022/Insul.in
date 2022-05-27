@@ -65,7 +65,7 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginBottom="16dp"
                 android:drawablePadding="8dp"
-                android:text="Pengaturan Aplikasi"
+                android:text="@string/settings_application"
                 android:textSize="18sp"
                 app:drawableLeftCompat="@drawable/ic_baseline_miscellaneous" />
 
@@ -74,7 +74,7 @@
                 style="@style/Button.Profile"
                 android:drawableLeft="@drawable/ic_baseline_timer"
                 android:drawableRight="@drawable/ic_baseline_navigate_next"
-                android:text="Pengingat Deteksi Rutin"
+                android:text="@string/reminder_alarm"
                 tools:ignore="RtlHardcoded" />
 
             <TextView
@@ -84,7 +84,7 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginBottom="16dp"
                 android:drawablePadding="8dp"
-                android:text="Seputar Aplikasi"
+                android:text="@string/regarding_application"
                 android:textSize="18sp"
                 app:drawableLeftCompat="@drawable/ic_baseline_category" />
 
@@ -119,7 +119,7 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginBottom="16dp"
                 android:drawablePadding="8dp"
-                android:text="Zona Merah"
+                android:text="@string/red_zone"
                 android:textColor="@color/state_danger_dark"
                 android:textSize="18sp"
                 app:drawableLeftCompat="@drawable/ic_baseline_dangerous"
@@ -129,7 +129,7 @@
                 android:id="@+id/btn_logout"
                 style="@style/Button.Danger"
                 android:layout_marginHorizontal="16dp"
-                android:text="Keluar"
+                android:text="@string/exit"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/privacy" />

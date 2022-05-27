@@ -24,7 +24,7 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:layout_weight="80"
         android:orientation="vertical">
 
@@ -35,7 +35,7 @@
             android:layout_gravity="start"
             android:maxLines="1"
             android:ellipsize="end"
-            android:text="Insulin KW Super"
+            android:text="@string/product_name_affiliation"
             android:textColor="@color/secondary_dark"
             android:textSize="12sp"
             android:textStyle="bold" />
@@ -46,12 +46,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:layout_marginTop="8dp"
-            android:text="Rp 100.000"
+            android:text="@string/price"
             android:textColor="@color/primary_dark"
             android:textSize="12sp" />
 
         <ImageView
             android:id="@+id/product_provider"
+            android:contentDescription="@string/product_affiliation"
             android:layout_width="70dp"
             android:layout_height="20dp"
             android:layout_gravity="end"

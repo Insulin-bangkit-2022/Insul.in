@@ -45,7 +45,7 @@ class SymptomWeightLoss : Fragment() {
 
         /* init UI for image & question for view */
         binding.imageQuestion.setImageDrawable((activity as DetectionActivity).getDrawable(R.drawable.img_weight_loss))
-        binding.question.text = "Apakah anda merasa turun berat secara badan drastis akhir-akhir ini?"
+        binding.question.text = resources.getString(R.string.question_about_weightloss)
 
         /* if user clicked options yes / no -> submit answer + update UI (selected option, enabled nav question) */
         binding.option1.setOnClickListener {

@@ -18,6 +18,7 @@
             android:layout_height="200dp"
             android:layout_gravity="center"
             android:src="@drawable/img_gender"
+            android:contentDescription="@string/gender"
             app:layout_constraintBottom_toTopOf="@+id/question"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -32,7 +33,7 @@
             android:layout_marginHorizontal="32dp"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/poppins_medium"
-            android:text="Kamu Adalah seorang?"
+            android:text="@string/you_are_a_person"
             android:lines="3"
             android:gravity="center"
             android:textAlignment="center"
@@ -51,6 +52,7 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="32dp"
             android:weightSum="2"
+            android:baselineAligned="false"
             app:layout_constraintBottom_toTopOf="@+id/container_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -69,6 +71,7 @@
                 android:padding="24dp">
 
                 <ImageView
+                    android:contentDescription="@string/boy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -81,7 +84,7 @@
                     android:layout_marginTop="16dp"
                     android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
-                    android:text="Pria"
+                    android:text="@string/man"
                     android:textColor="@color/state_primary_dark"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -102,6 +105,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:src="@drawable/ic_woman"
+                    android:contentDescription="@string/woman"
                     app:tint="@color/pink" />
 
                 <TextView
@@ -110,7 +114,7 @@
                     android:layout_marginTop="16dp"
                     android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
-                    android:text="Wanita"
+                    android:text="@string/woman"
                     android:textColor="@color/pink"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -131,6 +135,7 @@
                 android:layout_weight="20"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:contentDescription="@string/navigate_before"
                 android:background="@drawable/custom_background_detection_navigation"
                 android:paddingHorizontal="20dp"
                 android:paddingVertical="16dp"
@@ -154,6 +159,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/custom_background_detection_navigation"
+                android:contentDescription="@string/next_navigate"
                 android:paddingHorizontal="20dp"
                 android:paddingVertical="16dp"
                 android:src="@drawable/ic_baseline_navigate_next" />

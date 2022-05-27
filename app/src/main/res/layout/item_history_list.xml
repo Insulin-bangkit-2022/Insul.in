@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/container"
@@ -29,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="05 Mei 2022 | 17.00"
+        android:text="@string/history_date"
         android:textColor="@color/black"
         android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/iv_diagnose_result_icon"
@@ -46,7 +43,7 @@
         android:letterSpacing="0.05"
         android:lineHeight="22dp"
         android:maxLines="2"
-        android:text="High Risk"
+        android:text="@string/high_risk"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/iv_diagnose_result_icon"

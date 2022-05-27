@@ -31,7 +31,7 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="- Anda tidak memiliki riwayat deteksi -"
+                android:text="@string/you_dont_have_history"
                 android:textAlignment="center"
                 android:layout_marginTop="16dp"
                 android:layout_gravity="center"/>
@@ -42,7 +42,7 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Coba Deteksi"
+                android:text="@string/try_detection"
                 android:padding="8dp"
                 android:textAlignment="center"
                 android:layout_gravity="center"/>

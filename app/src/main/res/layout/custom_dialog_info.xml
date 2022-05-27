@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_centerInParent="true"
@@ -28,7 +26,7 @@
                 android:ellipsize="end"
                 android:fontFamily="@font/poppins_bold"
                 android:maxLines="2"
-                android:text="Judul Dialog"
+                android:text="@string/title_dialog"
                 android:textColor="@color/state_primary_dark"
                 android:textSize="20sp" />
 
@@ -38,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/poppins_regular"
-                android:text="Ini merupakan text body pada dialog informasi, text akan nampak seperti ini"
+                android:text="@string/text_dialog_information"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
@@ -49,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
-                android:text="OK" />
+                android:text="@string/ok" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

@@ -2,7 +2,6 @@ package com.insulin.app.ui.detection.fragment
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.media.Image
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -12,12 +11,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 import com.insulin.app.R
 import com.insulin.app.databinding.FragmentDetectionQuestionAgeBinding
 import com.insulin.app.ui.detection.DetectionActivity
-import com.insulin.app.utils.Constanta
 import com.insulin.app.utils.Helper
 
 /* Question number 1 */

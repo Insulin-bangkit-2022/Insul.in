@@ -89,8 +89,8 @@
                         <ImageView
                             android:id="@+id/icon_toggle"
                             android:layout_width="wrap_content"
-                            android:contentDescription="@string/toggle"
                             android:layout_height="wrap_content"
+                            android:contentDescription="@string/toggle"
                             android:layout_alignParentEnd="true"
                             android:src="@drawable/ic_baseline_arrow_down"
                             app:tint="@color/state_danger_dark" />

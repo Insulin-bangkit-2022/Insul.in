@@ -122,24 +122,24 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/btn_active"
+            android:id="@+id/btn_delete"
             style="@style/Button.Danger"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_weight="1"
-            android:text="@string/active"
+            android:text="@string/delete"
             app:layout_constraintBottom_toBottomOf="parent" />
 
         <Button
-            android:id="@+id/btn_delete"
+            android:id="@+id/btn_active"
             style="@style/Button.Primary"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_weight="1"
-            android:text="@string/delete"
-            app:layout_constraintBottom_toTopOf="@+id/btn_active"
+            android:text="@string/active"
+            app:layout_constraintBottom_toTopOf="@+id/btn_delete"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
     </LinearLayout>

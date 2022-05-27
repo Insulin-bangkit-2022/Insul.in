@@ -14,7 +14,7 @@
         android:background="@color/primary_dark"
         app:menu="@menu/menu_webview"
         app:navigationIcon="@drawable/ic_baseline_close"
-        app:title="Insul.in"
+        app:title="@string/insulin"
         app:titleTextColor="@color/white" />
 
     <ProgressBar

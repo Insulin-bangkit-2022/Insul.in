@@ -46,7 +46,7 @@ class SymptomPartialParesis : Fragment() {
 
         /* init progress filled -> percentage current step of 15 question */
         binding.imageQuestion.setImageDrawable((activity as DetectionActivity).getDrawable(R.drawable.img_partial_paresis))
-        binding.question.text = "Mengalami gangguan pada syaraf seperti lemas saat menggenggam barang?"
+        binding.question.text = resources.getString(R.string.question_about_partial_paresis)
 
         /* if user clicked options yes / no -> submit answer + update UI (selected option, enabled nav question) */
         binding.option1.setOnClickListener {

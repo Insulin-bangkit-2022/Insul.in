@@ -46,7 +46,7 @@ class SymptomPolyuria : Fragment() {
 
         /* init UI for image & question for view */
         binding.imageQuestion.setImageDrawable((activity as DetectionActivity).getDrawable(R.drawable.img_polyuria))
-        binding.question.text = "Apakah anda sering merasa ingin buang air kecil akhir-akhir ini?"
+        binding.question.text = resources.getString(R.string.question_about_polyuria)
 
         /* if user clicked options yes / no -> submit answer + update UI (selected option, enabled nav question) */
         binding.option1.setOnClickListener {

@@ -47,7 +47,7 @@ class SymptomPolyphagia : Fragment() {
         /* init UI for image & question for view */
         binding.imageQuestion.setImageDrawable((activity as DetectionActivity).getDrawable(R.drawable.img_polyphagia))
         binding.question.text =
-            "Apakah anda merasa sering lapar atau nafsu makan meningkat akhir-akhir ini?"
+            resources.getString(R.string.question_about_polyphagia)
 
         /* if user clicked options yes / no -> submit answer + update UI (selected option, enabled nav question) */
         binding.option1.setOnClickListener {

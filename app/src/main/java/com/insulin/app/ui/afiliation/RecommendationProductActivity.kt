@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -120,7 +119,7 @@ class RecommendationProductActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.navigation_filter -> {
                 val alertdialogbuilder = AlertDialog.Builder(this@RecommendationProductActivity)
-                alertdialogbuilder.setTitle("Kategori Produk")
+                alertdialogbuilder.setTitle(getString(R.string.product_category))
                 val items = arrayOf(
                     "🔬 Test Diabetes",
                     "🌾 Kebutuhan Harian",

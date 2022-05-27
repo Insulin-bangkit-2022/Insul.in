@@ -52,8 +52,8 @@ class ReminderNotificationsActivity : AppCompatActivity(), View.OnClickListener,
         binding.tvFrequencyDay.setOnClickListener {
             val builder = AlertDialog.Builder(this)
             val frequencyDay = arrayOf(
-                "Minggu",
-                "Bulan"
+                "Setiap Minggu",
+                "Setiap Bulan"
             )
             builder.setSingleChoiceItems(frequencyDay, -1) { dialog, which ->
                 binding.tvFrequencyDay.text = frequencyDay[which]

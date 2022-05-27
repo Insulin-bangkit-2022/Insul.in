@@ -1,6 +1,5 @@
 package com.insulin.app.ui.home.fragment
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,7 +11,6 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.insulin.app.databinding.FragmentProfileBinding
 import com.insulin.app.ui.home.MainActivity
-import com.insulin.app.ui.login.LoginActivity
 import com.insulin.app.ui.reminderNotifications.ReminderNotificationsActivity
 import com.insulin.app.ui.webview.WebViewActivity
 import com.insulin.app.utils.Constanta

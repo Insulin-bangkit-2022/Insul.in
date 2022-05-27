@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/custom_toolbar_banner"
         app:navigationIcon="@drawable/ic_baseline_arrow_back"
-        app:title="Deteksi Diabetes"
+        app:title="@string/diabetes_detection"
         app:titleTextColor="@color/white" />
 
     <RelativeLayout

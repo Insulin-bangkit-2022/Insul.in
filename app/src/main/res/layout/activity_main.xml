@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         app:borderWidth="0dp"
         android:backgroundTint="@color/primary"
-        android:contentDescription="dsdd"
+        android:contentDescription="@string/detection"
         android:src="@drawable/ic_diagnose"
         android:tintMode="@color/white"
         app:layout_anchor="@id/bottomAppBar"

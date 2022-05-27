@@ -51,7 +51,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_bold"
                         android:gravity="center_vertical"
-                        android:text="🎁 Produk khusus untuk Kamu 🎁"
+                        android:text="@string/special_product"
                         android:textColor="@color/state_primary_dark"
                         android:textSize="16sp" />
 
@@ -59,7 +59,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="Kamu dapat menemukan berbagai produk yang ramah untuk Diabetes dibawah ini..."
+                        android:text="@string/search_product"
                         android:textColor="@color/state_primary_dark" />
 
                 </LinearLayout>
@@ -69,7 +69,7 @@
                     style="@style/TextSubTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="🔬 Test Diabetes" />
+                    android:text="@string/diabetes_test" />
 
                 <HorizontalScrollView
                     android:layout_width="match_parent"
@@ -78,7 +78,7 @@
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_affiliation_0"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -93,7 +93,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:text="🌾 Kebutuhan Harian" />
+                    android:text="@string/daily_needs" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_affiliation_1"
@@ -109,7 +109,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:text="💊 Suplemen &amp; Vitamin" />
+                    android:text="@string/suplemen_and_vitamin" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_affiliation_3"
@@ -125,7 +125,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:text="🍔 Snack Rendah Gula" />
+                    android:text="@string/snack_low_sugar" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_affiliation_2"

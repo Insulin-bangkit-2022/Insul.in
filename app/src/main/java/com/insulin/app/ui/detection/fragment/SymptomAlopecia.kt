@@ -47,7 +47,7 @@ class SymptomAlopecia : Fragment() {
 
         /* init progress filled -> percentage current step of 15 question */
         binding.imageQuestion.setImageDrawable((activity as DetectionActivity).getDrawable(R.drawable.img_alopecia))
-        binding.question.text = "Apakah sering mengalami kerontokan pada rambut akhir-akhir ini?"
+        binding.question.text = resources.getString(R.string.have_you_been_lost_hair)
 
         /* if user clicked options yes / no -> submit answer + update UI (selected option, enabled nav question) */
         binding.option1.setOnClickListener {

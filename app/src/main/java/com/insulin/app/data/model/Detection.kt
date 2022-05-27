@@ -1,7 +1,6 @@
 package com.insulin.app.data.model
 
 import com.google.firebase.database.PropertyName
-import com.insulin.app.utils.Constanta
 
 data class Detection(
 

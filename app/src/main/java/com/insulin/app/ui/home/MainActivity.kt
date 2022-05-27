@@ -158,7 +158,7 @@ class MainActivity : AppCompatActivity() {
                     }
                     val binding = CustomDialogInfoBinding.inflate(layoutInflater)
                     dialog.setContentView(binding.root)
-                    binding.dialogTitle.text = "Update Aplikasi"
+                    binding.dialogTitle.text = resources.getString(R.string.update_application)
                     binding.dialogTitle.gravity = Gravity.CENTER_HORIZONTAL
                     binding.dialogBody.text =
                         "Versi ${serverAppVersion} tersedia. \n\nUntuk bisa tetap menggunakan aplikasi Insul.in, Anda perlu melakukan update aplikasi terlebih dahulu"

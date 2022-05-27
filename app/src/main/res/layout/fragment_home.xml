@@ -32,6 +32,7 @@
                     android:layout_height="48dp"
                     android:layout_marginTop="16dp"
                     android:src="@drawable/logo"
+                    android:contentDescription="@string/logo"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -67,7 +68,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="Selamat Pagi, John Doe 🌞🌛"
+                    android:text="@string/welcome_user"
                     android:textColor="@color/white"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="@+id/user_avatar"
@@ -78,6 +79,7 @@
                     android:id="@+id/btn_help"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/help"
                     android:padding="8dp"
                     android:src="@drawable/ic_baseline_help"
                     app:layout_constraintBottom_toBottomOf="@+id/user_display_name"
@@ -89,12 +91,13 @@
             <TextView
                 style="@style/TextSubTitle"
                 android:layout_marginTop="20dp"
-                android:text="🤩 Hanya ada di Insul.in" />
+                android:text="@string/home_text_sub_title" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
+                android:baselineAligned="false"
                 android:orientation="horizontal"
                 android:weightSum="3">
 
@@ -110,6 +113,7 @@
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
+                        android:contentDescription="@string/shortcut_hospital"
                         android:src="@drawable/shortcut_hospital" />
 
                     <TextView
@@ -117,7 +121,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="4dp"
                         android:fontFamily="@font/poppins_medium"
-                        android:text="Rumah Sakit Terdekat"
+                        android:text="@string/near_hospital_home"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="12sp" />
@@ -135,6 +139,7 @@
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
+                        android:contentDescription="@string/affiliation"
                         android:src="@drawable/shortcut_affiliation" />
 
                     <TextView
@@ -142,7 +147,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="4dp"
                         android:fontFamily="@font/poppins_medium"
-                        android:text="Produk Diabetes Rekomendasi"
+                        android:text="@string/recommended_product_diabetes"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="12sp" />
@@ -159,6 +164,7 @@
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
+                        android:contentDescription="@string/community"
                         android:src="@drawable/shortcut_community" />
 
                     <TextView
@@ -166,7 +172,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="4dp"
                         android:fontFamily="@font/poppins_medium"
-                        android:text="Komunitas Diabetes"
+                        android:text="@string/diabetes_community"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="12sp" />
@@ -179,6 +185,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:orientation="horizontal"
+                android:baselineAligned="false"
                 android:weightSum="3">
 
                 <LinearLayout
@@ -192,6 +199,7 @@
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
+                        android:contentDescription="@string/consultation"
                         android:src="@drawable/shortcut_consultation" />
 
                     <TextView
@@ -199,7 +207,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="4dp"
                         android:fontFamily="@font/poppins_medium"
-                        android:text="Konsultasi dengan Dokter"
+                        android:text="@string/consultation_with_doctor"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="12sp" />
@@ -217,6 +225,7 @@
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
+                        android:contentDescription="@string/lab"
                         android:src="@drawable/shortcut_lab" />
 
                     <TextView
@@ -224,7 +233,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="4dp"
                         android:fontFamily="@font/poppins_medium"
-                        android:text="Pemeriksaan Lab Diabetes"
+                        android:text="@string/checked_lab_diabetes"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="12sp" />
@@ -241,6 +250,7 @@
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
+                        android:contentDescription="@string/monitoring"
                         android:src="@drawable/shortcut_monitoring" />
 
                     <TextView
@@ -248,7 +258,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="4dp"
                         android:fontFamily="@font/poppins_medium"
-                        android:text="Monitoring Kadar Gula Darah"
+                        android:text="@string/monitoring_diabetes"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="12sp" />
@@ -258,7 +268,7 @@
             <TextView
                 style="@style/TextSubTitle"
                 android:layout_marginTop="16dp"
-                android:text="⌛ Riwayat Deteksi" />
+                android:text="@string/history" />
 
             <ProgressBar
                 android:id="@+id/progress_bar_history"
@@ -279,7 +289,7 @@
                     android:layout_gravity="center"
                     android:layout_marginHorizontal="16dp"
                     android:layout_marginTop="16dp"
-                    android:text="- Anda tidak memiliki riwayat deteksi -"
+                    android:text="@string/you_dont_have_history_detection"
                     android:textAlignment="center" />
 
                 <TextView
@@ -290,7 +300,7 @@
                     android:layout_marginHorizontal="16dp"
                     android:fontFamily="@font/poppins_medium"
                     android:padding="8dp"
-                    android:text="Coba Deteksi"
+                    android:text="@string/try_detection"
                     android:textAlignment="center"
                     android:textColor="@color/secondary" />
             </LinearLayout>
@@ -312,14 +322,14 @@
                 android:fontFamily="@font/poppins_medium"
                 android:gravity="center_horizontal"
                 android:paddingVertical="10dp"
-                android:text="Lihat selengkapnya"
+                android:text="@string/lihat_selengkapnya"
                 android:textColor="@color/primary_dark"
                 android:textSize="14sp" />
             <TextView
                 style="@style/TextSubTitle"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="🔥 Artikel Terbaru" />
+                android:text="@string/new_article" />
 
             <ProgressBar
                 android:id="@+id/progress_bar_article"
@@ -345,13 +355,13 @@
                 android:fontFamily="@font/poppins_medium"
                 android:gravity="center_horizontal"
                 android:paddingVertical="10dp"
-                android:text="Lihat artikel lainnya"
+                android:text="@string/lihat_article_lainnya"
                 android:textColor="@color/primary_dark"
                 android:textSize="14sp" />
 
             <TextView
                 style="@style/TextSubTitle"
-                android:text="♥ Produk Rekomendasi Diabetes" />
+                android:text="@string/product_recommended" />
 
             <ProgressBar
                 android:id="@+id/progress_bar_affiliation"
@@ -367,7 +377,7 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_affiliation"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -386,7 +396,7 @@
                 android:fontFamily="@font/poppins_medium"
                 android:gravity="center_horizontal"
                 android:paddingVertical="10dp"
-                android:text="Lihat produk selengkapnya"
+                android:text="@string/lihat_produk_selengkapnya"
                 android:textColor="@color/primary_dark"
                 android:textSize="14sp" />
         </LinearLayout>

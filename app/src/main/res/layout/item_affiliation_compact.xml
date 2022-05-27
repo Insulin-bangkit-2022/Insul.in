@@ -6,7 +6,7 @@
     android:background="@drawable/custom_background_rv"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_marginRight="16dp"
+    android:layout_marginEnd="16dp"
     android:layout_marginBottom="8dp"
     android:padding="10dp">
 
@@ -28,7 +28,7 @@
         android:ellipsize="end"
         android:lines="2"
         android:maxLines="2"
-        android:text="Insulin KW Super"
+        android:text="@string/product_name_affiliation"
         android:textColor="@color/secondary_dark"
         android:textSize="12sp"
         android:textStyle="bold" />
@@ -39,12 +39,13 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginTop="8dp"
-        android:text="Rp 100.000"
+        android:text="@string/price"
         android:textColor="@color/primary_dark"
         android:textSize="12sp" />
 
     <ImageView
         android:id="@+id/product_provider"
+        android:contentDescription="@string/product_name_affiliation"
         android:layout_width="60dp"
         android:layout_height="15dp"
         android:layout_gravity="end"

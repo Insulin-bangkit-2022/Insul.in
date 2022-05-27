@@ -9,22 +9,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.core.view.isVisible
-import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.insulin.app.R
 import com.insulin.app.adapter.article.AffiliationProductAdapterHorizontal
-import com.insulin.app.adapter.article.ArticleAdapter
 import com.insulin.app.data.model.AffiliationProduct
-import com.insulin.app.data.model.Article
-import com.insulin.app.data.viewmodel.DetectionViewModel
-import com.insulin.app.databinding.FragmentDetectionQuestionYesnoBinding
-import com.insulin.app.databinding.FragmentDetectionResult0Binding
 import com.insulin.app.databinding.FragmentDetectionResult1Binding
 import com.insulin.app.ui.detection.DetectionActivity
-import com.insulin.app.ui.home.MainActivity
 import com.insulin.app.ui.maps.MapsActivity
 import com.insulin.app.utils.Helper
-import kotlin.random.Random
 
 
 class DetectionResult1 : Fragment() {

@@ -47,7 +47,7 @@ class LoadingDetectionFragment : Fragment() {
                     playAnimation()
                     loop(true)
                 }
-                binding.textMessage.text = "Deteksi Selesai"
+                binding.textMessage.text = resources.getString(R.string.finish_detection)
             } else {
                 binding.container.setBackgroundColor(requireContext().getColor(R.color.state_primary_light))
                 binding.imageLoading.apply {
@@ -56,7 +56,7 @@ class LoadingDetectionFragment : Fragment() {
                     loop(true)
                 }
                 binding.textMessage.setTextColor(requireContext().getColor(R.color.state_primary_dark))
-                binding.textMessage.text = "Mendeteksi Status Diabetes"
+                binding.textMessage.text = resources.getString(R.string.detection_status)
             }
         }
         (activity as DetectionActivity).viewModel.response.observe(viewLifecycleOwner) { data ->
@@ -179,7 +179,7 @@ class LoadingDetectionFragment : Fragment() {
                 }
                 val binding = CustomDialogInfoBinding.inflate(layoutInflater)
                 dialog.setContentView(binding.root)
-                binding.dialogTitle.text = "Error"
+                binding.dialogTitle.text = resources.getString(R.string.error)
                 binding.dialogTitle.gravity = Gravity.CENTER_HORIZONTAL
                 binding.dialogBody.text =
                     "Terjadi Error saat melakukan deteksi : \n\n ${t.message}"

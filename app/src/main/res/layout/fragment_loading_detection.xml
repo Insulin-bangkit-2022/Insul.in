@@ -30,7 +30,7 @@
         android:gravity="center"
         android:lines="4"
         android:layout_marginTop="60dp"
-        android:text="Sedang mendeteksi Diabetes..."
+        android:text="@string/detecting_diabetes"
         android:textAlignment="center"
         android:textColor="@color/state_primary_dark"
         android:textSize="18sp"
