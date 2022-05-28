@@ -46,6 +46,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
+@Suppress("SameParameterValue")
 object Helper {
 
     fun notifyGivePermission(context: Context, message: String) {
@@ -320,6 +321,10 @@ object Helper {
     fun reformatDateToSimpleDate(dateString: String): String {
         val dateValue = defaultDate.parse(dateString) as Date
         return simpletDate.format(dateValue)
+    }
+
+    fun reformatDateToSimpleDate(date: Date): String {
+        return simpletDate.format(date)
     }
 
 

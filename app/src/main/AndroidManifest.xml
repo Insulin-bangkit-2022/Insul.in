@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
 
     <application
         android:allowBackup="true"
@@ -22,15 +23,24 @@
 
         <receiver
             android:name=".ui.reminderNotifications.AlarmReceiver"
+            android:directBootAware="true"
             android:enabled="true"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
 
-        <activity
-            android:name=".ui.reminderNotifications.ReminderNotificationsActivity"
-            android:exported="false" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCUml5AVPrn6El4m41jecej36QG5eaguoM" />
+
+        <activity
+            android:name=".ui.reminderNotifications.ReminderNotificationsActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.home.MainActivity" />
         <activity
             android:name=".ui.onBoarding.OnBoardingActivity"
             android:exported="false" />

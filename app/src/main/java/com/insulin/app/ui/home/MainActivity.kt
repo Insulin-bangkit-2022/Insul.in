@@ -1,5 +1,6 @@
 package com.insulin.app.ui.home
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.ActivityNotFoundException
 import android.content.Intent
@@ -12,6 +13,7 @@ import android.util.Log
 import android.view.Gravity
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.ktx.auth
@@ -52,6 +54,9 @@ class MainActivity : AppCompatActivity() {
 
         /* hide abnormal layer in bottom nav */
         activityMainBinding.bottomNavigationView.background = null
+
+        /* disable dark mode*/
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         /* set action for bottom nav */
         activityMainBinding.bottomNavigationView.setOnNavigationItemSelectedListener {
@@ -127,6 +132,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     /* check version updates from firebase server */
+    @SuppressLint("SetTextI18n")
     private fun checkAppUpdates() {
         remoteConfig.fetchAndActivate()
             .addOnCompleteListener(this) { task ->

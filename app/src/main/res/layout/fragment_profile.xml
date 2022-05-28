@@ -77,6 +77,14 @@
                 android:text="@string/reminder_alarm"
                 tools:ignore="RtlHardcoded" />
 
+            <Button
+                android:id="@+id/permission"
+                style="@style/Button.Profile"
+                android:drawableLeft="@drawable/ic_baseline_key"
+                android:drawableRight="@drawable/ic_baseline_navigate_next"
+                android:text="@string/app_permission"
+                tools:ignore="RtlHardcoded" />
+
             <TextView
                 style="@style/TextTitle.Secondary"
                 android:layout_width="match_parent"

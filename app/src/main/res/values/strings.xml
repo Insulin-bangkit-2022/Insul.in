@@ -31,7 +31,12 @@
     <string name="day_name">Selamat Pagi, %1$s</string>
     <string name="frequency">Frekuensi</string>
     <string name="day">Hari</string>
+    <string name="day_example">Senin</string>
+    <string name="frequency_example">Setiap Hari</string>
     <string name="time">Waktu</string>
+    <string name="set_reminder">Setel Pengingat</string>
+    <string name="reminder_alert_title">⏰ Informasi Pengingat ⏰</string>
+    <string name="reminder_alert_message">Pengingat disetel setiap minggu pukul 16.00</string>
     <string name="active">Aktifkan</string>
     <string name="time_stamp">00.00</string>
     <string name="delete">Hapus</string>
@@ -49,7 +54,7 @@
     <string name="google_logo">Logo Google</string>
     <string name="arrow_forward">Arrow Forward</string>
     <string name="special_product">🎁 Produk khusus untuk Kamu 🎁</string>
-    <string name="search_product">Kamu dapat menemukan berbagai produk yang ramah untuk Diabetes dibawah ini...</string>
+    <string name="search_product">Kamu dapat menemukan berbagai produk yang ramah untuk Diabetes dibawah ini…</string>
     <string name="diabetes_test">🔬 Test Diabetes</string>
     <string name="daily_needs">🌾 Kebutuhan Harian</string>
     <string name="suplemen_and_vitamin"><![CDATA[💊 Suplemen &amp; Vitamin]]></string>
@@ -77,7 +82,7 @@
     <string name="checked_symptom">Cek gejala yang sudah anda inputkan pada data berikut ini. Klik lanjutkan untuk melihat hasil deteksi Diabetes.</string>
     <string name="kembali">Kembali</string>
     <string name="continues">Lanjutkan</string>
-    <string name="lets_started">Ayo Mulai...</string>
+    <string name="lets_started">Ayo Mulai…</string>
     <string name="click_continue">Klik tombol lanjutkan untuk memulai proses deteksi Diabetes</string>
     <string name="question_image">Image Question</string>
     <string name="how_old_are_you">Berapakah usia Anda?</string>
@@ -125,7 +130,7 @@
     <string name="lihat_article_lainnya">Lihat artikel lainnya</string>
     <string name="product_recommended">♥ Produk Rekomendasi Diabetes</string>
     <string name="lihat_produk_selengkapnya">Lihat produk selengkapnya</string>
-    <string name="detecting_diabetes">Sedang mendeteksi Diabetes...</string>
+    <string name="detecting_diabetes">Sedang mendeteksi Diabetes…</string>
     <string name="skip">Lewati</string>
     <string name="screening_independently">Lakukan Screening Mandiri</string>
     <string name="do_test_diabetes_message">Lakukan pengecekan risiko Diabetes secara mudah dan gratis dalam beberapa langkah, Segera cek risiko Diabetes kamu sebelum terlambat</string>
@@ -136,7 +141,7 @@
     <string name="price">Rp 100.000</string>
     <string name="product_affiliation">Product Affiliation</string>
     <string name="provider_article">Provider Article</string>
-    <string name="description">Lorem ipsum dolor sit amet lorem lorem lorem ipsum dolor sit amet lorem lorem ipsum dolor sit amet lorem ipsun</string>
+    <string name="description">Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsun</string>
     <string name="history_date">05 Mei 2022 | 17.00</string>
     <string name="settings_application">Pengaturan Aplikasi</string>
     <string name="reminder_alarm">Pengingat Deteksi Rutin</string>
@@ -165,6 +170,42 @@
     <string name="question_about_weightloss">Apakah anda merasa turun berat secara badan drastis akhir-akhir ini?</string>
     <string name="cancel_detection">Batalkan Deteksi</string>
     <string name="do_you_out_process_detection">Apakah anda ingin keluar dari proses deteksi?</string>
+
     <string name="update_application">Update Aplikasi</string>
     <string name="default_text">Klik untuk menyetel</string>
+
+
+    <!-- REMINDER -->
+
+    <string name="reminder_info_set_weekly">Pengingat disetel setiap minggu pada hari %1$s pukul %2$s</string>
+    <string name="reminder_info_set_monthly">Pengingat disetel setiap bulan pada hari %1$s pukul %2$s</string>
+    <string name="reminder_info_set_daily">Pengingat disetel setiap hari pukul %1$s</string>
+
+    <string name="reminder_freq_daily">Setiap Hari</string>
+    <string name="reminder_freq_weekly">Setiap Minggu</string>
+    <string name="reminder_freq_monthly">Setiap Bulan</string>
+
+    <string name="reminder_removed">Pengingat dihapus</string>
+    <string name="reminder_empty_schedule">Klik untuk mengatur</string>
+    <string name="reminder_not_set">Tidak ada pengingat disetel</string>
+    <string name="reminder_set_for">Pengingat disetel untuk %1$s</string>
+
+    <string name="reminder_confirm_delete_dialog_title">Hapus Pengingat?</string>
+    <string name="reminder_confirm_delete_dialog_message">Apakah anda ingin menghapus pengingat untuk deteksi diabetes saat ini?</string>
+    <string name="reminder_confirm_choose_schedule">Harap mengisi Frekuensi, Hari dan Waktu dahulu</string>
+
+    <string name="reminder_notification_title">📞 Panggilan dari Insul.in…</string>
+    <string name="reminder_notification_message">Sudah saatnya untuk cek risiko diabetes kamu, Yukk</string>
+    <!-- DAY -->
+    <string name="day_monday">Senin</string>
+    <string name="day_tuesday">Selasa</string>
+    <string name="day_wednesday">Rabu</string>
+    <string name="day_thursday">Kamis</string>
+    <string name="day_friday">Jumat</string>
+    <string name="day_saturday">Sabtu</string>
+    <string name="day_sunday">Minggu</string>
+
+    <string name="text_action_detection">Deteksi Diabetes</string>
+    <string name="app_permission">Perizinan Aplikasi</string>
+
 </resources>
