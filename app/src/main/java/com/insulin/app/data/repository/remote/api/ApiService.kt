@@ -6,7 +6,24 @@ import retrofit2.http.*
 
 interface ApiService {
 
-    @GET(".")
-    fun diagnoseDiabetes(): Call<DetectionResponse>
+    @FormUrlEncoded
+    @POST(".")
+    fun diagnoseDiabetes(
+        @Field("age") age: Int,
+        @Field("gender") gender: Boolean,
+        @Field("polyuria") polyuria: Boolean,
+        @Field("polydipsia") polydipsia: Boolean,
+        @Field("weightLoss") weightLoss: Boolean,
+        @Field("weakness") weakness: Boolean,
+        @Field("polyphagia") polyphagia: Boolean,
+        @Field("genital_thrus") genital_thrus: Boolean,
+        @Field("itching") itching: Boolean,
+        @Field("irritability") irritability: Boolean,
+        @Field("delayed_healing") delayed_healing: Boolean,
+        @Field("partial_paresis") partial_paresis: Boolean,
+        @Field("muscle_stiffness") muscle_stiffness: Boolean,
+        @Field("alopecia") alopecia: Boolean,
+        @Field("obesity") obesity: Boolean,
+    ): Call<DetectionResponse>
 
 }

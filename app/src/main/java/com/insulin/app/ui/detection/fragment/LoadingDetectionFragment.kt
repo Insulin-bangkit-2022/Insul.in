@@ -94,7 +94,51 @@ class LoadingDetectionFragment : Fragment() {
 
 
         /* call detection API while loading UI shown */
-        val client = ApiConfig.getApiService().diagnoseDiabetes()
+        val client = ApiConfig.getApiService().diagnoseDiabetes(
+            age = (activity as DetectionActivity).getAgeValue(),
+            gender = (activity as DetectionActivity).parseAnsweredQuestion(
+                Constanta.DiabetesSympthoms.Gender.name
+            ),
+            polyuria = (activity as DetectionActivity).parseAnsweredQuestion(
+                Constanta.DiabetesSympthoms.Polyuria.name
+            ),
+            polydipsia = (activity as DetectionActivity).parseAnsweredQuestion(
+                Constanta.DiabetesSympthoms.Polydipsia.name
+            ),
+            weightLoss = (activity as DetectionActivity).parseAnsweredQuestion(
+                Constanta.DiabetesSympthoms.WeightLoss.name
+            ),
+            weakness = (activity as DetectionActivity).parseAnsweredQuestion(
+                Constanta.DiabetesSympthoms.Weakness.name
+            ),
+            polyphagia = (activity as DetectionActivity).parseAnsweredQuestion(
+                Constanta.DiabetesSympthoms.Polyphagia.name
+            ),
+            genital_thrus = (activity as DetectionActivity).parseAnsweredQuestion(
+                Constanta.DiabetesSympthoms.GenitalThrus.name
+            ),
+            itching = (activity as DetectionActivity).parseAnsweredQuestion(
+                Constanta.DiabetesSympthoms.Itching.name
+            ),
+            irritability = (activity as DetectionActivity).parseAnsweredQuestion(
+                Constanta.DiabetesSympthoms.Irritability.name
+            ),
+            delayed_healing = (activity as DetectionActivity).parseAnsweredQuestion(
+                Constanta.DiabetesSympthoms.DelayedHealing.name
+            ),
+            partial_paresis = (activity as DetectionActivity).parseAnsweredQuestion(
+                Constanta.DiabetesSympthoms.PartialParesis.name
+            ),
+            muscle_stiffness = (activity as DetectionActivity).parseAnsweredQuestion(
+                Constanta.DiabetesSympthoms.MuscleStiffness.name
+            ),
+            alopecia = (activity as DetectionActivity).parseAnsweredQuestion(
+                Constanta.DiabetesSympthoms.Alopecia.name
+            ),
+            obesity = (activity as DetectionActivity).parseAnsweredQuestion(
+                Constanta.DiabetesSympthoms.Obesity.name
+            ),
+        )
         client.enqueue(object : Callback<DetectionResponse> {
             override fun onResponse(
                 call: Call<DetectionResponse>,

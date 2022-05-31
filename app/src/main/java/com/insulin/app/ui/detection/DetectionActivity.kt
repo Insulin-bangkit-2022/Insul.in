@@ -124,6 +124,10 @@ class DetectionActivity : AppCompatActivity() {
         return diagnoseSymptoms[Constanta.DiabetesSympthoms.Age.name] != 0
     }
 
+    fun getAgeValue():Int{
+        return diagnoseSymptoms[Constanta.DiabetesSympthoms.Age.name] as Int
+    }
+
     fun initSelectedOptions(
         key: String,
         option0: LinearLayout,

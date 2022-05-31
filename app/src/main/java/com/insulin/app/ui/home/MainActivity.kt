@@ -88,19 +88,13 @@ class MainActivity : AppCompatActivity() {
         initRemoteConfig()
 
         switchFragment(fragmentHome)
-
     }
 
     /* init remote config to check updates -> force user to update app if there updates */
     private fun initRemoteConfig() {
         remoteConfig = Firebase.remoteConfig
         val configSettings = remoteConfigSettings {
-            /*
-            *
-            *  IMPORTANT -> update this value during deployment time -> change to default minimum time -> 12 hours
-            * 10 -> 10 seconds
-            * */
-            minimumFetchIntervalInSeconds = 10
+            minimumFetchIntervalInSeconds = 21600
         }
         remoteConfig.setConfigSettingsAsync(configSettings)
         remoteConfig.setDefaultsAsync(R.xml.remote_config_defaults)
