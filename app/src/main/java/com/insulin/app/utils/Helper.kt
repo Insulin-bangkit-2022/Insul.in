@@ -170,6 +170,7 @@ object Helper {
             binding.resultDetail.isAlopecia.text = parseBooleanAnswerDetection(data.isAlopecia)
             binding.resultDetail.isObesity.text = parseBooleanAnswerDetection(data.isObesity)
             binding.resultDetail.isDiabetes.text = parseBooleanAnswerDetection(data.isDiabetes)
+            binding.resultDetail.isVisualBlurring.text = parseBooleanAnswerDetection(data.isVisualBlurring)
         } else {
             val binding = CustomDialogDetectionResult0Binding.inflate(LayoutInflater.from(context))
             dialog.setContentView(binding.root)
@@ -217,6 +218,7 @@ object Helper {
             binding.resultDetail.isAlopecia.text = parseBooleanAnswerDetection(data.isAlopecia)
             binding.resultDetail.isObesity.text = parseBooleanAnswerDetection(data.isObesity)
             binding.resultDetail.isDiabetes.text = parseBooleanAnswerDetection(data.isDiabetes)
+            binding.resultDetail.isVisualBlurring.text = parseBooleanAnswerDetection(data.isVisualBlurring)
         }
         dialog.show()
     }

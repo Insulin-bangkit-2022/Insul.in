@@ -24,6 +24,7 @@ interface ApiService {
         @Field("muscle_stiffness") muscle_stiffness: Boolean,
         @Field("alopecia") alopecia: Boolean,
         @Field("obesity") obesity: Boolean,
+        @Field("visual_blurring") visual_blurring: Boolean,
     ): Call<DetectionResponse>
 
 }

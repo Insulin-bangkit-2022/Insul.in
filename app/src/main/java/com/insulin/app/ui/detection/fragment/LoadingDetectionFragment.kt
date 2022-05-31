@@ -138,6 +138,9 @@ class LoadingDetectionFragment : Fragment() {
             obesity = (activity as DetectionActivity).parseAnsweredQuestion(
                 Constanta.DiabetesSympthoms.Obesity.name
             ),
+            visual_blurring = (activity as DetectionActivity).parseAnsweredQuestion(
+                Constanta.DiabetesSympthoms.VirtualBlurring.name
+            ),
         )
         client.enqueue(object : Callback<DetectionResponse> {
             override fun onResponse(
@@ -194,6 +197,9 @@ class LoadingDetectionFragment : Fragment() {
                             ),
                             isObesity = (activity as DetectionActivity).parseAnsweredQuestion(
                                 Constanta.DiabetesSympthoms.Obesity.name
+                            ),
+                            isVisualBlurring = (activity as DetectionActivity).parseAnsweredQuestion(
+                                Constanta.DiabetesSympthoms.VirtualBlurring.name
                             )
                         )
                         /* trigger updates on fragmentLoading -> add delay time for extend loading animation */

@@ -188,6 +188,18 @@
 
     <TableRow style="@style/TableResult">
 
+        <TextView
+            style="@style/TextTableResultHeader"
+            android:text="Mengalami pengaburan secara visual?" />
+
+        <TextView
+            android:id="@+id/isVisualBlurring"
+            style="@style/TextTableResultBody"
+            android:text="Ya / Tidak" />
+    </TableRow>
+
+    <TableRow style="@style/TableResult">
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"

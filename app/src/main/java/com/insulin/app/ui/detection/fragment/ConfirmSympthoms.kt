@@ -20,7 +20,7 @@ class ConfirmSympthoms : Fragment() {
         binding = FragmentDetectionConfirmSympthomsBinding.inflate(layoutInflater)
 
         binding.btnBack.setOnClickListener {
-            (activity as DetectionActivity).switchFragment(DetectionActivity.fragmentObesity)
+            (activity as DetectionActivity).switchFragment(DetectionActivity.fragmentVisualBlurring)
         }
 
         binding.btnDetection.setOnClickListener {
@@ -60,6 +60,8 @@ class ConfirmSympthoms : Fragment() {
             (activity as DetectionActivity).parseAnsweredBoolean(Constanta.DiabetesSympthoms.Alopecia.name)
         binding.resultDetail.isObesity.text =
             (activity as DetectionActivity).parseAnsweredBoolean(Constanta.DiabetesSympthoms.Obesity.name)
+        binding.resultDetail.isVisualBlurring.text =
+            (activity as DetectionActivity).parseAnsweredBoolean(Constanta.DiabetesSympthoms.VirtualBlurring.name)
         binding.resultDetail.isDiabetes.text = "???"
 
         return binding.root

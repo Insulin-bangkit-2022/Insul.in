@@ -56,5 +56,8 @@ data class Detection(
     var isAlopecia: Boolean = false,
 
     @PropertyName("obesity")
-    var isObesity: Boolean = false
+    var isObesity: Boolean = false,
+
+    @PropertyName("visualBlurring")
+    var isVisualBlurring: Boolean = false
 )

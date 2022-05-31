@@ -82,6 +82,8 @@ class DetectionActivity : AppCompatActivity() {
             Constanta.AnsweredSympthoms.NotSelected.name
         diagnoseSymptoms[Constanta.DiabetesSympthoms.Obesity.name] =
             Constanta.AnsweredSympthoms.NotSelected.name
+        diagnoseSymptoms[Constanta.DiabetesSympthoms.VirtualBlurring.name] =
+            Constanta.AnsweredSympthoms.NotSelected.name
     }
 
     fun postValue(key: String, value: String) {
@@ -249,6 +251,7 @@ class DetectionActivity : AppCompatActivity() {
         val fragmentMuscleStiffness = SymptomMuscleStiffness()
         val fragmentAlopecia = SymptomAlopecia()
         val fragmentObesity = SymptomObesity()
+        val fragmentVisualBlurring = SymptomVisualBlurring()
         val fragmentConfirm = ConfirmSympthoms()
         val fragmentResult0 = DetectionResult0()
         val fragmentResult1 = DetectionResult1()

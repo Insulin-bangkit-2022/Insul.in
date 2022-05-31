@@ -71,6 +71,8 @@ class DetectionResult0 : Fragment() {
                     Helper.parseBooleanAnswerDetection(data.isAlopecia)
                 binding.resultDetail.isObesity.text =
                     Helper.parseBooleanAnswerDetection(data.isObesity)
+                binding.resultDetail.isVisualBlurring.text =
+                    Helper.parseBooleanAnswerDetection(data.isVisualBlurring)
                 binding.resultDetail.isDiabetes.text =
                     Helper.parseBooleanAnswerDetection(data.isDiabetes)
 

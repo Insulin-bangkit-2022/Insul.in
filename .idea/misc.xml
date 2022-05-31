@@ -55,17 +55,26 @@
         <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/drawable/ic_baseline_arrow_down.xml" value="0.224" />
         <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/drawable/ic_baseline_cloud_24.xml" value="0.224" />
         <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/drawable/shadow_background.xml" value="0.224" />
+        <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/activity_detection.xml" value="0.1" />
         <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/activity_main.xml" value="0.13125" />
         <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/activity_web_view.xml" value="0.1" />
         <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/container_result_button.xml" value="0.223731884057971" />
+        <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/custom_dialog_detection_result_0.xml" value="0.1" />
+        <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/custom_dialog_detection_result_1.xml" value="0.25" />
         <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/fragment_article.xml" value="0.109375" />
+        <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/fragment_detection_confirm_sympthoms.xml" value="0.1" />
+        <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/fragment_detection_question_age.xml" value="0.18704710144927536" />
+        <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/fragment_detection_question_gender.xml" value="0.18704710144927536" />
+        <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/fragment_detection_question_yesno.xml" value="0.18704710144927536" />
         <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/fragment_detection_result.xml" value="0.264" />
         <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/fragment_history.xml" value="0.109375" />
         <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/fragment_home.xml" value="0.134375" />
         <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
         <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/fragment_result_0.xml" value="0.1" />
         <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/fragment_symptom1.xml" value="0.1453125" />
+        <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/item_history_list.xml" value="0.25" />
+        <entry key="..\:/Users/Asus/Desktop/ProjectCapstone/app/src/main/res/layout/table_result.xml" value="0.25" />
       </map>
     </option>
   </component>

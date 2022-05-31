@@ -40,7 +40,8 @@ object Constanta {
         PartialParesis,
         MuscleStiffness,
         Alopecia,
-        Obesity
+        Obesity,
+        VirtualBlurring
     }
 
     enum class AnsweredSympthoms {
