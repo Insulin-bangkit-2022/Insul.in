@@ -6,12 +6,14 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
+import android.os.StrictMode
+import android.os.StrictMode.ThreadPolicy
 import android.util.Log
 import android.view.Gravity
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.insulin.app.R
 import com.insulin.app.data.model.Detection
@@ -22,9 +24,12 @@ import com.insulin.app.databinding.FragmentLoadingDetectionBinding
 import com.insulin.app.ui.detection.DetectionActivity
 import com.insulin.app.utils.Constanta
 import com.insulin.app.utils.Helper
+import okhttp3.OkHttpClient
+import okhttp3.Request
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+
 
 @Suppress("DEPRECATION")
 @SuppressLint("UseCompatLoadingForDrawables", "NewApi")
@@ -211,35 +216,40 @@ class LoadingDetectionFragment : Fragment() {
                             (activity as DetectionActivity).viewModel.response.postValue(data)
                         }, 1000)
                     }
+                } else {
+                    showErrorDialog("Error (${response.code()}): ${response.raw()}")
                 }
             }
 
             override fun onFailure(call: Call<DetectionResponse>, t: Throwable) {
                 Log.e("api", "onFailure Call: ${t.message}")
-                val dialog = Dialog((activity as DetectionActivity))
-                dialog.setCancelable(false)
-                dialog.window!!.apply {
-                    attributes.windowAnimations = android.R.transition.fade
-                    setGravity(Gravity.CENTER)
-                    setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-                    setLayout(
-                        ViewGroup.LayoutParams.MATCH_PARENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT
-                    )
-                }
-                val binding = CustomDialogInfoBinding.inflate(layoutInflater)
-                dialog.setContentView(binding.root)
-                binding.dialogTitle.text = resources.getString(R.string.error)
-                binding.dialogTitle.gravity = Gravity.CENTER_HORIZONTAL
-                binding.dialogBody.text =
-                    "Terjadi Error saat melakukan deteksi : \n\n ${t.message}"
-                binding.dialogBody.gravity = Gravity.CENTER_HORIZONTAL
-                binding.btnOk.setOnClickListener {
-                    (activity as DetectionActivity).finish()
-                }
-                dialog.show()
+                showErrorDialog("Terjadi Error saat melakukan deteksi : \n\n ${t.message}")
             }
         })
+    }
+
+    fun showErrorDialog(message: String) {
+        val dialog = Dialog((activity as DetectionActivity))
+        dialog.setCancelable(false)
+        dialog.window!!.apply {
+            attributes.windowAnimations = android.R.transition.fade
+            setGravity(Gravity.CENTER)
+            setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            setLayout(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
+        }
+        val binding = CustomDialogInfoBinding.inflate(layoutInflater)
+        dialog.setContentView(binding.root)
+        binding.dialogTitle.text = resources.getString(R.string.error)
+        binding.dialogTitle.gravity = Gravity.CENTER_HORIZONTAL
+        binding.dialogBody.text = message
+        binding.dialogBody.gravity = Gravity.CENTER_HORIZONTAL
+        binding.btnOk.setOnClickListener {
+            (activity as DetectionActivity).finish()
+        }
+        dialog.show()
     }
 
 
