@@ -101,50 +101,80 @@ class LoadingDetectionFragment : Fragment() {
         /* call detection API while loading UI shown */
         val client = ApiConfig.getApiService().diagnoseDiabetes(
             age = (activity as DetectionActivity).getAgeValue(),
-            gender = (activity as DetectionActivity).parseAnsweredQuestion(
-                Constanta.DiabetesSympthoms.Gender.name
+            gender = parsingAnswerToInt(
+                (activity as DetectionActivity).parseAnsweredQuestion(
+                    Constanta.DiabetesSympthoms.Gender.name
+                )
             ),
-            polyuria = (activity as DetectionActivity).parseAnsweredQuestion(
-                Constanta.DiabetesSympthoms.Polyuria.name
+            polyuria = parsingAnswerToInt(
+                (activity as DetectionActivity).parseAnsweredQuestion(
+                    Constanta.DiabetesSympthoms.Polyuria.name
+                )
             ),
-            polydipsia = (activity as DetectionActivity).parseAnsweredQuestion(
-                Constanta.DiabetesSympthoms.Polydipsia.name
+            polydipsia = parsingAnswerToInt(
+                (activity as DetectionActivity).parseAnsweredQuestion(
+                    Constanta.DiabetesSympthoms.Polydipsia.name
+                )
             ),
-            weightLoss = (activity as DetectionActivity).parseAnsweredQuestion(
-                Constanta.DiabetesSympthoms.WeightLoss.name
+            weightLoss = parsingAnswerToInt(
+                (activity as DetectionActivity).parseAnsweredQuestion(
+                    Constanta.DiabetesSympthoms.WeightLoss.name
+                )
             ),
-            weakness = (activity as DetectionActivity).parseAnsweredQuestion(
-                Constanta.DiabetesSympthoms.Weakness.name
+            weakness = parsingAnswerToInt(
+                (activity as DetectionActivity).parseAnsweredQuestion(
+                    Constanta.DiabetesSympthoms.Weakness.name
+                )
             ),
-            polyphagia = (activity as DetectionActivity).parseAnsweredQuestion(
-                Constanta.DiabetesSympthoms.Polyphagia.name
+            polyphagia = parsingAnswerToInt(
+                (activity as DetectionActivity).parseAnsweredQuestion(
+                    Constanta.DiabetesSympthoms.Polyphagia.name
+                )
             ),
-            genital_thrus = (activity as DetectionActivity).parseAnsweredQuestion(
-                Constanta.DiabetesSympthoms.GenitalThrus.name
+            genital_thrus = parsingAnswerToInt(
+                (activity as DetectionActivity).parseAnsweredQuestion(
+                    Constanta.DiabetesSympthoms.GenitalThrus.name
+                )
             ),
-            itching = (activity as DetectionActivity).parseAnsweredQuestion(
-                Constanta.DiabetesSympthoms.Itching.name
+            itching = parsingAnswerToInt(
+                (activity as DetectionActivity).parseAnsweredQuestion(
+                    Constanta.DiabetesSympthoms.Itching.name
+                )
             ),
-            irritability = (activity as DetectionActivity).parseAnsweredQuestion(
-                Constanta.DiabetesSympthoms.Irritability.name
+            irritability = parsingAnswerToInt(
+                (activity as DetectionActivity).parseAnsweredQuestion(
+                    Constanta.DiabetesSympthoms.Irritability.name
+                )
             ),
-            delayed_healing = (activity as DetectionActivity).parseAnsweredQuestion(
-                Constanta.DiabetesSympthoms.DelayedHealing.name
+            delayed_healing = parsingAnswerToInt(
+                (activity as DetectionActivity).parseAnsweredQuestion(
+                    Constanta.DiabetesSympthoms.DelayedHealing.name
+                )
             ),
-            partial_paresis = (activity as DetectionActivity).parseAnsweredQuestion(
-                Constanta.DiabetesSympthoms.PartialParesis.name
+            partial_paresis = parsingAnswerToInt(
+                (activity as DetectionActivity).parseAnsweredQuestion(
+                    Constanta.DiabetesSympthoms.PartialParesis.name
+                )
             ),
-            muscle_stiffness = (activity as DetectionActivity).parseAnsweredQuestion(
-                Constanta.DiabetesSympthoms.MuscleStiffness.name
+            muscle_stiffness = parsingAnswerToInt(
+                (activity as DetectionActivity).parseAnsweredQuestion(
+                    Constanta.DiabetesSympthoms.MuscleStiffness.name
+                )
             ),
-            alopecia = (activity as DetectionActivity).parseAnsweredQuestion(
-                Constanta.DiabetesSympthoms.Alopecia.name
+            alopecia = parsingAnswerToInt(
+                (activity as DetectionActivity).parseAnsweredQuestion(
+                    Constanta.DiabetesSympthoms.Alopecia.name
+                )
             ),
-            obesity = (activity as DetectionActivity).parseAnsweredQuestion(
-                Constanta.DiabetesSympthoms.Obesity.name
+            obesity = parsingAnswerToInt(
+                (activity as DetectionActivity).parseAnsweredQuestion(
+                    Constanta.DiabetesSympthoms.Obesity.name
+                )
             ),
-            visual_blurring = (activity as DetectionActivity).parseAnsweredQuestion(
-                Constanta.DiabetesSympthoms.VirtualBlurring.name
+            visual_blurring = parsingAnswerToInt(
+                (activity as DetectionActivity).parseAnsweredQuestion(
+                    Constanta.DiabetesSympthoms.VirtualBlurring.name
+                )
             ),
         )
         client.enqueue(object : Callback<DetectionResponse> {
@@ -251,6 +281,8 @@ class LoadingDetectionFragment : Fragment() {
         }
         dialog.show()
     }
+
+    private fun parsingAnswerToInt(value: Boolean) = if (value) 1 else 0
 
 
 }
