@@ -208,5 +208,6 @@
 
     <string name="text_action_detection">Deteksi Diabetes</string>
     <string name="app_permission">Perizinan Aplikasi</string>
+    <string name="shortcut_detection">Deteksi Diabetes</string>
 
 </resources>

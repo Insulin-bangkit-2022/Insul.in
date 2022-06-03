@@ -102,6 +102,32 @@
                 android:weightSum="3">
 
                 <LinearLayout
+                    android:id="@+id/shortuct_detection"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:src="@drawable/shortcut_ambulance">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:contentDescription="@string/shortcut_detection"
+                        android:src="@drawable/shortcut_detection" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="4dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@string/shortcut_detection"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:id="@+id/shortuct_hospital"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -148,31 +174,6 @@
                         android:layout_marginHorizontal="4dp"
                         android:fontFamily="@font/poppins_medium"
                         android:text="@string/recommended_product_diabetes"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/shortuct_community"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:contentDescription="@string/community"
-                        android:src="@drawable/shortcut_community" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="4dp"
-                        android:fontFamily="@font/poppins_medium"
-                        android:text="@string/diabetes_community"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="12sp" />
@@ -240,7 +241,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/shortuct_monitoring"
+                    android:id="@+id/shortuct_community"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -250,15 +251,15 @@
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:contentDescription="@string/monitoring"
-                        android:src="@drawable/shortcut_monitoring" />
+                        android:contentDescription="@string/community"
+                        android:src="@drawable/shortcut_community" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="4dp"
                         android:fontFamily="@font/poppins_medium"
-                        android:text="@string/monitoring_diabetes"
+                        android:text="@string/diabetes_community"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="12sp" />

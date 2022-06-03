@@ -68,6 +68,11 @@ class HomeFragment : Fragment() {
                 }
             }
 
+            /* deteksi diabetes */
+            it.shortuctDetection.setOnClickListener {
+                (activity as MainActivity).redirectToDetectDiabetes()
+            }
+
             /* rekomendasi produk */
             it.shortuctAffiliation.setOnClickListener {
                 (activity as MainActivity).redirectToRecommendationProduct()
