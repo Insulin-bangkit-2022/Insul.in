@@ -6,7 +6,6 @@ import retrofit2.http.*
 
 interface ApiService {
 
-    @FormUrlEncoded
     @GET(".")
     fun diagnoseDiabetes(
         @Field("age") age: Int,

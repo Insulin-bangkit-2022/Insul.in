@@ -6,8 +6,6 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
-import android.os.StrictMode
-import android.os.StrictMode.ThreadPolicy
 import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -24,7 +22,6 @@ import com.insulin.app.databinding.FragmentLoadingDetectionBinding
 import com.insulin.app.ui.detection.DetectionActivity
 import com.insulin.app.utils.Constanta
 import com.insulin.app.utils.Helper
-import okhttp3.OkHttpClient
 import okhttp3.Request
 import retrofit2.Call
 import retrofit2.Callback
