@@ -57,7 +57,7 @@
     <string name="search_product">Kamu dapat menemukan berbagai produk yang ramah untuk Diabetes dibawah ini…</string>
     <string name="diabetes_test">🔬 Test Diabetes</string>
     <string name="daily_needs">🌾 Kebutuhan Harian</string>
-    <string name="suplemen_and_vitamin"><![CDATA[💊 Suplemen &amp; Vitamin]]></string>
+    <string name="suplemen_and_vitamin"><![CDATA[💊 Suplemen dan Vitamin]]></string>
     <string name="snack_low_sugar">🍔 Snack Rendah Gula</string>
     <string name="copyright_insulin_team">© 2022 Insul.in Team</string>
     <string name="exit">Keluar</string>
@@ -90,7 +90,7 @@
     <string name="question_prev">Prev Question</string>
     <string name="question_next">Next Question</string>
     <string name="you_are_a_person">Kamu Adalah seorang?</string>
-    <string name="gender">Gender</string>
+    <string name="gender">Jenis Kelamin</string>
     <string name="boy">Boy</string>
     <string name="man">Pria</string>
     <string name="woman">Wanita</string>
@@ -209,5 +209,23 @@
     <string name="text_action_detection">Deteksi Diabetes</string>
     <string name="app_permission">Perizinan Aplikasi</string>
     <string name="shortcut_detection">Deteksi Diabetes</string>
+    <string name="age">Usia Anda</string>
+    <string name="age_years">0 Tahun</string>
+    <string name="boy_girl">Pria / Wanita</string>
+    <string name="yes_or_no">Ya / Tidak</string>
+    <string name="frequent_urination">Sering buang air kecil?</string>
+    <string name="often_feel_thirsty">Sering merasa haus?</string>
+    <string name="losing_weight_suddenly">Turun berat badan tiba-tiba?</string>
+    <string name="often_feel_weak">Sering merasa lemas?</string>
+    <string name="often_feel_hungry">Sering merasa lapar / nafsu makan meningkat?</string>
+    <string name="often_feel_itchy_genitals">Sering merasa gatal pada alat kelamin?</string>
+    <string name="often_feel_itchy_in_body">Sering merasa gatal pada badan?</string>
+    <string name="easily_get_angry">Mudah merasa marah / emosi?</string>
+    <string name="difficult_to_heal_or_dry">Luka sulit sembuh / kering?</string>
+    <string name="experiencing_paralysis_in_part_of_body">Mengalami kelumpuhan pada sebagian tubuh (kaku)?</string>
+    <string name="stiff_muscles">Otot kaku / kram setelah beraktivitas lama?</string>
+    <string name="hair_loss">Rambut rontok dan sulit tumbuh atau mengalami kebotakan?</string>
+    <string name="experiencing_obesity">Mengalami obesitas / kelebihan berat badan?</string>
+    <string name="experiencing_visual_blurring">Mengalami pengaburan secara visual?</string>
 
 </resources>

@@ -10,192 +10,192 @@
 
         <TextView
             style="@style/TextTableResultHeader"
-            android:text="Usia Anda" />
+            android:text="@string/age" />
 
         <TextView
             android:id="@+id/age"
             style="@style/TextTableResultBody"
-            android:text="0 Tahun" />
+            android:text="@string/age_years" />
     </TableRow>
 
     <TableRow style="@style/TableResult">
 
         <TextView
             style="@style/TextTableResultHeader"
-            android:text="Jenis Kelamin" />
+            android:text="@string/gender" />
 
         <TextView
             android:id="@+id/gender"
             style="@style/TextTableResultBody"
-            android:text="Pria / Wanita" />
+            android:text="@string/boy_girl" />
     </TableRow>
 
     <TableRow style="@style/TableResult">
 
         <TextView
             style="@style/TextTableResultHeader"
-            android:text="Sering buang air kecil?" />
+            android:text="@string/frequent_urination" />
 
         <TextView
             android:id="@+id/isPolyuria"
             style="@style/TextTableResultBody"
-            android:text="Ya / Tidak" />
+            android:text="@string/yes_or_no" />
     </TableRow>
 
     <TableRow style="@style/TableResult">
 
         <TextView
             style="@style/TextTableResultHeader"
-            android:text="Sering merasa haus?" />
+            android:text="@string/often_feel_thirsty" />
 
         <TextView
             android:id="@+id/isPolydipsia"
             style="@style/TextTableResultBody"
-            android:text="Ya / Tidak" />
+            android:text="@string/yes_or_no" />
     </TableRow>
 
     <TableRow style="@style/TableResult">
 
         <TextView
             style="@style/TextTableResultHeader"
-            android:text="Turun berat badan tiba-tiba?" />
+            android:text="@string/losing_weight_suddenly" />
 
         <TextView
             android:id="@+id/isWeightLoss"
             style="@style/TextTableResultBody"
-            android:text="Ya / Tidak" />
+            android:text="@string/yes_or_no" />
     </TableRow>
 
     <TableRow style="@style/TableResult">
 
         <TextView
             style="@style/TextTableResultHeader"
-            android:text="Sering merasa lemas?" />
+            android:text="@string/often_feel_weak" />
 
         <TextView
             android:id="@+id/isWeakness"
             style="@style/TextTableResultBody"
-            android:text="Ya / Tidak" />
+            android:text="@string/yes_or_no" />
     </TableRow>
 
     <TableRow style="@style/TableResult">
 
         <TextView
             style="@style/TextTableResultHeader"
-            android:text="Sering merasa lapar / nafsu makan meningkat?" />
+            android:text="@string/often_feel_hungry" />
 
         <TextView
             android:id="@+id/isPolyphagia"
             style="@style/TextTableResultBody"
-            android:text="Ya / Tidak" />
+            android:text="@string/yes_or_no" />
     </TableRow>
 
     <TableRow style="@style/TableResult">
 
         <TextView
             style="@style/TextTableResultHeader"
-            android:text="Sering merasa gatal pada alat kelamin?" />
+            android:text="@string/often_feel_itchy_genitals" />
 
         <TextView
             android:id="@+id/isGenitalThrus"
             style="@style/TextTableResultBody"
-            android:text="Ya / Tidak" />
+            android:text="@string/yes_or_no" />
     </TableRow>
 
     <TableRow style="@style/TableResult">
 
         <TextView
             style="@style/TextTableResultHeader"
-            android:text="Sering merasa gatal pada badan?" />
+            android:text="@string/often_feel_itchy_in_body" />
 
         <TextView
             android:id="@+id/isItching"
             style="@style/TextTableResultBody"
-            android:text="Ya / Tidak" />
+            android:text="@string/yes_or_no" />
     </TableRow>
 
     <TableRow style="@style/TableResult">
 
         <TextView
             style="@style/TextTableResultHeader"
-            android:text="Mudah merasa marah / emosi?" />
+            android:text="@string/easily_get_angry" />
 
         <TextView
             android:id="@+id/isIrritability"
             style="@style/TextTableResultBody"
-            android:text="Ya / Tidak" />
+            android:text="@string/yes_or_no" />
     </TableRow>
 
     <TableRow style="@style/TableResult">
 
         <TextView
             style="@style/TextTableResultHeader"
-            android:text="Luka sulit sembuh / kering?" />
+            android:text="@string/difficult_to_heal_or_dry" />
 
         <TextView
             android:id="@+id/isDelayedHealing"
             style="@style/TextTableResultBody"
-            android:text="Ya / Tidak" />
+            android:text="@string/yes_or_no" />
     </TableRow>
 
     <TableRow style="@style/TableResult">
 
         <TextView
             style="@style/TextTableResultHeader"
-            android:text="Mengalami kelumpuhan pada sebagian tubuh (kaku)?" />
+            android:text="@string/experiencing_paralysis_in_part_of_body" />
 
         <TextView
             android:id="@+id/isPartialParesis"
             style="@style/TextTableResultBody"
-            android:text="Ya / Tidak" />
+            android:text="@string/yes_or_no" />
     </TableRow>
 
     <TableRow style="@style/TableResult">
 
         <TextView
             style="@style/TextTableResultHeader"
-            android:text="Otot kaku / kram setelah beraktifitas lama?" />
+            android:text="@string/stiff_muscles" />
 
         <TextView
             android:id="@+id/isMuscleStiffness"
             style="@style/TextTableResultBody"
-            android:text="Ya / Tidak" />
+            android:text="@string/yes_or_no" />
     </TableRow>
 
     <TableRow style="@style/TableResult">
 
         <TextView
             style="@style/TextTableResultHeader"
-            android:text="Rambut rontok dan sulit tumbuh atau mengalami kebotakan?" />
+            android:text="@string/hair_loss" />
 
         <TextView
             android:id="@+id/isAlopecia"
             style="@style/TextTableResultBody"
-            android:text="Ya / Tidak" />
+            android:text="@string/yes_or_no" />
     </TableRow>
 
     <TableRow style="@style/TableResult">
 
         <TextView
             style="@style/TextTableResultHeader"
-            android:text="Mengalami obesitas / kelebihan berat badan?" />
+            android:text="@string/experiencing_obesity" />
 
         <TextView
             android:id="@+id/isObesity"
             style="@style/TextTableResultBody"
-            android:text="Ya / Tidak" />
+            android:text="@string/yes_or_no" />
     </TableRow>
 
     <TableRow style="@style/TableResult">
 
         <TextView
             style="@style/TextTableResultHeader"
-            android:text="Mengalami pengaburan secara visual?" />
+            android:text="@string/experiencing_visual_blurring" />
 
         <TextView
             android:id="@+id/isVisualBlurring"
             style="@style/TextTableResultBody"
-            android:text="Ya / Tidak" />
+            android:text="@string/yes_or_no" />
     </TableRow>
 
     <TableRow style="@style/TableResult">
@@ -213,14 +213,14 @@
         <TextView
             style="@style/TextTableResultHeader"
             android:fontFamily="@font/poppins_medium"
-            android:text="Hasil Diagnosis"
+            android:text="@string/result_detection"
             android:textSize="16sp" />
 
         <TextView
             android:id="@+id/isDiabetes"
             style="@style/TextTableResultBody"
             android:fontFamily="@font/poppins_medium"
-            android:text="Ya / Tidak"
+            android:text="@string/yes_or_no"
             android:textSize="16sp" />
     </TableRow>
 
