@@ -38,7 +38,7 @@
             android:layout_height="120dp"
             android:layout_gravity="center"
             android:contentDescription="@string/logo"
-            android:src="@drawable/logo" />
+            android:src="@drawable/ic_app_logo" />
 
         <TextView
             android:layout_width="match_parent"

@@ -155,11 +155,11 @@ class AlarmReceiver : BroadcastReceiver() {
 
         /* set notification */
         val builder = NotificationCompat.Builder(context, channelId)
-            .setSmallIcon(R.drawable.logo)
+            .setSmallIcon(R.drawable.ic_app_logo)
             .setLargeIcon(
                 BitmapFactory.decodeResource(
                     context.resources,
-                    R.drawable.logo
+                    R.drawable.ic_app_logo
                 )
             )
             .setAutoCancel(true)

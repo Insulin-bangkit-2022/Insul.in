@@ -20,6 +20,13 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splashscreen_logo</item>
+        <item name="windowSplashScreenIconBackgroundColor">@color/primary_light</item>
+        <item name="postSplashScreenTheme">@style/Theme.Insulin</item>
+        <item name="windowSplashScreenBackground">@color/primary_dark</item>
+    </style>
+
     <style name="Theme.Insulin.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.Insulin.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

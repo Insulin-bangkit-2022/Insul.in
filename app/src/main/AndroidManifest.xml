@@ -69,11 +69,11 @@
             android:name=".ui.home.MainActivity"
             android:exported="false" />
         <activity
+            android:theme="@style/Theme.App.Starting"
             android:name=".ui.splashscreen.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

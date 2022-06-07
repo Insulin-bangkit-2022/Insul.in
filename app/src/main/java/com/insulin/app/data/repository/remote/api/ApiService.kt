@@ -8,22 +8,22 @@ interface ApiService {
 
     @GET(".")
     fun diagnoseDiabetes(
-        @Field("age") age: Int,
-        @Field("gender") gender: Int,
-        @Field("polyuria") polyuria: Int,
-        @Field("polydipsia") polydipsia: Int,
-        @Field("weightLoss") weightLoss: Int,
-        @Field("weakness") weakness: Int,
-        @Field("polyphagia") polyphagia: Int,
-        @Field("genital_thrus") genital_thrus: Int,
-        @Field("itching") itching: Int,
-        @Field("irritability") irritability: Int,
-        @Field("delayed_healing") delayed_healing: Int,
-        @Field("partial_paresis") partial_paresis: Int,
-        @Field("muscle_stiffness") muscle_stiffness: Int,
-        @Field("alopecia") alopecia: Int,
-        @Field("obesity") obesity: Int,
-        @Field("visual_blurring") visual_blurring: Int,
+        @Query("age") age: Int,
+        @Query("gender") gender: Int,
+        @Query("polyuria") polyuria: Int,
+        @Query("polydipsia") polydipsia: Int,
+        @Query("weightLoss") weightLoss: Int,
+        @Query("weakness") weakness: Int,
+        @Query("polyphagia") polyphagia: Int,
+        @Query("genital_thrus") genital_thrus: Int,
+        @Query("itching") itching: Int,
+        @Query("irritability") irritability: Int,
+        @Query("delayed_healing") delayed_healing: Int,
+        @Query("partial_paresis") partial_paresis: Int,
+        @Query("muscle_stiffness") muscle_stiffness: Int,
+        @Query("alopecia") alopecia: Int,
+        @Query("obesity") obesity: Int,
+        @Query("visual_blurring") visual_blurring: Int,
     ): Call<DetectionResponse>
 
 }

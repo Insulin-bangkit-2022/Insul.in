@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splashscreen_logo</item>
+        <item name="windowSplashScreenIconBackgroundColor">@color/primary_light</item>
+        <item name="postSplashScreenTheme">@style/Theme.Insulin</item>
+        <item name="android:windowSplashScreenBrandingImage">
+            @drawable/ic_splashscreen_branding_logo
+        </item>
+        <item name="windowSplashScreenBackground">@color/primary_dark</item>
+    </style>
+</resources>
